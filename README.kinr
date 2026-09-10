@@ -1,0 +1,294 @@
+# Using Optimal Dimensionality Reduction for coarse-grained kinetic modeling
+# of Molecular Dynamics trajectories.
+# Example :  peptide SSNGNA
+# Files stored in 'github-kinr'
+
+#MD trajectory generation and analysis for peptidess using GROMACS with CHARMM36m protein force field and and TIP3P water model are described in Reference [1]
+
+#1. MD simulations with GROMACS generated a 3,100 ns trajectory of solvated ssngna. 
+
+#Files: inputs/dyn1.mdp - GROMACS MD control .mdp file  
+#       inputs/ssngna.top - GROMACS .top file
+#       inputs/ssngna_full.gro - GROMACS .gro file for solvated and equilibrated ssngna, start= crystal fragment
+#       scripts/run-ala5 - SLURM job script for batch processing
+
+#2.Perform RMSD calculation, RMSF calculation, Radius of gyration calculation, phi-psi calculations, end-to-end distance calculation in GROMACS.
+#
+# Files:    scripts/analysis_loop
+#           csh analysis_loop
+
+#3. Autocorrelation functions were caluclated for several variables - end-to-end distance, RMSD from starting structure, radius of
+#   gyration.  Slowest dynamic time scales were determined by fitting ACFS to two-exponential model. This timescale was tau_r = 4.5 ns for ssngna.
+#   Plots and fit results are given in SI of [1].
+
+
+#4. 2-D and 12-D phi, psi dihedral angle clustering with CHARMM 
+
+#              extract the phi,psi time series from GROMACS output - MD
+#              scripts/pp-xtract
+#              csh pp-xtract
+#              output: data/ssngna/data1/phi1.tms, phi2.tms, phi3.tms, phi4.tms, phi5.tms, phi6.tms, psi1.tms, psi2.tms, psi3.tms, psi4.tms, psi5.tms, psi6.tms
+#              scripts/ppxtract_awk
+
+#To generate input for 2 dimensional dihedral clustering in charmm:
+
+#             scripts/mk-ppcat
+#             csh mk-ppcat
+#            inputs: data/ssngna/data1/phi1.tms, phi2.tms, phi3.tms, phi4.tms, phi5.tms, phi6.tms, psi1.tms, psi2.tms, psi3.tms, psi4.tms, psi5.tms, psi6.tms
+#             outputs: data/ssngna/data1/phicat.tms, psicat.tms
+#             scripts/skip_awk
+
+#To generate input for 12 dimensional dihedral clustering in charmm:
+
+#             Skip 10 ps from each original phi?.tms and psi?.tms files, extract every 10th data
+#             input: data/ssngna/data1/phi1.tms, phi2.tms, phi3.tms, phi4.tms, phi5.tms, phi6.tms, psi1.tms, psi2.tms, psi3.tms, psi4.tms, psi5.tms, psi6.tms
+#             output: data/ssngna/data1/phi1.tms10,phi2.tms10,phi3.tms10,phi4.tms10,phi5.tms10,phi6.tms10,psi1.tms10,psi2.tms10,psi3.tms10,psi4.tms10,psi5.tms10,psi6.tms10,
+#             scripts/mk-skipcc
+#             csh mk-skipcc
+
+
+# Generate input files for dihedral angle clustering in CHARMM
+#     Files:  scripts/gen.inp
+#             Need inputs/ssngna/ssngna.pdb for CHARMM command
+#             CHARMM command:  charmm < gen.inp > gen.out
+#             outputs/ssngna/gen.out, ssngna.psf, ssngna_m.crd, ssngna_m.pdb
+
+# 2 dimensional dihedral clustering by CHARMM using Art-2' algorithm. For cluster radius 92 degree there were Nc=6 clusters.
+#      Files:  scripts/dihe-clustpp.inp  - CHARMM dihedral clustering script for Rc=92 cluster radius
+#              CHARMM command:   charmm < dihe-clustpp.inp > dihe-clustpp.out_92
+#              input: data/ssngna/data1/phicat.tms10, psicat.tms10,ssngna.psf, ssngna_m.crd
+#              scripts/dihe-clustpp.inp
+#              outputs/ssngna/dihe-clustpp.out_92, unimpp.tms_92
+
+
+
+# 12 dimensional dihedral clustering by CHARMM using Art-2' algorithm. For cluster radius 94 degree there were Nc=27 clusters. 
+#     Files:  scripts/dihe-clustppall.inp  - CHARMM dihedral clustering script for Rc=94 cluster radius
+#             CHARMM command:  charmm < dihe-clustppall.inp > dihe-clustppall.out_94 
+#             input: data/ssngna/data1/phi1.tms10,phi2.tms10,phi3.tms10,phi4.tms10,phi5.tms10,phi6.tms10,psi1.tms10,psi2.tms10,psi3.tms10,psi4.tms10,
+#             psi5.tms10,psi6.tms10, ssngna.psf, ssngna_m.crd       
+#             outputs/ssngna/dihe-clusterppall.out_94, unimppall.tms_94
+#             scripts/dihe-clustppall.inp
+
+
+# Iteration: Perform trajectory discretization with test value of dihedral cluster core radius Rc
+# At this stage the slowest relaxation was compared to MD tau_r and Rc adjusted, and steps 5-6 repeated
+# until agreement.
+# Here we only give the files for the final step, when iteration has converged
+
+
+#5. Trajectory was discretized by assigning each time frame to a cluster/microstate , based on distance between phi and psi dihedral angles of all 
+#   residues of the peptide at currect coordinates x(t) and cluster centers defined in ssngna.centers94.  To eliminate high frequency
+#   fluctuations, a core radius Rcore was introduced, such that and i->j transition was counted when a
+#   trajectory moved to 12D dihedral angle distance > Rcore from current microstate i and moved to within 12D  <= Rcore
+#   from a different microstate j. If a trajectory left i (12D dihedral angle  > Rcore from i) and returned back to
+#   12D dihedral angle distance  < Rcore from i before coming within 12D dihedral angle distance  <= Rcore of any other state j, it was considered as
+#   remaining in state i. If trajectory leaves core of i and enters core of j, we count i->j transition
+#   and also add 1/2 of transition time to residence times in i and j.   For background see [2]
+#   This procedure yielded residence time ti in microsttes and transition counts Nij between pairs of
+#   states. Convetion: Nij = count of j->i transitions.
+#   The kinetic matrix Kij = <Nij>/tj  with <Nij> = (Nij + Nji)/2  ; For details see [1]
+
+#Compile and discretize:
+gfortran code/dihedkinc.f -o dihedkinc
+./dihedkinc < dihedkinc.inp > dihedkinc.out &
+
+#Need input file for dihedkinc.inp data/ssngna/ssngna.centers94  - output file with cluster centers only copy pattern of dihedral phi psi for all residues in peptide from dihe-clustppall.out_94 to file ssngna.centers94
+
+#Main output files were renamed for future use:
+mv disc.dat disc150.dat ; rm -f popkm.dat ; mv popk.dat popk150.dat ; mv dihedkinc.out dihedkinc150.out
+
+#Check dihedkinc150.out  for error messages and to see if microstates are a connected set
+
+#Files:
+#      code/dihedkinc.f  - FORTRAN program for discretizing trajectories by phi psi dihedral angle on individual residues of peptide
+#                         [trajectory frames assigned to closest cluster center]
+#      inputs/ssngna/dihedkinc.inp  - input file for running dihedkinc [described in dihedkinc.f]
+#      data/ssngna/disc150.dat - discretized trajectory  (time,i) for Rc=150 degree
+#      data/ssngna/popk150.dat  - populations and kinetic matrix K (in ns-1) for Nc=27 microstates for Rc=150 degree
+
+#7. K was diagonalized to obtain eigenvalues and eigenvectors.
+#   Eigenvalues < 0 are related to time scales t_i = -1/lambda_i  [3]
+#   Eigenvectors are used for microstate aggregation (see PCCA+ below)
+#   Compile and diagonalize
+
+gfortran code/kmatrixr.f code/hshldr.f code/simsor.f -o kmatrixr
+./kmatrixr < kmatrixr.inp > kmatrixr.out
+
+#Main output files are renamed
+mv peqk.dat peqk150.dat ; rm ev.dat ; mv kmatrixr.out kmatrixr150.out
+
+# Check lifetimes in kmatrixr150.out ; printout of slowest times is below [ns]
+# this shows that system global relaxation time tau_r is 4.52  ns; close to average MD C(t) tau_2 [1]
+      1.537882
+      3.190141
+      4.524174
+
+#Files:
+#     code/kmatrixr.f, hshldr1.f , simsor.f  - FORTRAN programs for diagonalization and processing
+#     inputs/kmatrixr.inp  - input file for kmatrixr, described in kmatrixr.f
+#     data/ssngna/peqk150.dat  - output eigenvalues [ns-1] and eigenvectors
+#NB: hshldr1.f is based on code from Press et al, Numerical Recipes in Fortran, 2nd Ed.
+
+# Compare slowest time scale from kmatrixr, tau_r , to MD C(t) tau_2 from stage 3
+# If tau_r < tau_2, increase Rcore , go to step 6
+# If tau_r > tau_2, (or microstates are not connected set) decrease Rcore, go to step 5
+# If tau_r ~ tau_2 go to step 7
+
+#8. Trajectory coarse-graining was performed, by grouping the clusters/microstates into aggregates.
+# The number of aggregate states N was varied, N=2,3,...
+# Aggregation in our work was performed using the scripts from EMMA 1.1 package [4]. An alternative is
+# to use the more modern Pyemma interactive notebooks [5] 
+# Start by creating emma150 folder and working in it:
+mkdir emma150
+cd emma150
+
+#7a. Remove time data column and shift microstate numbers to start at '0' instead of '1' [use awk]
+awk '{printf("%-d\n",$2-1)}' ../disc150.dat > disc150.dats
+
+#7b. Check microstate connectivity [here with EMMA1.1 tool]
+mm_connectivity -i disc150.dats -o
+
+#Expected output shows that there are no kinetically disconnected sets (1 set with 5 states):
+#Strong components found in total: 1
+#{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26}
+
+#7c. Calculate kinetic timescales following MSM theory [4] [here using EMMA1.1 tool]
+#    The timestep is the time between data frames in ps
+#    The lagtimes are MSM lag times in ps
+#    The neig is the number of eigenvalues/timescales to output 
+#    In MSM calculations the search is for lagtimes when timescales stop changing
+#    In our lifetime-based approach use of large enough Rcore` should give timescales independent of lag
+#    Output is in its/timescales.datr  - contains non-zero limescales in ps
+    
+mkdir its
+mm_timescales -i disc150.dats  -sampling slidingwindow -timestep 10.0 \
+-lagtimes 1 2 5 10 50 80 100 500 1000 3000 5000 -neig 4 -o its/timescales.datr -reversible
+
+#Files: outputs/ssngna/timescales.datr  - example of time scale output
+
+#7d. Calculate MSM transition matrix [here using EMMA1.1 tool]
+#    Use lagtime 1 here
+#    output is in tmat_1r.ascii
+mm_estimate -i disc150.dats -lagtime 1 -sampling slidingwindow -outputtransitionmatrix tmat_1r.ascii -reversible
+
+#Files: outputs/ssngna/tmat_1r.ascii  - example of MSM transition matrix
+
+#7e. Perform PCCA+ coarse-graining of kinetics [6] [here using EMMA1.1 tools]
+#    pcca2, pcca3, pcca4, pcca5 - contain output for 2,3,4,5-state models
+#    main output is pccan/sets.ascii with  n rows containing microstates
+#  belonging to each coarse-grained/aggregate state
+
+mkdir pcca5
+mm_pcca -inputtransitionmatrix tmat_1r.ascii \
+-nclusters 5 -ofuzzy pcca5/fuzzy.ms -ocrisp pcca5/crisp.ms -osets pcca5/sets.ascii
+mkdir pcca4
+mm_pcca -inputtransitionmatrix tmat_1r.ascii \
+-nclusters 4 -ofuzzy pcca4/fuzzy.ms -ocrisp pcca4/crisp.ms -osets pcca4/sets.ascii
+mkdir pcca3
+mm_pcca -inputtransitionmatrix tmat_1r.ascii \
+-nclusters 3 -ofuzzy pcca3/fuzzy.ms -ocrisp pcca3/crisp.ms -osets pcca3/sets.ascii
+mkdir pcca2
+mm_pcca -inputtransitionmatrix tmat_1r.ascii \
+-nclusters 2 -ofuzzy pcca2/fuzzy.ms -ocrisp pcca2/crisp.ms -osets pcca2/sets.ascii
+
+#Files: outputs/ssngna/pcca2/sets.ascii  - aggregate state definitions for two-state model (N=2)
+
+#7f. Generate ODR A matrix, with 0/1 specifying connections of microstates to aggregates
+#  '27' is the total number of microstates
+csh mk-amat 27
+#       need scripts/sets2amatrix_awk
+
+#Files: outputs/ssngna/pcca2/amatrix2.dat  - aggregate definition A matrix for ODR N=2 model
+        scripts/mk-amat
+
+
+#7g. Convert 'sets.ascii' files to clist files, with microstate numbering starting at 1
+csh mk-clist
+
+#Files: outputs/ssngna/pcca2/clist2  - aggregate definitions - sets.ascii with microstates starting at 1
+        scripts/mk-clist  
+
+
+#7h. Generate structural representation
+#   mk-set-pdbrep script uses the data/ssngna/clusters.pdb file from clustering (stage 5) to write a representative structure
+#   for each aggregate [assumes clusters are ordered by population]
+#   writes structure of first cluster/microstate belonging to each aggregate
+#   NB: data/ssngna/cluster27/pdb contains separate files for each model
+
+csh mk-set-pdbrep 2 pcca2 clist2 data/ssngna/cluster27/pdb/ssngna ssngna
+
+#   mk-set-pdbtraj  script uses the clusters.pdb file from clustering (stage 5) to write a multimodel PDB file
+#   ('pdb trajectory'for each aggregate [writes structures of all clusters/microstates in each aggregate]
+#   NB:data/ssngna/cluster27/pdb contains separate files for each model
+#   This version uses GROMACS
+
+csh mk-set-pdbtraj 2 pcca2 clist2 data/ssngna/cluster27/pdb/ssngna ssngna
+
+#8. Generate coarse-grained kinetic models: calculate effective rate matrices R and effective time scales
+#   for ODR  [7]
+#   Compile and calculate R and tau
+
+
+gfortran reddim2.f hshldr.f matinv.f -o reddim2
+
+./reddim < reddim2.inp > reddim2.out
+mv redi.dat redi2.dat
+
+#Files: 
+#       code/reddim2.f hshldr.f matinv.f
+#       outputs/reddim2.out - full output
+#       outputs/redi2.out   - aggregate populations, time scales and eigenvectors
+
+# Output = effective timescales in reddim2.out
+
+
+#redi2.dat contains:
+#C             PCG(K),K=1,NCG - aggregate state populations
+#C             RHS(K,L),K,L=1,NCG - aggregate rate matrix
+#C             EV,VECT - eigenvalues and eigenvectors of RHS
+
+>  Calculate set properties for Nc=27
+csh run-set-prop 27 150
+
+#    scripts/run-set-prop
+#    scripts/sets-prop-nata_awk
+
+#    output: list of center dihedral pattern of contributing clusters, total_pop and G for each aggregate state, G is in kcal/mol
+
+>Cluster property analysis
+
+awk -f diheclust-anal_awk -v np=6 -v nl=2 -v nd=12 patanal.inp > patanal.out
+### diheclust-anal_awk: analyze dihedral cluster properties
+###  input = catted CHARMM cluster output for 1 residue + whole peptide
+##   Output:
+##   For each whole-peptide cluster write out pattern of 1-res clusters
+##   and their occurrence counts
+#### ...Cluster patterns and counts can be found in Reference [1]
+
+#    scripts/diheclust-anal_awk
+
+>G of individual clusters:
+awk -f pmfm_awk populations_150 > populations_150g
+i
+#   (a population distribution) populations_150,  pasted from dihedkinc150.out (...Microstate populations POP=RESTIM/TOTTIM )an input for >G of individual clusters(pmfm_awk)
+#### Calculate a potential of mean force from a probability distribution
+##   + shift by lowest value
+
+#   input = a histogram of probability vs. cluster
+#   output = potential of mean force in kcal/(mol A), w(x) = -k*T*log(P(x))
+
+#   scripts/pmfm_awk
+
+
+
+
+References:
+[1] Kuczera et al, Life 2021, 11, 385.  https://doi.org/10.3390/life11050385
+[2] Buchete and Hummer, 
+[3] Bowman, Noe & Pande, Eds, "An Introduction to Markov State Models and Their Applications",
+    Springer, 2014.
+[4] Senne et al., J Chem Theory Comput,  2012, 8, 2223.
+[5] Scherer et al., J Chem Theory Comput, 2015, 11, 5525.
+[6] Kube & Weber, J Chem Phys 2007, 126, 024103.
+[7] Hummer & Szabo, J Phys Chem B 2015,119, 9029.
