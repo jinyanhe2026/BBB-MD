@@ -1,0 +1,565 @@
+1
+                 Chemistry at HARvard Macromolecular Mechanics
+           (CHARMM) - Developmental Version 40b1     August 15, 2015            
+       Copyright(c) 1984-2014  President and Fellows of Harvard College
+                              All Rights Reserved
+     Current operating system: Linux-3.10.0-1062.12.1.el7.x86_64(x86_64)@CH     
+                 Created on  6/12/24 at 22:02:11 by user: jinyan      
+
+            Maximum number of ATOMS:    360720, and RESidues:      120240
+ RDTITL> *  WH5  - DIHEDRAL CLUSTERING
+ RDTITL> *  ALL INDIVDUAL PHI,PSI DIHEDS
+ RDTITL> *
+  
+ CHARMM>    bomlev -9
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>    !prnlev  4
+ CHARMM>     
+  
+ CHARMM>    set s dwvipp                 ! PSF prefix
+ Parameter: S <- "DWVIPP"
+  
+ CHARMM>    set r dwvipp                 ! segid
+ Parameter: R <- "DWVIPP"
+  
+ CHARMM>    set t WH5: WAAAA+ peptide    ! title
+ Parameter: T <- "WH5: WAAAA+ PEPTIDE"
+  
+ CHARMM>     
+  
+ CHARMM>    set toppar = /home/kuczera/prog/charmm/c40b1/toppar
+ Parameter: TOPPAR <- "/HOME/KUCZERA/PROG/CHARMM/C40B1/TOPPAR"
+  
+ CHARMM>    open unit 1 card read name  @toppar/top_all22_prot.rtf
+ Parameter: TOPPAR -> "/HOME/KUCZERA/PROG/CHARMM/C40B1/TOPPAR"
+ VOPEN> Attempting to open::/home/kuczera/prog/charmm/c40b1/toppar/top_all22_prot.rtf::
+ OPNLGU> Unit  1 opened for READONLY access to /home/kuczera/prog/charmm/c40b1/toppar/top_all22_prot.rtf
+  
+ CHARMM>    read RTF card unit 1
+ MAINIO> Residue topology file being read from unit   1.
+ TITLE> *>>>>>>>>CHARMM22 ALL-HYDROGEN TOPOLOGY FILE FOR PROTEINS <<<<<<
+ TITLE> *>>>>> INCLUDES PHI, PSI CROSS TERM MAP (CMAP) CORRECTION <<<<<<<
+ TITLE> *>>>>>>>>>>>>>>>>>>>>>> DECEMBER, 2003 <<<<<<<<<<<<<<<<<<<<<<<<<<
+ TITLE> * ALL COMMENTS TO ADM JR. VIA THE CHARMM WEB SITE: WWW.CHARMM.ORG
+ TITLE> *               PARAMETER SET DISCUSSION FORUM
+ TITLE> *
+  
+ CHARMM>    open unit 2 card read name  @toppar/par_all22_prot.prm
+ Parameter: TOPPAR -> "/HOME/KUCZERA/PROG/CHARMM/C40B1/TOPPAR"
+ VOPEN> Attempting to open::/home/kuczera/prog/charmm/c40b1/toppar/par_all22_prot.prm::
+ OPNLGU> Unit  2 opened for READONLY access to /home/kuczera/prog/charmm/c40b1/toppar/par_all22_prot.prm
+  
+ CHARMM>    read PARA card unit 2
+
+          PARAMETER FILE BEING READ FROM UNIT  2
+ TITLE> *>>>>> CHARMM22 ALL-HYDROGEN PARAMETER FILE FOR PROTEINS <<<<<<<<
+ TITLE> *>>>>> INCLUDES PHI, PSI CROSS TERM MAP (CMAP) CORRECTION <<<<<<<
+ TITLE> *>>>>>>>>>>>>>>>>>>>>>> DECEMBER, 2003 <<<<<<<<<<<<<<<<<<<<<<<<<<
+ TITLE> * ALL COMMENTS TO ADM JR. VIA THE CHARMM WEB SITE: WWW.CHARMM.ORG
+ TITLE> *               PARAMETER SET DISCUSSION FORUM
+ TITLE> *
+ PARMIO> NONBOND, HBOND lists and IMAGE atoms cleared.
+  
+ CHARMM>     
+  
+ CHARMM>    open unit 4 card read name @s.psf
+ Parameter: S -> "DWVIPP"
+ VOPEN> Attempting to open::dwvipp.psf::
+ OPNLGU> Unit  4 opened for READONLY access to dwvipp.psf
+  
+ CHARMM>    read PSF card unit 4
+ MAINIO> Protein structure file being read from unit   4.
+ PSFRD2> Reading PSF in the expanded format.
+ TITLE>  * DWVIPP : WH5: WAAAH+ PEPTIDE
+ TITLE>  *  DATE:     6/12/24     21:53:50      CREATED BY USER: jinyan
+ TITLE>  *
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        6
+         Number of atoms         =      108   Number of groups     =       33
+         Number of bonds         =      111   Number of angles     =      204
+         Number of dihedrals     =      305   Number of impropers  =       17
+         Number of cross-terms   =        5
+         Number of HB acceptors  =        9   Number of HB donors  =        7
+         Number of NB exclusions =        0   Total charge =   -1.00000
+  
+ CHARMM>     
+  
+ CHARMM>    open unit 4 card read name @s_m.crd
+ Parameter: S -> "DWVIPP"
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    4 with status "KEEP"
+ VOPEN> Attempting to open::dwvipp_m.crd::
+ OPNLGU> Unit  4 opened for READONLY access to dwvipp_m.crd
+  
+ CHARMM>    read COOR card unit 4
+          SPATIAL COORDINATES BEING READ FROM UNIT  4
+ TITLE> * DWVIPP : WH5: WAAAH+ PEPTIDE  ENERGY MINIMIZED
+ TITLE> *  DATE:     6/12/24     21:53:50      CREATED BY USER: JINYAN
+ TITLE> *
+  
+ CHARMM>     
+  
+ CHARMM>    ! use correl : define phi,psi
+ CHARMM>    ! details are not important here, just dimensions of data
+ CHARMM>    correl maxa 75 maxs 14 maxt 500000
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  FSHIft   VATOm    VFSWIt  
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 14.000 CTEXNB =999.000 CTONNB = 10.000 CTOFNB = 12.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+ <MAKINB> with mode   5 found    315 exclusions and    287 interactions(1-4)
+ <MAKGRP> found     91 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR     5725 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+     4849 ATOM PAIRS WERE FOUND FOR ATOM LIST
+       56 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+  
+ CORREL>    enter  s1 dihe 1 CY  1 N  1 CA 1 C
+  
+ CORREL>    enter  s2 dihe 1 N   1 CA 1 C  2 N
+  
+ CORREL>    enter  s3 dihe 1 C   2 N  2 CA 2 C
+  
+ CORREL>    enter  s4 dihe 2 N   2 CA 2 C  3 N
+  
+ CORREL>    enter  s5 dihe 2 C   3 N  3 CA 3 C
+  
+ CORREL>    enter  s6 dihe 3 N   3 CA 3 C  4 N
+  
+ CORREL>    enter  s7 dihe 3 C   4 N  4 CA 4 C
+  
+ CORREL>    enter  s8 dihe 4 N   4 CA 4 C  5 N
+  
+ CORREL>    enter  s9 dihe 4 C   5 N  5 CA 5 C
+  
+ CORREL>    enter s10 dihe 5 N   5 CA 5 C  6 N
+  
+ CORREL>    enter s11 dihe 5 C   6 N  6 CA 6 C
+  
+ CORREL>    enter s12 dihe 6 N   6 CA 6 C  7 NT
+ *** IN MATOM *** 'NT      ' ATOM TYPE NOT FOUND FOR RESIDUE    7
+ ERROR IN NXTATM: Unrecognizable ATOM "NT      " for residue number: 7       
+  
+ CORREL>     
+  
+ CORREL>     
+  
+ CORREL>    open unit 2 card read name ../data1/phi1.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/phi1.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/phi1.tms10
+  
+ CORREL>    read s1 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S1      
+ TOTALS:       300000
+ AVERAGE:  -66.994144
+ FLUCT:     38.382169
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/psi1.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/psi1.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/psi1.tms10
+  
+ CORREL>    read s2 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S2      
+ TOTALS:       300000
+ AVERAGE:   98.326506
+ FLUCT:     77.690171
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/phi2.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/phi2.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/phi2.tms10
+  
+ CORREL>    read s3 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S3      
+ TOTALS:       300000
+ AVERAGE:  -83.909143
+ FLUCT:     38.472651
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/psi2.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/psi2.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/psi2.tms10
+  
+ CORREL>    read s4 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S4      
+ TOTALS:       300000
+ AVERAGE:  117.363836
+ FLUCT:     58.555782
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/phi3.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/phi3.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/phi3.tms10
+  
+ CORREL>    read s5 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S5      
+ TOTALS:       300000
+ AVERAGE:  -93.498087
+ FLUCT:     32.447815
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/psi3.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/psi3.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/psi3.tms10
+  
+ CORREL>    read s6 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S6      
+ TOTALS:       300000
+ AVERAGE:  116.899555
+ FLUCT:     50.668197
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/phi4.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/phi4.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/phi4.tms10
+  
+ CORREL>    read s7 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S7      
+ TOTALS:       300000
+ AVERAGE:  -78.572482
+ FLUCT:     30.309301
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/psi4.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/psi4.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/psi4.tms10
+  
+ CORREL>    read s8 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S8      
+ TOTALS:       300000
+ AVERAGE:  130.480586
+ FLUCT:     13.327099
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/phi5.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/phi5.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/phi5.tms10
+  
+ CORREL>    read s9 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S9      
+ TOTALS:       300000
+ AVERAGE:  -51.350013
+ FLUCT:     11.772001
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/psi5.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/psi5.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/psi5.tms10
+  
+ CORREL>    read s10 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S10     
+ TOTALS:       300000
+ AVERAGE:  142.308755
+ FLUCT:     12.453904
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/phi6.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/phi6.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/phi6.tms10
+  
+ CORREL>    read s11 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S11     
+ TOTALS:       300000
+ AVERAGE:  -72.817774
+ FLUCT:      8.303638
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/psi6.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/psi6.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/psi6.tms10
+  
+ CORREL>    read s12 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S12     
+ TOTALS:       300000
+ AVERAGE:  111.656313
+ FLUCT:    113.293116
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>     
+  
+ CORREL>     
+  
+ CORREL>    open unit 21 card write name ./result_clustppall/unimppall.tms10_67
+ VOPEN> Attempting to open::./result_clustppall/unimppall.tms10_67::
+ OPNLGU> Unit 21 opened for WRITE access to ./result_clustppall/unimppall.tms10_67
+  
+ CORREL>    edit s1 veccod 12
+ NSER:  12
+ NAMES:      S1              S2              S3              S4              S5              S6              S7              S8              S9              S10     
+    S11             S12     
+ TOTALS:       300000      300000      300000      300000      300000      300000      300000      300000      300000      300000
+      300000      300000
+ AVERAGE:  -66.994144   98.326506  -83.909143  117.363836  -93.498087  116.899555  -78.572482  130.480586  -51.350013  142.308755
+  -72.817774  111.656313
+ FLUCT:     38.382169   77.690171   38.472651   58.555782   32.447815   50.668197   30.309301   13.327099   11.772001   12.453904
+    8.303638  113.293116
+ VECCOD:           12           0           0           0           0           0           0           0           0           0
+           0           0
+ CLASS:      DIHE            DIHE            DIHE            DIHE            DIHE            DIHE            DIHE            DIHE            DIHE            DIHE    
+    DIHE            DIHE    
+ VELCOD:            0           0           0           0           0           0           0           0           0           0
+           0           0
+ SKIP:              1           1           1           1           1           1           1           1           1           1
+           1           1
+ DELTA:      0.000000    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000
+    0.000000    0.000000
+ OFFST:      0.000000    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000
+    0.000000    0.000000
+ GECOD:             1           1           1           1           1           1           1           1           1           1
+           1           1
+ VALUE:      1.000000    1.000000    1.000000    1.000000    1.000000    1.000000    1.000000    1.000000    1.000000    1.000000
+    1.000000    1.000000
+  
+ CORREL>    cluster s1 radius 67.0 Angle unimember 21 maxclust 400 maxiter 1000
+ CLUSTER> Iteration =   1 MAXError exceeded for cluster      1  No. of clusters =     17
+ CLUSTER> Iteration =   2 MAXError exceeded for cluster      1  No. of clusters =     27
+ CLUSTER> Iteration =   3 MAXError exceeded for cluster      1  No. of clusters =     28
+ CLUSTER> Iteration =   4 MAXError exceeded for cluster      1  No. of clusters =     28
+ CLUSTER> Iteration =   5 MAXError exceeded for cluster      1  No. of clusters =     28
+ CLUSTER> Iteration =   6 MAXError exceeded for cluster      1  No. of clusters =     28
+ CLUSTER> Iteration =   7 MAXError exceeded for cluster      1  No. of clusters =     28
+ CLUSTER> Iteration =   8 MAXError exceeded for cluster      2  No. of clusters =     28
+ CLUSTER> Iteration =   9 MAXError exceeded for cluster      3  No. of clusters =     28
+ CLUSTER> Iteration =  10 MAXError exceeded for cluster      3  No. of clusters =     28
+ CLUSTER> Iteration =  11 MAXError exceeded for cluster      3  No. of clusters =     28
+ CLUSTER> Iteration =  12 MAXError exceeded for cluster      2  No. of clusters =     28
+ CLUSTER> Iteration =  13 MAXError exceeded for cluster      5  No. of clusters =     28
+ CLUSTER> Iteration =  14 MAXError exceeded for cluster      4  No. of clusters =     28
+ CLUSTER> Iteration =  15 MAXError exceeded for cluster      5  No. of clusters =     28
+ CLUSTER> Iteration =  16 MAXError exceeded for cluster      5  No. of clusters =     28
+ CLUSTER> Iteration =  17 MAXError exceeded for cluster     10  No. of clusters =     28
+ CLUSTER> Iteration =  18 MAXError exceeded for cluster     10  No. of clusters =     28
+ CLUSTER> Iteration =  19 MAXError exceeded for cluster     10  No. of clusters =     28
+ CLUSTER> Iteration =  20 MAXError exceeded for cluster     14  No. of clusters =     28
+ CLUSTER> Iteration =  21 MAXError exceeded for cluster     18  No. of clusters =     28
+ Cluster File
+
+ Total Iterations =   21  No. of clusters =     28
+ RMS difference in cluster centers from last iteration =  0.000E+00
+
+
+ Max. Cluster Radius  = 0.6700E+02
+ Number of Features   =      12
+ Number of Patterns   =  300000
+ Number of Clusters   =      28
+ Number of Series     =      12
+   Series #       1   S1      
+   Series #       2   S2      
+   Series #       3   S3      
+   Series #       4   S4      
+   Series #       5   S5      
+   Series #       6   S6      
+   Series #       7   S7      
+   Series #       8   S8      
+   Series #       9   S9      
+   Series #      10   S10     
+   Series #      11   S11     
+   Series #      12   S12     
+
+           No._of_Members   Member  Maximum
+ Cluster   Final   Cumul     Std    Distance     Cluster Center Pattern
+       1  160113  277033 0.189E+02 0.581E+02    -71.044  144.086  -82.811  138.520  -98.516  132.426  -75.788  131.343  -51.494
+                                                142.776  -72.499  165.811
+       2   40887  254586 0.207E+02 0.607E+02    -85.126  -15.759  -93.721  142.390  -94.063  132.989  -79.823  130.970  -51.408
+                                                142.784  -72.555  165.777
+       3   13097  206265 0.216E+02 0.601E+02    -68.320  145.065  -82.946  139.162  -94.789  132.240  -76.757  131.149  -51.479
+                                                142.221  -76.622   -3.379
+       4    2325  218456 0.341E+02 0.622E+02    -70.626  139.679  -86.868   70.060   66.063  103.879  -81.072  131.003  -51.442
+                                                142.200  -72.606  163.263
+       5    3030  246721 0.334E+02 0.596E+02    -79.910   83.776   70.776   74.545  -87.618  132.301  -82.822  129.443  -51.284
+                                                142.751  -72.539  164.993
+       6    9641  175883 0.188E+02 0.620E+02    -79.052  -19.692  -94.190   -9.783  -80.326  134.876  -83.932  132.781  -51.393
+                                                142.813  -72.653  165.847
+       7   20157  225358 0.182E+02 0.525E+02    -69.418  142.393  -87.790  -25.308  -82.841  137.212  -88.231  130.719  -51.167
+                                                142.634  -72.407  165.823
+       8    3646  127595 0.272E+02 0.629E+02    -63.655   -8.949  -89.628  142.585  -91.606  133.636  -77.546  131.291  -51.433
+                                                142.025  -76.551   -4.542
+       9    6325  237878 0.206E+02 0.555E+02     66.225   40.349  -86.143  141.486  -92.257  132.413  -77.249  130.562  -51.717
+                                                142.723  -72.492  165.359
+      10    1810   74833 0.219E+02 0.554E+02    -68.001  141.902  -84.294  -24.837  -77.720  135.896  -87.238  130.212  -51.407
+                                                142.238  -76.760   -3.268
+      11    2632  213827 0.273E+02 0.510E+02    -72.236  143.874  -87.099  137.923  -85.893   80.566   67.003   93.968  -51.320
+                                                142.267  -72.538  166.558
+      12   10057  149460 0.190E+02 0.599E+02    -89.358   -7.626  -82.240  147.613  -95.994  -28.588 -111.073  127.421  -50.008
+                                                138.681  -72.801  165.195
+      13    1051  151731 0.276E+02 0.528E+02    -80.183  -22.143 -100.374  130.981  -99.086  107.353   68.212   93.596  -50.912
+                                                142.198  -72.312  165.166
+      14    1879   48862 0.314E+02 0.658E+02    -70.549   73.731  -89.372  144.827  -99.737  -28.635 -107.995  128.607  -49.989
+                                                138.848  -76.440   -6.931
+      15    9898  219005 0.212E+02 0.574E+02    -68.487  144.735  -95.019  143.375  -97.631  -27.224 -109.596  129.484  -50.489
+                                                139.453  -72.544  165.183
+      16    1824   51234 0.194E+02 0.527E+02    -68.288  -29.694  -85.028  -16.822  -83.673  -23.193  -76.193  132.706  -50.962
+                                                142.235  -72.382  165.481
+      17    1920  156332 0.176E+02 0.503E+02    -65.732  142.149  -84.199  -19.648  -80.750  -14.287  -88.189  132.790  -51.555
+                                                142.576  -72.335  165.732
+      18     574  165455 0.216E+02 0.476E+02     65.134 -167.066  -92.083  -15.712  -69.619  143.078  -87.067  128.761  -50.805
+                                                142.854  -72.587  166.381
+      19     685  111714 0.206E+02 0.505E+02     64.568   49.375  -88.949  -22.516  -77.087  136.618  -85.419  129.444  -52.089
+                                                142.665  -72.492  165.665
+      20     874   47687 0.236E+02 0.571E+02    -79.951  -16.725  -79.995   -6.422  -76.365  136.794  -82.575  133.750  -51.537
+                                                142.509  -76.327   -2.782
+      21    1805   68975 0.222E+02 0.552E+02     71.005   45.655  -86.373  143.723  -90.537  -32.412 -105.575  126.222  -50.811
+                                                139.164  -72.845  164.472
+      22     131  120947 0.241E+02 0.555E+02    -73.642  127.237  -85.236  145.195  -78.869  132.680   69.328   92.653  -50.874
+                                                142.203  -76.688    7.069
+      23      58   18322 0.253E+02 0.505E+02    -74.781  123.390  -73.734  133.004  -85.823  -18.522   66.910   93.967  -52.144
+                                                140.505  -76.626   10.004
+      24     104   27328 0.233E+02 0.610E+02    -72.121  144.896  -93.957  -11.918  -72.559  -13.153  -95.874  131.557  -53.790
+                                                140.831  -76.556   -3.347
+      25     275  145134 0.285E+02 0.594E+02    -68.670  143.487  -90.340  -12.298  -84.131   66.865   56.027   90.008  -53.538
+                                                143.033  -72.023  166.411
+      26     167   11034 0.200E+02 0.503E+02    -67.468  -31.915  -90.411  -10.086  -80.865  -27.785  -71.124  136.499  -50.596
+                                                141.334  -75.764    1.399
+      27      49    3386 0.178E+02 0.268E+02    -89.912  149.837  -82.857  -13.797  -79.673  -13.047   70.557   96.058  -51.175
+                                                140.022  -76.407   -2.801
+      28    4986  236192 0.214E+02 0.588E+02     60.351 -175.875  -90.574  141.176  -92.083  132.761  -78.969  130.903  -51.105
+                                                142.791  -72.664  164.795
+  
+ CORREL>     
+  
+ CORREL>    end
+  
+ CHARMM>    STOP
+ VCLOSE: Closing unit    1 with status "KEEP"
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VCLOSE: Closing unit    4 with status "KEEP"
+$$$$$$  New timer profile $$$$$
+ Total time                     16.60 Other:            0.00
+
+                    NORMAL TERMINATION BY NORMAL STOP
+                    NO WARNINGS WERE ISSUED
+
+                    $$$$$ JOB ACCOUNTING INFORMATION $$$$$
+                     ELAPSED TIME:    16.60  SECONDS 
+                         CPU TIME:    16.60  SECONDS 
