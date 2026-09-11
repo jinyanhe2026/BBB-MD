@@ -1,0 +1,1035 @@
+1
+                 Chemistry at HARvard Macromolecular Mechanics
+           (CHARMM) - Developmental Version 40b1     August 15, 2015            
+       Copyright(c) 1984-2014  President and Fellows of Harvard College
+                              All Rights Reserved
+     Current operating system: Linux-3.10.0-1062.12.1.el7.x86_64(x86_64)@CH     
+                 Created on  5/31/24 at 14:35:51 by user: jinyan      
+
+            Maximum number of ATOMS:    360720, and RESidues:      120240
+ RDTITL> *  GENERATE WH5
+ RDTITL> *
+  
+ CHARMM>    bomlev -9
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>    !prnlev  4
+ CHARMM>     
+  
+ CHARMM>    set s adtppvg                 ! PSF prefix
+ Parameter: S <- "ADTPPVG"
+  
+ CHARMM>    set r adtppvg                 ! segid
+ Parameter: R <- "ADTPPVG"
+  
+ CHARMM>    set t WH5: WAAAH+ peptide    ! title
+ Parameter: T <- "WH5: WAAAH+ PEPTIDE"
+  
+ CHARMM>     
+  
+ CHARMM>    set toppar = /home/kuczera/prog/charmm/c40b1/toppar
+ Parameter: TOPPAR <- "/HOME/KUCZERA/PROG/CHARMM/C40B1/TOPPAR"
+  
+ CHARMM>    open unit 1 card read name  @toppar/top_all22_prot.rtf
+ Parameter: TOPPAR -> "/HOME/KUCZERA/PROG/CHARMM/C40B1/TOPPAR"
+ VOPEN> Attempting to open::/home/kuczera/prog/charmm/c40b1/toppar/top_all22_prot.rtf::
+ OPNLGU> Unit  1 opened for READONLY access to /home/kuczera/prog/charmm/c40b1/toppar/top_all22_prot.rtf
+  
+ CHARMM>    read RTF card unit 1
+ MAINIO> Residue topology file being read from unit   1.
+ TITLE> *>>>>>>>>CHARMM22 ALL-HYDROGEN TOPOLOGY FILE FOR PROTEINS <<<<<<
+ TITLE> *>>>>> INCLUDES PHI, PSI CROSS TERM MAP (CMAP) CORRECTION <<<<<<<
+ TITLE> *>>>>>>>>>>>>>>>>>>>>>> DECEMBER, 2003 <<<<<<<<<<<<<<<<<<<<<<<<<<
+ TITLE> * ALL COMMENTS TO ADM JR. VIA THE CHARMM WEB SITE: WWW.CHARMM.ORG
+ TITLE> *               PARAMETER SET DISCUSSION FORUM
+ TITLE> *
+  
+ CHARMM>    open unit 2 card read name  @toppar/par_all22_prot.prm
+ Parameter: TOPPAR -> "/HOME/KUCZERA/PROG/CHARMM/C40B1/TOPPAR"
+ VOPEN> Attempting to open::/home/kuczera/prog/charmm/c40b1/toppar/par_all22_prot.prm::
+ OPNLGU> Unit  2 opened for READONLY access to /home/kuczera/prog/charmm/c40b1/toppar/par_all22_prot.prm
+  
+ CHARMM>    read PARA card unit 2
+
+          PARAMETER FILE BEING READ FROM UNIT  2
+ TITLE> *>>>>> CHARMM22 ALL-HYDROGEN PARAMETER FILE FOR PROTEINS <<<<<<<<
+ TITLE> *>>>>> INCLUDES PHI, PSI CROSS TERM MAP (CMAP) CORRECTION <<<<<<<
+ TITLE> *>>>>>>>>>>>>>>>>>>>>>> DECEMBER, 2003 <<<<<<<<<<<<<<<<<<<<<<<<<<
+ TITLE> * ALL COMMENTS TO ADM JR. VIA THE CHARMM WEB SITE: WWW.CHARMM.ORG
+ TITLE> *               PARAMETER SET DISCUSSION FORUM
+ TITLE> *
+ PARMIO> NONBOND, HBOND lists and IMAGE atoms cleared.
+  
+ CHARMM>    open unit 3 card read name adtppvg.pdb
+ VOPEN> Attempting to open::adtppvg.pdb::
+ OPNLGU> Unit  3 opened for READONLY access to adtppvg.pdb
+  
+ CHARMM>    read sequ pdb unit 3
+ MAINIO> Sequence information being read from unit   3.
+ TITLE>  *
+
+          RESIDUE SEQUENCE --     7 RESIDUES
+          ALA ASP THR PRO PRO VAL GLY 
+ ***** Message from SEQRDR ***** THE SYSTEM CONTAINS  1 TITRATABLE GROUPS
+ THE USER MUST PREDETERMINE THE PROTONATION STATE THROUGH THE SEQUENCE AND RTF
+ HIS -  0  HSD -  0  HSE -  0  HSP -  0  ASP -  1  GLU -  0  LYS -  0  TYR -  0
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>    ! WH5
+ CHARMM>    !read sequ cards
+ CHARMM>    !* WAAAH+
+ CHARMM>    !*
+ CHARMM>    !5
+ CHARMM>    !TRP ALA ALA ALA HSP
+ CHARMM>    generate @r  first ACE last CT2 setup
+ Parameter: R -> "ADTPPVG"
+ THE PATCH 'ACE' WILL BE USED FOR THE FIRST RESIDUE
+ THE PATCH 'CT2' WILL BE USED FOR THE LAST  RESIDUE
+ GENPSF> Segment   1 has been generated. Its identifier is ADTPPVG.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        7
+         Number of atoms         =       96   Number of groups     =       28
+         Number of bonds         =       97   Number of angles     =      178
+         Number of dihedrals     =      260   Number of impropers  =       19
+         Number of cross-terms   =        6
+         Number of HB acceptors  =       11   Number of HB donors  =        8
+         Number of NB exclusions =        0   Total charge =   -1.00000
+ QXFORM> Expanded format used.
+         More than 4 character SEGID used.
+  
+ CHARMM>     
+  
+ CHARMM>    open unit 4 card write name @s.psf
+ Parameter: S -> "ADTPPVG"
+ VOPEN> Attempting to open::adtppvg.psf::
+ OPNLGU> Unit  4 opened for WRITE access to adtppvg.psf
+  
+ CHARMM>    write PSF card unit 4
+ RDTITL> * ADTPPVG : WH5: WAAAH+ PEPTIDE
+ RDTITL> *
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>    IC PARA
+  
+ CHARMM>    ic seed 1 N 1 CA 1 C
+  
+ CHARMM>    ic build
+  
+ CHARMM>    ic fill
+  
+ CHARMM>    ic print
+
+       INTERNAL COORDINATES
+ TITLE>  * ADTPPVG : WH5: WAAAH+ PEPTIDE
+ TITLE>  *  DATE:     5/31/24     14:35:51      CREATED BY USER: jinyan
+ TITLE>  *
+
+     NUMBER OF INTERNAL COORDINATES :        100
+
+        N      I             J             K             L        R(I(J/K)) T(I(JK/KJ)) PHI   T(JKL)   R(KL)
+
+        1     1 CY          1 N           1 CA          1 C          1.3450  120.00  -60.00  114.44   1.5390
+        2     1 CY          1 CA          1 *N          1 HN         1.3450  120.00  180.00  117.00   0.9970
+        3     1 CAY         1 CY          1 N           1 CA         1.4900  116.50  180.00  120.00   1.4592
+        4     1 N           1 CAY         1 *CY         1 OY         1.3450  116.50  180.00  121.00   1.2300
+        5     1 OY          1 CY          1 CAY         1 HY1        1.2300  121.00  180.00  109.50   1.1110
+        6     1 OY          1 CY          1 CAY         1 HY2        1.2300  121.00   60.00  109.50   1.1110
+        7     1 OY          1 CY          1 CAY         1 HY3        1.2300  121.00  -60.00  109.50   1.1110
+        8   -99 ??          1 CA          1 *N          1 HN         0.0000    0.00    0.00  117.00   0.9970
+        9   -99 ??          1 N           1 CA          1 C          0.0000    0.00    0.00  114.44   1.5390
+       10     1 N           1 CA          1 C           2 N          1.4592  114.44  180.00  116.84   1.3558
+       11     2 N           1 CA          1 *C          1 O          1.3558  116.84  180.00  122.52   1.2297
+       12     1 CA          1 C           2 N           2 CA         1.5390  116.84  180.00  126.77   1.4613
+       13     1 N           1 C           1 *CA         1 CB         1.4592  114.44  123.23  111.09   1.5461
+       14     1 N           1 C           1 *CA         1 HA         1.4592  114.44 -120.45  106.39   1.0840
+       15     1 C           1 CA          1 CB          1 HB1        1.5390  111.09  177.25  109.60   1.1109
+       16     1 HB1         1 CA          1 *CB         1 HB2        1.1109  109.60  119.13  111.05   1.1119
+       17     1 HB1         1 CA          1 *CB         1 HB3        1.1109  109.60 -119.58  111.61   1.1114
+       18     1 C           2 CA          2 *N          2 HN         1.3558  126.77  180.00  112.94   0.9966
+       19     1 C           2 N           2 CA          2 C          1.3558  126.77  180.00  105.63   1.5315
+       20     2 N           2 CA          2 C           3 N          1.4613  105.63  180.00  117.06   1.3478
+       21     3 N           2 CA          2 *C          2 O          1.3478  117.06  180.00  120.71   1.2330
+       22     2 CA          2 C           3 N           3 CA         1.5315  117.06  180.00  125.39   1.4484
+       23     2 N           2 C           2 *CA         2 CB         1.4613  105.63  122.33  114.10   1.5619
+       24     2 N           2 C           2 *CA         2 HA         1.4613  105.63 -116.40  106.77   1.0841
+       25     2 N           2 CA          2 CB          2 CG         1.4613  111.11  180.00  112.60   1.5218
+       26     2 CG          2 CA          2 *CB         2 HB1        1.5218  112.60  119.22  109.23   1.1086
+       27     2 CG          2 CA          2 *CB         2 HB2        1.5218  112.60 -121.61  110.64   1.1080
+       28     2 CA          2 CB          2 CG          2 OD1        1.5619  112.60  180.00  117.99   1.2565
+       29     2 OD1         2 CB          2 *CG         2 OD2        1.2565  117.99 -170.23  117.70   1.2541
+       30     2 C           3 CA          3 *N          3 HN         1.3478  125.39  180.00  114.26   0.9995
+       31     2 C           3 N           3 CA          3 C          1.3478  125.39  180.00  106.09   1.5162
+       32     3 N           3 CA          3 C           4 N          1.4484  106.09  180.00  117.69   1.3449
+       33     4 N           3 CA          3 *C          3 O          1.3449  117.69  180.00  120.30   1.2294
+       34     3 CA          3 C           4 N           4 CA         1.5162  117.69  180.00  124.66   1.4525
+       35     3 N           3 C           3 *CA         3 CB         1.4484  106.09  126.46  112.74   1.5693
+       36     3 N           3 C           3 *CA         3 HA         1.4484  106.09 -114.92  106.53   1.0817
+       37     3 N           3 CA          3 CB          3 OG1        1.4484  114.80  180.00  112.16   1.4252
+       38     3 OG1         3 CA          3 *CB         3 HB         1.4252  112.16  116.39  106.11   1.1174
+       39     3 OG1         3 CA          3 *CB         3 CG2        1.4252  112.16 -124.13  115.91   1.5324
+       40     3 CA          3 CB          3 OG1         3 HG1        1.5693  112.16 -179.28  105.45   0.9633
+       41     3 CA          3 CB          3 CG2         3 HG21       1.5693  115.91 -173.65  110.85   1.1104
+       42     3 HG21        3 CB          3 *CG2        3 HG22       1.1104  110.85  119.51  110.41   1.1109
+       43     3 HG21        3 CB          3 *CG2        3 HG23       1.1104  110.85 -120.39  111.11   1.1113
+       44     3 C           4 CA          4 *N          4 CD         1.3449  124.66  178.51  112.75   1.4624
+       45     3 C           4 N           4 CA          4 C          1.3449  124.66  -76.12  110.86   1.5399
+       46     4 N           4 CA          4 C           5 N          1.4525  110.86  180.00  114.75   1.3569
+       47     5 N           4 CA          4 *C          4 O          1.3569  114.75  177.15  120.46   1.2316
+       48     4 CA          4 C           5 N           5 CA         1.5399  114.75  180.00  124.89   1.4517
+       49     4 N           4 C           4 *CA         4 CB         1.4525  110.86  113.74  111.74   1.5399
+       50     4 N           4 C           4 *CA         4 HA         1.4525  110.86 -122.40  109.09   1.0837
+       51     4 N           4 CA          4 CB          4 CG         1.4525  102.57   31.61  104.39   1.5322
+       52     4 CA          4 CB          4 CG          4 CD         1.5399  104.39  -34.54  103.08   1.5270
+       53     4 N           4 CA          4 CB          4 HB1        1.4525  102.57  -84.94  109.02   1.1131
+       54     4 N           4 CA          4 CB          4 HB2        1.4525  102.57  153.93  112.74   1.1088
+       55     4 CA          4 CB          4 CG          4 HG1        1.5399  104.39 -156.72  112.95   1.1077
+       56     4 CA          4 CB          4 CG          4 HG2        1.5399  104.39   81.26  109.22   1.1143
+       57     4 CB          4 CG          4 CD          4 HD1        1.5322  103.08  -93.55  110.03   1.1137
+       58     4 CB          4 CG          4 CD          4 HD2        1.5322  103.08  144.52  110.00   1.1144
+       59     4 C           5 CA          5 *N          5 CD         1.3569  124.89  178.51  112.75   1.4624
+       60     4 C           5 N           5 CA          5 C          1.3569  124.89  -76.12  110.86   1.5399
+       61     5 N           5 CA          5 C           6 N          1.4517  110.86  180.00  114.75   1.3569
+       62     6 N           5 CA          5 *C          5 O          1.3569  114.75  177.15  120.46   1.2316
+       63     5 CA          5 C           6 N           6 CA         1.5399  114.75  180.00  124.89   1.4517
+       64     5 N           5 C           5 *CA         5 CB         1.4517  110.86  113.74  111.74   1.5399
+       65     5 N           5 C           5 *CA         5 HA         1.4517  110.86 -122.40  109.09   1.0837
+       66     5 N           5 CA          5 CB          5 CG         1.4517  102.57   31.61  104.39   1.5322
+       67     5 CA          5 CB          5 CG          5 CD         1.5399  104.39  -34.53  103.06   1.5264
+       68     5 N           5 CA          5 CB          5 HB1        1.4517  102.57  -84.94  109.02   1.1131
+       69     5 N           5 CA          5 CB          5 HB2        1.4517  102.57  153.93  112.74   1.1088
+       70     5 CA          5 CB          5 CG          5 HG1        1.5399  104.39 -156.72  112.95   1.1077
+       71     5 CA          5 CB          5 CG          5 HG2        1.5399  104.39   81.26  109.22   1.1143
+       72     5 CB          5 CG          5 CD          5 HD1        1.5322  103.06  -93.55  110.03   1.1137
+       73     5 CB          5 CG          5 CD          5 HD2        1.5322  103.06  144.52  110.00   1.1144
+       74     5 C           6 CA          6 *N          6 HN         1.3569  124.89  180.00  114.41   0.9966
+       75     5 C           6 N           6 CA          6 C          1.3569  124.89  180.00  105.54   1.5180
+       76     6 N           6 CA          6 C           7 N          1.4517  105.54  180.00  117.83   1.3471
+       77     7 N           6 CA          6 *C          6 O          1.3471  117.83  180.00  120.70   1.2297
+       78     6 CA          6 C           7 N           7 CA         1.5180  117.83  180.00  124.08   1.4471
+       79     6 N           6 C           6 *CA         6 CB         1.4517  105.54  122.95  111.23   1.5660
+       80     6 N           6 C           6 *CA         6 HA         1.4517  105.54 -117.24  107.46   1.0828
+       81     6 N           6 CA          6 CB          6 CG1        1.4517  113.04  180.00  113.97   1.5441
+       82     6 CG1         6 CA          6 *CB         6 CG2        1.5441  113.97  123.99  112.17   1.5414
+       83     6 CG1         6 CA          6 *CB         6 HB         1.5441  113.97 -119.17  107.57   1.1178
+       84     6 CA          6 CB          6 CG1         6 HG11       1.5660  113.97  177.83  110.30   1.1114
+       85     6 HG11        6 CB          6 *CG1        6 HG12       1.1114  110.30  119.25  111.67   1.1097
+       86     6 HG11        6 CB          6 *CG1        6 HG13       1.1114  110.30 -119.49  110.70   1.1110
+       87     6 CA          6 CB          6 CG2         6 HG21       1.5660  112.17 -177.78  110.71   1.1108
+       88     6 HG21        6 CB          6 *CG2        6 HG22       1.1108  110.71  120.08  110.56   1.1115
+       89     6 HG21        6 CB          6 *CG2        6 HG23       1.1108  110.71 -119.55  111.23   1.1098
+       90     6 C           7 CA          7 *N          7 HN         1.3471  124.08  180.00  115.62   0.9992
+       91     6 C           7 N           7 CA          7 C          1.3471  124.08  180.00  108.94   1.4971
+       92     7 N           7 CA          7 C         -99 ??         1.4471  108.94    0.00    0.00   0.0000
+       93   -99 ??          7 CA          7 *C          7 O          0.0000    0.00    0.00  121.00   1.2300
+       94     7 CA          7 C         -99 ??        -99 ??         1.4971    0.00    0.00    0.00   0.0000
+       95     7 N           7 C           7 *CA         7 HA1        1.4471  108.94  117.86  108.03   1.0814
+       96     7 N           7 C           7 *CA         7 HA2        1.4471  108.94 -118.12  107.95   1.0817
+       97     7 N           7 CA          7 C           7 O          1.4471  108.94  180.00  121.00   1.2300
+       98     7 NT          7 CA          7 *C          7 O          1.3600  116.50  180.00  121.00   1.2300
+       99     7 CA          7 C           7 NT          7 HT1        1.4971  116.50 -180.00  120.00   1.0000
+      100     7 HT1         7 C           7 *NT         7 HT2        1.0000  120.00  180.00  120.00   1.0000
+  
+ CHARMM>    coor print
+
+          COORDINATE FILE MODULE
+ TITLE>  * ADTPPVG : WH5: WAAAH+ PEPTIDE
+ TITLE>  *  DATE:     5/31/24     14:35:51      CREATED BY USER: jinyan
+ TITLE>  *
+        96  EXT
+         1         1  ALA       CAY            -2.1597208496        0.5369209221        0.9299743167  ADTPPVG   43              0.0000000000
+         2         1  ALA       HY1            -2.4659539520        0.0029400500        0.0050923160  ADTPPVG   43              0.0000000000
+         3         1  ALA       HY2            -2.5618558380        1.5723870611        0.9095212950  ADTPPVG   43              0.0000000000
+         4         1  ALA       HY3            -2.5618558380        0.0014750162        1.8164877870  ADTPPVG   43              0.0000000000
+         5         1  ALA       CY             -0.6725000000        0.5824020840        1.0087500000  ADTPPVG   43              0.0000000000
+         6         1  ALA       OY             -0.1045492057        1.1279137464        1.9536039154  ADTPPVG   43              0.0000000000
+         7         1  ALA       N               0.0000000000        0.0000000000        0.0000000000  ADTPPVG   43              0.0000000000
+         8         1  ALA       HN             -0.4526285282       -0.4441667523       -0.7693193820  ADTPPVG   43              0.0000000000
+         9         1  ALA       CA              1.4592000000        0.0000000000        0.0000000000  ADTPPVG   43              0.0000000000
+        10         1  ALA       HA              1.8124541037       -0.4965229490        0.8965112935  ADTPPVG   43              0.0000000000
+        11         1  ALA       CB              1.9486982186       -0.8335550140       -1.2066493868  ADTPPVG   43              0.0000000000
+        12         1  ALA       HB1             1.5137367553       -1.8544732629       -1.1553340411  ADTPPVG   43              0.0000000000
+        13         1  ALA       HB2             1.6279547656       -0.3731122917       -2.1665648762  ADTPPVG   43              0.0000000000
+        14         1  ALA       HB3             3.0556965246       -0.9321006383       -1.2139617347  ADTPPVG   43              0.0000000000
+        15         1  ALA       C               2.0959460235        1.4010979629        0.0000000000  ADTPPVG   43              0.0000000000
+        16         1  ALA       O               1.4254835730        2.4319433404       -0.0000000000  ADTPPVG   43              0.0000000000
+        17         2  ASP       N               3.4505567565        1.4578729742        0.0000000000  ADTPPVG   44              0.0000000000
+        18         2  ASP       HN              3.9888138798        0.6191293725        0.0000000000  ADTPPVG   44              0.0000000000
+        19         2  ASP       CA              4.2755116024        2.6640434399        0.0000000000  ADTPPVG   44              0.0000000000
+        20         2  ASP       HA              4.1275754170        3.2015979601       -0.9297434231  ADTPPVG   44              0.0000000000
+        21         2  ASP       CB              3.9165182612        3.5910074144        1.2047378059  ADTPPVG   44              0.0000000000
+        22         2  ASP       HB1             2.8545973384        3.8990709335        1.1246454714  ADTPPVG   44              0.0000000000
+        23         2  ASP       HB2             4.0522945993        3.0542956537        2.1645134421  ADTPPVG   44              0.0000000000
+        24         2  ASP       CG              4.7569282526        4.8592785848        1.2375177480  ADTPPVG   44              0.0000000000
+        25         2  ASP       OD1             4.5513012430        5.6790838780        2.1672645222  ADTPPVG   44              0.0000000000
+        26         2  ASP       OD2             5.4742561708        5.1092302311        0.2396542091  ADTPPVG   44              0.0000000000
+        27         2  ASP       C               5.7258209935        2.1720120180        0.0000000000  ADTPPVG   44              0.0000000000
+        28         2  ASP       O               5.9815445837        0.9658219644        0.0000000000  ADTPPVG   44              0.0000000000
+        29         3  THR       N               6.6920731105        3.1116511437        0.0000000000  ADTPPVG   45              0.0000000000
+        30         3  THR       HN              6.4528119597        4.0820914312       -0.0000000000  ADTPPVG   45              0.0000000000
+        31         3  THR       CA              8.1166323730        2.8499385772        0.0000000000  ADTPPVG   45              0.0000000000
+        32         3  THR       HA              8.3703421195        2.3795497290        0.9404470140  ADTPPVG   45              0.0000000000
+        33         3  THR       CB              8.6156817640        1.9232922224       -1.1640355358  ADTPPVG   45              0.0000000000
+        34         3  THR       HB              8.1254319060        0.9321451984       -1.0032082575  ADTPPVG   45              0.0000000000
+        35         3  THR       OG1            10.0227744738        1.7032792952       -1.1103749572  ADTPPVG   45              0.0000000000
+        36         3  THR       HG1            10.2233288789        1.1394740150       -1.8652580122  ADTPPVG   45              0.0000000000
+        37         3  THR       CG2             8.2728059607        2.3877849127       -2.5835187109  ADTPPVG   45              0.0000000000
+        38         3  THR       HG21            8.5626149873        1.6199240959       -3.3314416039  ADTPPVG   45              0.0000000000
+        39         3  THR       HG22            7.1801545356        2.5633808516       -2.6803574401  ADTPPVG   45              0.0000000000
+        40         3  THR       HG23            8.8004405702        3.3333129870       -2.8336508155  ADTPPVG   45              0.0000000000
+        41         3  THR       C               8.7931574973        4.2068380563        0.0000000000  ADTPPVG   45              0.0000000000
+        42         3  THR       O               8.1199832703        5.2355561032       -0.0000000000  ADTPPVG   45              0.0000000000
+        43         4  PRO       N              10.1377674338        4.2347688385        0.0000000000  ADTPPVG   46              0.0000000000
+        44         4  PRO       CD             10.9504895131        3.0195047342       -0.0350676318  ADTPPVG   46              0.0000000000
+        45         4  PRO       HD1            10.8270551650        2.4639977453        0.9222743327  ADTPPVG   46              0.0000000000
+        46         4  PRO       HD2            10.6836645385        2.3695417304       -0.9000762368  ADTPPVG   46              0.0000000000
+        47         4  PRO       CA             10.9388216022        5.4464075921        0.0000000000  ADTPPVG   46              0.0000000000
+        48         4  PRO       HA             10.5571585167        6.1621502503        0.7186455499  ADTPPVG   46              0.0000000000
+        49         4  PRO       CB             12.3315883616        4.9272023098        0.4023911517  ADTPPVG   46              0.0000000000
+        50         4  PRO       HB1            12.3918547001        4.8733635639        1.5125537379  ADTPPVG   46              0.0000000000
+        51         4  PRO       HB2            13.1534539465        5.5704153741        0.0278896775  ADTPPVG   46              0.0000000000
+        52         4  PRO       CG             12.3903431245        3.5087588230       -0.1739792089  ADTPPVG   46              0.0000000000
+        53         4  PRO       HG1            13.1191167838        2.8595324365        0.3498464708  ADTPPVG   46              0.0000000000
+        54         4  PRO       HG2            12.6525966536        3.5628957441       -1.2556246084  ADTPPVG   46              0.0000000000
+        55         4  PRO       C              10.9532788043        6.0941894537       -1.3969472642  ADTPPVG   46              0.0000000000
+        56         4  PRO       O              10.3799036361        5.5520132108       -2.3425287774  ADTPPVG   46              0.0000000000
+        57         5  PRO       N              11.6814646788        7.2356519842       -1.4863129938  ADTPPVG   47              0.0000000000
+        58         5  PRO       CD             12.4224980479        7.7818927711       -0.3500452839  ADTPPVG   47              0.0000000000
+        59         5  PRO       HD1            11.7044049688        8.1373182879        0.4234808771  ADTPPVG   47              0.0000000000
+        60         5  PRO       HD2            13.1235072083        7.0321733917        0.0839989180  ADTPPVG   47              0.0000000000
+        61         5  PRO       CA             11.8448046449        8.0239745431       -2.6943280967  ADTPPVG   47              0.0000000000
+        62         5  PRO       HA             10.8957276270        8.1573541702       -3.2001624363  ADTPPVG   47              0.0000000000
+        63         5  PRO       CB             12.3904695301        9.3581246274       -2.1524928860  ADTPPVG   47              0.0000000000
+        64         5  PRO       HB1            11.5361705006        9.9978908015       -1.8364801954  ADTPPVG   47              0.0000000000
+        65         5  PRO       HB2            12.9956163577        9.9091402212       -2.9005681311  ADTPPVG   47              0.0000000000
+        66         5  PRO       CG             13.2063838299        8.9623476319       -0.9174701067  ADTPPVG   47              0.0000000000
+        67         5  PRO       HG1            13.3226676350        9.7918444538       -0.1926167498  ADTPPVG   47              0.0000000000
+        68         5  PRO       HG2            14.2124455988        8.6085049903       -1.2404245803  ADTPPVG   47              0.0000000000
+        69         5  PRO       C              12.8390143060        7.3505183323       -3.6583280405  ADTPPVG   47              0.0000000000
+        70         5  PRO       O              13.4150643573        6.3109657697       -3.3353181829  ADTPPVG   47              0.0000000000
+        71         6  VAL       N              13.0509908433        8.0235325367       -4.8173342693  ADTPPVG   48              0.0000000000
+        72         6  VAL       HN             12.5829700077        8.8845141067       -4.9986593739  ADTPPVG   48              0.0000000000
+        73         6  VAL       CA             13.9415109482        7.5896813859       -5.8785505581  ADTPPVG   48              0.0000000000
+        74         6  VAL       HA             14.9636294581        7.5808498012       -5.5212669245  ADTPPVG   48              0.0000000000
+        75         6  VAL       CB             13.5750221074        6.1773790088       -6.4472718651  ADTPPVG   48              0.0000000000
+        76         6  VAL       HB             12.5411958358        6.2407576027       -6.8675851223  ADTPPVG   48              0.0000000000
+        77         6  VAL       CG1            14.5092489768        5.6947016727       -7.5779741051  ADTPPVG   48              0.0000000000
+        78         6  VAL       HG11           14.2191907148        4.6739901287       -7.9084648140  ADTPPVG   48              0.0000000000
+        79         6  VAL       HG12           14.4541501495        6.3577261036       -8.4661164436  ADTPPVG   48              0.0000000000
+        80         6  VAL       HG13           15.5627304605        5.6558917930       -7.2272725841  ADTPPVG   48              0.0000000000
+        81         6  VAL       CG2            13.5358190729        5.0992619433       -5.3463446762  ADTPPVG   48              0.0000000000
+        82         6  VAL       HG21           13.3132467516        4.1016548118       -5.7812219153  ADTPPVG   48              0.0000000000
+        83         6  VAL       HG22           14.5138114018        5.0417548202       -4.8213149768  ADTPPVG   48              0.0000000000
+        84         6  VAL       HG23           12.7493927764        5.3203839484       -4.5951491098  ADTPPVG   48              0.0000000000
+        85         6  VAL       C              13.8439017721        8.6572943845       -6.9532593251  ADTPPVG   48              0.0000000000
+        86         6  VAL       O              13.1113961349        9.6336178177       -6.8036259897  ADTPPVG   48              0.0000000000
+        87         7  GLY       N              14.5832684396        8.4970792024       -8.0678652808  ADTPPVG   49              0.0000000000
+        88         7  GLY       HN             15.1726557179        7.6968573291       -8.1711524032  ADTPPVG   49              0.0000000000
+        89         7  GLY       CA             14.5938960442        9.4290994493       -9.1748086955  ADTPPVG   49              0.0000000000
+        90         7  GLY       HA1            14.9704171815       10.3797927994       -8.8228996914  ADTPPVG   49              0.0000000000
+        91         7  GLY       HA2            13.6019170104        9.4753517523       -9.6036597314  ADTPPVG   49              0.0000000000
+        92         7  GLY       C              15.5287958396        8.9217086474      -10.2282911855  ADTPPVG   49              0.0000000000
+        93         7  GLY       O              15.7066523912        9.5475366177      -11.2721333185  ADTPPVG   49              0.0000000000
+        94         7  GLY       NT             16.1591120512        7.7457299913       -9.9648985627  ADTPPVG   49              0.0000000000
+        95         7  GLY       HT1            16.7950293563        7.3587767620      -10.6326383170  ADTPPVG   49              0.0000000000
+        96         7  GLY       HT2            15.9866625488        7.2679930322       -9.1034877623  ADTPPVG   49              0.0000000000
+  
+ CHARMM>     
+  
+ CHARMM>    hbuild sele hydrogen end
+ SELRPN>     47 atoms have been selected out of     96
+ PRNHBD: CUToff Hydrogen Bond  distance =    0.5000   Angle =   90.0000
+         CuT switching ON HB dist. =     3.5000  OFf HB dist. =    4.0000
+         CuT switching ON Hb Angle =    50.0000  OFf Hb Angle =   70.0000
+         ACCEptor antecedents included
+         All hydrogen bonds for each hydrogen will be found
+         Hydrogen bonds between excluded atoms will be kept
+
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  FSHIft   VATOm    VFSWIt  
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 14.000 CTEXNB =999.000 CTONNB = 10.000 CTOFNB = 12.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+ <MAKINB> with mode   5 found    275 exclusions and    250 interactions(1-4)
+ <MAKGRP> found     73 group exclusions.
+
+ CUToff Hydrogen Bond  distance =    0.5000           Angle =   90.0000
+ CuT switching ON HB dist. =     3.5000 OFf HB dist. =    4.0000
+ CuT switching ON Hb Angle =    50.0000 OFf Hb Angle =   70.0000
+ ACCEptor antecedents included
+ dihedral PHI STePs for spin =   10.0000
+ cutoff for water acceptor search CUTWat=    7.5000
+
+ Place: HN      ,        ,        , constructed for donor ADTPPVG  43       ALA      N       .
+ Place: HA      ,        ,        , constructed for donor ADTPPVG  43       ALA      CA      .
+ Place: HN      ,        ,        , constructed for donor ADTPPVG  44       ASP      N       .
+ Place: HA      ,        ,        , constructed for donor ADTPPVG  44       ASP      CA      .
+ Place: HB1     ,HB2     ,        , constructed for donor ADTPPVG  44       ASP      CB      .
+ Place: HN      ,        ,        , constructed for donor ADTPPVG  45       THR      N       .
+ Place: HA      ,        ,        , constructed for donor ADTPPVG  45       THR      CA      .
+ Place: HB      ,        ,        , constructed for donor ADTPPVG  45       THR      CB      .
+ Place: HD1     ,HD2     ,        , constructed for donor ADTPPVG  46       PRO      CD      .
+ Place: HA      ,        ,        , constructed for donor ADTPPVG  46       PRO      CA      .
+ Place: HB1     ,HB2     ,        , constructed for donor ADTPPVG  46       PRO      CB      .
+ Place: HG1     ,HG2     ,        , constructed for donor ADTPPVG  46       PRO      CG      .
+ Place: HD1     ,HD2     ,        , constructed for donor ADTPPVG  47       PRO      CD      .
+ Place: HA      ,        ,        , constructed for donor ADTPPVG  47       PRO      CA      .
+ Place: HB1     ,HB2     ,        , constructed for donor ADTPPVG  47       PRO      CB      .
+ Place: HG1     ,HG2     ,        , constructed for donor ADTPPVG  47       PRO      CG      .
+ Place: HN      ,        ,        , constructed for donor ADTPPVG  48       VAL      N       .
+ Place: HA      ,        ,        , constructed for donor ADTPPVG  48       VAL      CA      .
+ Place: HB      ,        ,        , constructed for donor ADTPPVG  48       VAL      CB      .
+ Place: HN      ,        ,        , constructed for donor ADTPPVG  49       GLY      N       .
+ Place: HA1     ,HA2     ,        , constructed for donor ADTPPVG  49       GLY      CA      .
+
+ NBONDX:       129 atom and      0 group interactions within 14.00 A.
+ Spin: HY1     ,HY2     ,HY3     , constructed for donor ADTPPVG  43       ALA      CAY     .
+
+ NBONDX:       189 atom and      0 group interactions within 14.00 A.
+ Spin: HB1     ,HB2     ,HB3     , constructed for donor ADTPPVG  43       ALA      CB      .
+
+ NBONDX:        92 atom and      0 group interactions within 14.00 A.
+ Spin: HG1     ,        ,        , constructed for donor ADTPPVG  45       THR      OG1     .
+
+ NBONDX:       273 atom and      0 group interactions within 14.00 A.
+ Spin: HG21    ,HG22    ,HG23    , constructed for donor ADTPPVG  45       THR      CG2     .
+
+ NBONDX:       216 atom and      0 group interactions within 14.00 A.
+ Spin: HG11    ,HG12    ,HG13    , constructed for donor ADTPPVG  48       VAL      CG1     .
+
+ NBONDX:       240 atom and      0 group interactions within 14.00 A.
+ Spin: HG21    ,HG22    ,HG23    , constructed for donor ADTPPVG  48       VAL      CG2     .
+
+ NBONDX:       122 atom and      0 group interactions within 14.00 A.
+ Spin: HT1     ,HT2     ,        , constructed for donor ADTPPVG  49       GLY      NT      .
+  
+ CHARMM>    coor print
+
+          COORDINATE FILE MODULE
+ TITLE>  * ADTPPVG : WH5: WAAAH+ PEPTIDE
+ TITLE>  *  DATE:     5/31/24     14:35:51      CREATED BY USER: jinyan
+ TITLE>  *
+        96  EXT
+         1         1  ALA       CAY            -2.1597208496        0.5369209221        0.9299743167  ADTPPVG   43              0.0000000000
+         2         1  ALA       HY1            -2.5938231334        1.0482613682        1.8156419493  ADTPPVG   43              0.0000000000
+         3         1  ALA       HY2            -2.5029084061       -0.5196485439        0.9198738742  ADTPPVG   43              0.0000000000
+         4         1  ALA       HY3            -2.5029084061        1.0564584153        0.0099080970  ADTPPVG   43              0.0000000000
+         5         1  ALA       CY             -0.6725000000        0.5824020840        1.0087500000  ADTPPVG   43              0.0000000000
+         6         1  ALA       OY             -0.1045492057        1.1279137464        1.9536039154  ADTPPVG   43              0.0000000000
+         7         1  ALA       N               0.0000000000        0.0000000000        0.0000000000  ADTPPVG   43              0.0000000000
+         8         1  ALA       HN             -0.4526285282       -0.4441667523       -0.7693193820  ADTPPVG   43              0.0000000000
+         9         1  ALA       CA              1.4592000000        0.0000000000        0.0000000000  ADTPPVG   43              0.0000000000
+        10         1  ALA       HA              1.8039008138       -0.4295152521        0.9289067161  ADTPPVG   43              0.0000000000
+        11         1  ALA       CB              1.9486982186       -0.8335550140       -1.2066493868  ADTPPVG   43              0.0000000000
+        12         1  ALA       HB1             1.7310940010       -0.2969561074       -2.1548218489  ADTPPVG   43              0.0000000000
+        13         1  ALA       HB2             1.4262652217       -1.8138336718       -1.2259267720  ADTPPVG   43              0.0000000000
+        14         1  ALA       HB3             3.0454252611       -0.9954921010       -1.1343979182  ADTPPVG   43              0.0000000000
+        15         1  ALA       C               2.0959460235        1.4010979629        0.0000000000  ADTPPVG   43              0.0000000000
+        16         1  ALA       O               1.4254835730        2.4319433404       -0.0000000000  ADTPPVG   43              0.0000000000
+        17         2  ASP       N               3.4505567565        1.4578729742        0.0000000000  ADTPPVG   44              0.0000000000
+        18         2  ASP       HN              3.9781854453        0.6139822600        0.0000000000  ADTPPVG   44              0.0000000000
+        19         2  ASP       CA              4.2755116024        2.6640434399        0.0000000000  ADTPPVG   44              0.0000000000
+        20         2  ASP       HA              4.1068346407        3.1820409032       -0.9323878199  ADTPPVG   44              0.0000000000
+        21         2  ASP       CB              3.9165182612        3.5910074144        1.2047378059  ADTPPVG   44              0.0000000000
+        22         2  ASP       HB1             4.0816798057        3.0336905834        2.1512572903  ADTPPVG   44              0.0000000000
+        23         2  ASP       HB2             2.8460943539        3.8787636761        1.1328454363  ADTPPVG   44              0.0000000000
+        24         2  ASP       CG              4.7569282526        4.8592785848        1.2375177480  ADTPPVG   44              0.0000000000
+        25         2  ASP       OD1             4.5513012430        5.6790838780        2.1672645222  ADTPPVG   44              0.0000000000
+        26         2  ASP       OD2             5.4742561708        5.1092302311        0.2396542091  ADTPPVG   44              0.0000000000
+        27         2  ASP       C               5.7258209935        2.1720120180        0.0000000000  ADTPPVG   44              0.0000000000
+        28         2  ASP       O               5.9815445837        0.9658219644        0.0000000000  ADTPPVG   44              0.0000000000
+        29         3  THR       N               6.6920731105        3.1116511437        0.0000000000  ADTPPVG   45              0.0000000000
+        30         3  THR       HN              6.4529150159        4.0784059409       -0.0000000000  ADTPPVG   45              0.0000000000
+        31         3  THR       CA              8.1166323730        2.8499385772        0.0000000000  ADTPPVG   45              0.0000000000
+        32         3  THR       HA              8.3518992652        2.3899348067        0.9478414962  ADTPPVG   45              0.0000000000
+        33         3  THR       CB              8.6156817640        1.9232922224       -1.1640355358  ADTPPVG   45              0.0000000000
+        34         3  THR       HB              8.1052141697        0.9391703302       -1.0934876617  ADTPPVG   45              0.0000000000
+        35         3  THR       OG1            10.0227744738        1.7032792952       -1.1103749572  ADTPPVG   45              0.0000000000
+        36         3  THR       HG1            10.2298251948        1.1320848462       -1.8536561291  ADTPPVG   45              0.0000000000
+        37         3  THR       CG2             8.2728059607        2.3877849127       -2.5835187109  ADTPPVG   45              0.0000000000
+        38         3  THR       HG21            8.7215445081        3.3854185420       -2.7776368654  ADTPPVG   45              0.0000000000
+        39         3  THR       HG22            7.1707196365        2.4658551009       -2.6999870774  ADTPPVG   45              0.0000000000
+        40         3  THR       HG23            8.6772369300        1.6665173772       -3.3254505365  ADTPPVG   45              0.0000000000
+        41         3  THR       C               8.7931574973        4.2068380563        0.0000000000  ADTPPVG   45              0.0000000000
+        42         3  THR       O               8.1199832703        5.2355561032       -0.0000000000  ADTPPVG   45              0.0000000000
+        43         4  PRO       N              10.1377674338        4.2347688385        0.0000000000  ADTPPVG   46              0.0000000000
+        44         4  PRO       CD             10.9504895131        3.0195047342       -0.0350676318  ADTPPVG   46              0.0000000000
+        45         4  PRO       HD1            10.6529511890        2.3956667583       -0.9042657582  ADTPPVG   46              0.0000000000
+        46         4  PRO       HD2            10.8097935828        2.4482965742        0.9068103595  ADTPPVG   46              0.0000000000
+        47         4  PRO       CA             10.9388216022        5.4464075921        0.0000000000  ADTPPVG   46              0.0000000000
+        48         4  PRO       HA             10.5174808405        6.1802963680        0.6684615786  ADTPPVG   46              0.0000000000
+        49         4  PRO       CB             12.3315883616        4.9272023098        0.4023911517  ADTPPVG   46              0.0000000000
+        50         4  PRO       HB1            12.4441487483        4.9107311195        1.5074034189  ADTPPVG   46              0.0000000000
+        51         4  PRO       HB2            13.1320887731        5.5641708870       -0.0305792564  ADTPPVG   46              0.0000000000
+        52         4  PRO       CG             12.3903431245        3.5087588230       -0.1739792089  ADTPPVG   46              0.0000000000
+        53         4  PRO       HG1            12.7099513087        3.5202000008       -1.2376472020  ADTPPVG   46              0.0000000000
+        54         4  PRO       HG2            13.0897812743        2.8686400360        0.4045569651  ADTPPVG   46              0.0000000000
+        55         4  PRO       C              10.9532788043        6.0941894537       -1.3969472642  ADTPPVG   46              0.0000000000
+        56         4  PRO       O              10.3799036361        5.5520132108       -2.3425287774  ADTPPVG   46              0.0000000000
+        57         5  PRO       N              11.6814646788        7.2356519842       -1.4863129938  ADTPPVG   47              0.0000000000
+        58         5  PRO       CD             12.4224980479        7.7818927711       -0.3500452839  ADTPPVG   47              0.0000000000
+        59         5  PRO       HD1            13.1044664403        7.0067444258        0.0589521627  ADTPPVG   47              0.0000000000
+        60         5  PRO       HD2            11.7111469645        8.1131090712        0.4357601344  ADTPPVG   47              0.0000000000
+        61         5  PRO       CA             11.8448046449        8.0239745431       -2.6943280967  ADTPPVG   47              0.0000000000
+        62         5  PRO       HA             10.9107885949        8.0989383842       -3.2281408876  ADTPPVG   47              0.0000000000
+        63         5  PRO       CB             12.3904695301        9.3581246274       -2.1524928860  ADTPPVG   47              0.0000000000
+        64         5  PRO       HB1            11.5603449293       10.0426090792       -1.8761463033  ADTPPVG   47              0.0000000000
+        65         5  PRO       HB2            13.0327746336        9.8593077231       -2.9076438048  ADTPPVG   47              0.0000000000
+        66         5  PRO       CG             13.2063838299        8.9623476319       -0.9174701067  ADTPPVG   47              0.0000000000
+        67         5  PRO       HG1            14.2385740891        8.6621782649       -1.1970169180  ADTPPVG   47              0.0000000000
+        68         5  PRO       HG2            13.2603265312        9.7972956080       -0.1869792704  ADTPPVG   47              0.0000000000
+        69         5  PRO       C              12.8390143060        7.3505183323       -3.6583280405  ADTPPVG   47              0.0000000000
+        70         5  PRO       O              13.4150643573        6.3109657697       -3.3353181829  ADTPPVG   47              0.0000000000
+        71         6  VAL       N              13.0509908433        8.0235325367       -4.8173342693  ADTPPVG   48              0.0000000000
+        72         6  VAL       HN             12.5820489996        8.8839117668       -4.9963346189  ADTPPVG   48              0.0000000000
+        73         6  VAL       CA             13.9415109482        7.5896813859       -5.8785505581  ADTPPVG   48              0.0000000000
+        74         6  VAL       HA             14.9420931091        7.5709627270       -5.4732039625  ADTPPVG   48              0.0000000000
+        75         6  VAL       CB             13.5750221074        6.1773790088       -6.4472718651  ADTPPVG   48              0.0000000000
+        76         6  VAL       HB             12.5372592758        6.2150812266       -6.8405371471  ADTPPVG   48              0.0000000000
+        77         6  VAL       CG1            14.5092489768        5.6947016727       -7.5779741051  ADTPPVG   48              0.0000000000
+        78         6  VAL       HG11           15.5613196665        5.9660564166       -7.3459506860  ADTPPVG   48              0.0000000000
+        79         6  VAL       HG12           14.2220681516        6.1761097318       -8.5371547737  ADTPPVG   48              0.0000000000
+        80         6  VAL       HG13           14.4417502723        4.5903701185       -7.6787205389  ADTPPVG   48              0.0000000000
+        81         6  VAL       CG2            13.5358190729        5.0992619433       -5.3463446762  ADTPPVG   48              0.0000000000
+        82         6  VAL       HG21           12.5735049101        5.1527166669       -4.7937009894  ADTPPVG   48              0.0000000000
+        83         6  VAL       HG22           14.3671265061        5.2623428408       -4.6276050342  ADTPPVG   48              0.0000000000
+        84         6  VAL       HG23           13.6276575689        4.0901382729       -5.8018545106  ADTPPVG   48              0.0000000000
+        85         6  VAL       C              13.8439017721        8.6572943845       -6.9532593251  ADTPPVG   48              0.0000000000
+        86         6  VAL       O              13.1113961349        9.6336178177       -6.8036259897  ADTPPVG   48              0.0000000000
+        87         7  GLY       N              14.5832684396        8.4970792024       -8.0678652808  ADTPPVG   49              0.0000000000
+        88         7  GLY       HN             15.1742862757        7.7029683562       -8.1811583200  ADTPPVG   49              0.0000000000
+        89         7  GLY       CA             14.5938960442        9.4290994493       -9.1748086955  ADTPPVG   49              0.0000000000
+        90         7  GLY       HA1            14.9281754778       10.3917438974       -8.8174460624  ADTPPVG   49              0.0000000000
+        91         7  GLY       HA2            13.5940348895        9.5069221802       -9.5752539709  ADTPPVG   49              0.0000000000
+        92         7  GLY       C              15.5287958396        8.9217086474      -10.2282911855  ADTPPVG   49              0.0000000000
+        93         7  GLY       O              15.7066523912        9.5475366177      -11.2721333185  ADTPPVG   49              0.0000000000
+        94         7  GLY       NT             16.1591120512        7.7457299913       -9.9648985627  ADTPPVG   49              0.0000000000
+        95         7  GLY       HT1            16.7950293563        7.3587767620      -10.6326383170  ADTPPVG   49              0.0000000000
+        96         7  GLY       HT2            15.9866625488        7.2679930322       -9.1034877623  ADTPPVG   49              0.0000000000
+  
+ CHARMM>    coor copy comp
+ SELECTED COORDINATES COPIED TO THE COMPARISON SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>    ! short energy minimization
+ CHARMM>    mini SD   nstep 100 cutnb 14.0 ctonnb 10.0 ctofnb 12.0 inbfrq -1
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  FSHIft   VATOm    VFSWIt  
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 14.000 CTEXNB =999.000 CTONNB = 10.000 CTOFNB = 12.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+ <MAKINB> with mode   5 found    275 exclusions and    250 interactions(1-4)
+ <MAKGRP> found     73 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR     4513 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+     3537 ATOM PAIRS WERE FOUND FOR ATOM LIST
+       53 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+
+
+ STEEPD> An energy minimization has been requested.
+
+ NSTEP  =          100   NPRINT =           10
+ STEP   =    0.0200000   TOLFUN =    0.0000000
+ TOLGRD =    0.0000000   TOLSTP =    0.0000000
+
+MINI MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+MINI INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+MINI CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+MINI EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>        0  73276.99229      0.00000  75939.86965      0.02000
+MINI INTERN>        7.79602     22.61342      1.28502     36.87510      1.05317
+MINI CROSS>         1.15743      0.00000      0.00000      0.00000
+MINI EXTERN>    73222.64937    -16.43724      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       10    122.85474  73154.13755      8.90267      0.00896
+MINI INTERN>       13.82999     43.56242      4.54468     39.77049      0.77043
+MINI CROSS>        -0.74149      0.00000      0.00000      0.00000
+MINI EXTERN>       31.88709    -10.76885      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       20    102.25257     20.60217      6.33092      0.00401
+MINI INTERN>        9.70828     41.52167      3.29043     39.60131      0.83025
+MINI CROSS>        -2.08255      0.00000      0.00000      0.00000
+MINI EXTERN>       22.08153    -12.69834      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       30     94.49441      7.75816      7.16231      0.00431
+MINI INTERN>       10.25396     39.82512      2.86314     39.47251      0.86062
+MINI CROSS>        -2.98912      0.00000      0.00000      0.00000
+MINI EXTERN>       18.01775    -13.80959      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       40     86.40761      8.08679      1.57899      0.00193
+MINI INTERN>        9.08694     37.47348      2.63717     39.39044      0.81432
+MINI CROSS>        -3.66009      0.00000      0.00000      0.00000
+MINI EXTERN>       15.12138    -14.45604      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       50     81.19385      5.21376      2.00417      0.00208
+MINI INTERN>        9.35119     36.32300      2.43128     39.26043      0.79186
+MINI CROSS>        -4.39543      0.00000      0.00000      0.00000
+MINI EXTERN>       12.63057    -15.19906      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       60     77.58495      3.60890      3.71159      0.00223
+MINI INTERN>       10.00953     35.36858      2.31025     39.15094      0.75657
+MINI CROSS>        -4.97936      0.00000      0.00000      0.00000
+MINI EXTERN>       10.78119    -15.81275      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       70     74.54062      3.04433      3.83644      0.00240
+MINI INTERN>       10.11873     34.66066      2.20030     39.04842      0.72697
+MINI CROSS>        -5.41518      0.00000      0.00000      0.00000
+MINI EXTERN>        9.47745    -16.27674      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       80     71.90116      2.63946      4.12664      0.00258
+MINI INTERN>       10.27063     34.00862      2.12427     38.95077      0.69158
+MINI CROSS>        -5.77181      0.00000      0.00000      0.00000
+MINI EXTERN>        8.33874    -16.71163      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       90     68.93083      2.97033      0.97728      0.00116
+MINI INTERN>        9.25252     33.66446      1.97967     38.84111      0.67455
+MINI CROSS>        -6.03210      0.00000      0.00000      0.00000
+MINI EXTERN>        7.55856    -17.00793      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      100     66.88010      2.05073      1.85513      0.00124
+MINI INTERN>        9.27879     33.20172      1.87414     38.75542      0.64381
+MINI CROSS>        -6.25049      0.00000      0.00000      0.00000
+MINI EXTERN>        6.75493    -17.37821      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+
+ STEEPD> Minimization exiting with number of steps limit (       100) exceeded.
+
+STPD MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+STPD INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+STPD CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+STPD EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+STPD>      100     66.88010      2.05073      1.85513      0.00149
+STPD INTERN>        9.27879     33.20172      1.87414     38.75542      0.64381
+STPD CROSS>        -6.25049      0.00000      0.00000      0.00000
+STPD EXTERN>        6.75493    -17.37821      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>    coor orie rms
+ CENTER OF ATOMS BEFORE TRANSLATION     9.20796     4.64543    -2.37550
+ CENTER OF REFERENCE COORDINATE SET     9.20796     4.64543    -2.37550
+ NET TRANSLATION OF ROTATED ATOMS       0.00000     0.00000    -0.00000
+ ROTATION MATRIX
+     1.000000   -0.000123   -0.000133
+     0.000123    1.000000    0.000154
+     0.000133   -0.000154    1.000000
+ AXIS OF ROTATION IS  0.649393  0.558138 -0.516499  ANGLE IS    0.01
+
+ TOTAL SQUARE DIFF IS      6.2595  DENOMINATOR IS     96.0000
+       THUS RMS DIFF IS    0.255348
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>    IC PRINT
+
+       INTERNAL COORDINATES
+ TITLE>  * ADTPPVG : WH5: WAAAH+ PEPTIDE
+ TITLE>  *  DATE:     5/31/24     14:35:51      CREATED BY USER: jinyan
+ TITLE>  *
+
+     NUMBER OF INTERNAL COORDINATES :        100
+
+        N      I             J             K             L        R(I(J/K)) T(I(JK/KJ)) PHI   T(JKL)   R(KL)
+
+        1     1 CY          1 N           1 CA          1 C          1.3450  120.00  -60.00  114.44   1.5390
+        2     1 CY          1 CA          1 *N          1 HN         1.3450  120.00  180.00  117.00   0.9970
+        3     1 CAY         1 CY          1 N           1 CA         1.4900  116.50  180.00  120.00   1.4592
+        4     1 N           1 CAY         1 *CY         1 OY         1.3450  116.50  180.00  121.00   1.2300
+        5     1 OY          1 CY          1 CAY         1 HY1        1.2300  121.00  180.00  109.50   1.1110
+        6     1 OY          1 CY          1 CAY         1 HY2        1.2300  121.00   60.00  109.50   1.1110
+        7     1 OY          1 CY          1 CAY         1 HY3        1.2300  121.00  -60.00  109.50   1.1110
+        8   -99 ??          1 CA          1 *N          1 HN         0.0000    0.00    0.00  117.00   0.9970
+        9   -99 ??          1 N           1 CA          1 C          0.0000    0.00    0.00  114.44   1.5390
+       10     1 N           1 CA          1 C           2 N          1.4592  114.44  180.00  116.84   1.3558
+       11     2 N           1 CA          1 *C          1 O          1.3558  116.84  180.00  122.52   1.2297
+       12     1 CA          1 C           2 N           2 CA         1.5390  116.84  180.00  126.77   1.4613
+       13     1 N           1 C           1 *CA         1 CB         1.4592  114.44  123.23  111.09   1.5461
+       14     1 N           1 C           1 *CA         1 HA         1.4592  114.44 -120.45  106.39   1.0840
+       15     1 C           1 CA          1 CB          1 HB1        1.5390  111.09  177.25  109.60   1.1109
+       16     1 HB1         1 CA          1 *CB         1 HB2        1.1109  109.60  119.13  111.05   1.1119
+       17     1 HB1         1 CA          1 *CB         1 HB3        1.1109  109.60 -119.58  111.61   1.1114
+       18     1 C           2 CA          2 *N          2 HN         1.3558  126.77  180.00  112.94   0.9966
+       19     1 C           2 N           2 CA          2 C          1.3558  126.77  180.00  105.63   1.5315
+       20     2 N           2 CA          2 C           3 N          1.4613  105.63  180.00  117.06   1.3478
+       21     3 N           2 CA          2 *C          2 O          1.3478  117.06  180.00  120.71   1.2330
+       22     2 CA          2 C           3 N           3 CA         1.5315  117.06  180.00  125.39   1.4484
+       23     2 N           2 C           2 *CA         2 CB         1.4613  105.63  122.33  114.10   1.5619
+       24     2 N           2 C           2 *CA         2 HA         1.4613  105.63 -116.40  106.77   1.0841
+       25     2 N           2 CA          2 CB          2 CG         1.4613  111.11  180.00  112.60   1.5218
+       26     2 CG          2 CA          2 *CB         2 HB1        1.5218  112.60  119.22  109.23   1.1086
+       27     2 CG          2 CA          2 *CB         2 HB2        1.5218  112.60 -121.61  110.64   1.1080
+       28     2 CA          2 CB          2 CG          2 OD1        1.5619  112.60  180.00  117.99   1.2565
+       29     2 OD1         2 CB          2 *CG         2 OD2        1.2565  117.99 -170.23  117.70   1.2541
+       30     2 C           3 CA          3 *N          3 HN         1.3478  125.39  180.00  114.26   0.9995
+       31     2 C           3 N           3 CA          3 C          1.3478  125.39  180.00  106.09   1.5162
+       32     3 N           3 CA          3 C           4 N          1.4484  106.09  180.00  117.69   1.3449
+       33     4 N           3 CA          3 *C          3 O          1.3449  117.69  180.00  120.30   1.2294
+       34     3 CA          3 C           4 N           4 CA         1.5162  117.69  180.00  124.66   1.4525
+       35     3 N           3 C           3 *CA         3 CB         1.4484  106.09  126.46  112.74   1.5693
+       36     3 N           3 C           3 *CA         3 HA         1.4484  106.09 -114.92  106.53   1.0817
+       37     3 N           3 CA          3 CB          3 OG1        1.4484  114.80  180.00  112.16   1.4252
+       38     3 OG1         3 CA          3 *CB         3 HB         1.4252  112.16  116.39  106.11   1.1174
+       39     3 OG1         3 CA          3 *CB         3 CG2        1.4252  112.16 -124.13  115.91   1.5324
+       40     3 CA          3 CB          3 OG1         3 HG1        1.5693  112.16 -179.28  105.45   0.9633
+       41     3 CA          3 CB          3 CG2         3 HG21       1.5693  115.91 -173.65  110.85   1.1104
+       42     3 HG21        3 CB          3 *CG2        3 HG22       1.1104  110.85  119.51  110.41   1.1109
+       43     3 HG21        3 CB          3 *CG2        3 HG23       1.1104  110.85 -120.39  111.11   1.1113
+       44     3 C           4 CA          4 *N          4 CD         1.3449  124.66  178.51  112.75   1.4624
+       45     3 C           4 N           4 CA          4 C          1.3449  124.66  -76.12  110.86   1.5399
+       46     4 N           4 CA          4 C           5 N          1.4525  110.86  180.00  114.75   1.3569
+       47     5 N           4 CA          4 *C          4 O          1.3569  114.75  177.15  120.46   1.2316
+       48     4 CA          4 C           5 N           5 CA         1.5399  114.75  180.00  124.89   1.4517
+       49     4 N           4 C           4 *CA         4 CB         1.4525  110.86  113.74  111.74   1.5399
+       50     4 N           4 C           4 *CA         4 HA         1.4525  110.86 -122.40  109.09   1.0837
+       51     4 N           4 CA          4 CB          4 CG         1.4525  102.57   31.61  104.39   1.5322
+       52     4 CA          4 CB          4 CG          4 CD         1.5399  104.39  -34.54  103.08   1.5270
+       53     4 N           4 CA          4 CB          4 HB1        1.4525  102.57  -84.94  109.02   1.1131
+       54     4 N           4 CA          4 CB          4 HB2        1.4525  102.57  153.93  112.74   1.1088
+       55     4 CA          4 CB          4 CG          4 HG1        1.5399  104.39 -156.72  112.95   1.1077
+       56     4 CA          4 CB          4 CG          4 HG2        1.5399  104.39   81.26  109.22   1.1143
+       57     4 CB          4 CG          4 CD          4 HD1        1.5322  103.08  -93.55  110.03   1.1137
+       58     4 CB          4 CG          4 CD          4 HD2        1.5322  103.08  144.52  110.00   1.1144
+       59     4 C           5 CA          5 *N          5 CD         1.3569  124.89  178.51  112.75   1.4624
+       60     4 C           5 N           5 CA          5 C          1.3569  124.89  -76.12  110.86   1.5399
+       61     5 N           5 CA          5 C           6 N          1.4517  110.86  180.00  114.75   1.3569
+       62     6 N           5 CA          5 *C          5 O          1.3569  114.75  177.15  120.46   1.2316
+       63     5 CA          5 C           6 N           6 CA         1.5399  114.75  180.00  124.89   1.4517
+       64     5 N           5 C           5 *CA         5 CB         1.4517  110.86  113.74  111.74   1.5399
+       65     5 N           5 C           5 *CA         5 HA         1.4517  110.86 -122.40  109.09   1.0837
+       66     5 N           5 CA          5 CB          5 CG         1.4517  102.57   31.61  104.39   1.5322
+       67     5 CA          5 CB          5 CG          5 CD         1.5399  104.39  -34.53  103.06   1.5264
+       68     5 N           5 CA          5 CB          5 HB1        1.4517  102.57  -84.94  109.02   1.1131
+       69     5 N           5 CA          5 CB          5 HB2        1.4517  102.57  153.93  112.74   1.1088
+       70     5 CA          5 CB          5 CG          5 HG1        1.5399  104.39 -156.72  112.95   1.1077
+       71     5 CA          5 CB          5 CG          5 HG2        1.5399  104.39   81.26  109.22   1.1143
+       72     5 CB          5 CG          5 CD          5 HD1        1.5322  103.06  -93.55  110.03   1.1137
+       73     5 CB          5 CG          5 CD          5 HD2        1.5322  103.06  144.52  110.00   1.1144
+       74     5 C           6 CA          6 *N          6 HN         1.3569  124.89  180.00  114.41   0.9966
+       75     5 C           6 N           6 CA          6 C          1.3569  124.89  180.00  105.54   1.5180
+       76     6 N           6 CA          6 C           7 N          1.4517  105.54  180.00  117.83   1.3471
+       77     7 N           6 CA          6 *C          6 O          1.3471  117.83  180.00  120.70   1.2297
+       78     6 CA          6 C           7 N           7 CA         1.5180  117.83  180.00  124.08   1.4471
+       79     6 N           6 C           6 *CA         6 CB         1.4517  105.54  122.95  111.23   1.5660
+       80     6 N           6 C           6 *CA         6 HA         1.4517  105.54 -117.24  107.46   1.0828
+       81     6 N           6 CA          6 CB          6 CG1        1.4517  113.04  180.00  113.97   1.5441
+       82     6 CG1         6 CA          6 *CB         6 CG2        1.5441  113.97  123.99  112.17   1.5414
+       83     6 CG1         6 CA          6 *CB         6 HB         1.5441  113.97 -119.17  107.57   1.1178
+       84     6 CA          6 CB          6 CG1         6 HG11       1.5660  113.97  177.83  110.30   1.1114
+       85     6 HG11        6 CB          6 *CG1        6 HG12       1.1114  110.30  119.25  111.67   1.1097
+       86     6 HG11        6 CB          6 *CG1        6 HG13       1.1114  110.30 -119.49  110.70   1.1110
+       87     6 CA          6 CB          6 CG2         6 HG21       1.5660  112.17 -177.78  110.71   1.1108
+       88     6 HG21        6 CB          6 *CG2        6 HG22       1.1108  110.71  120.08  110.56   1.1115
+       89     6 HG21        6 CB          6 *CG2        6 HG23       1.1108  110.71 -119.55  111.23   1.1098
+       90     6 C           7 CA          7 *N          7 HN         1.3471  124.08  180.00  115.62   0.9992
+       91     6 C           7 N           7 CA          7 C          1.3471  124.08  180.00  108.94   1.4971
+       92     7 N           7 CA          7 C         -99 ??         1.4471  108.94    0.00    0.00   0.0000
+       93   -99 ??          7 CA          7 *C          7 O          0.0000    0.00    0.00  121.00   1.2300
+       94     7 CA          7 C         -99 ??        -99 ??         1.4971    0.00    0.00    0.00   0.0000
+       95     7 N           7 C           7 *CA         7 HA1        1.4471  108.94  117.86  108.03   1.0814
+       96     7 N           7 C           7 *CA         7 HA2        1.4471  108.94 -118.12  107.95   1.0817
+       97     7 N           7 CA          7 C           7 O          1.4471  108.94  180.00  121.00   1.2300
+       98     7 NT          7 CA          7 *C          7 O          1.3600  116.50  180.00  121.00   1.2300
+       99     7 CA          7 C           7 NT          7 HT1        1.4971  116.50 -180.00  120.00   1.0000
+      100     7 HT1         7 C           7 *NT         7 HT2        1.0000  120.00  180.00  120.00   1.0000
+  
+ CHARMM>    mini CONJ nstep 100 cutnb 14.0 ctonnb 10.0 ctofnb 12.0 inbfrq -1
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  FSHIft   VATOm    VFSWIt  
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 14.000 CTEXNB =999.000 CTONNB = 10.000 CTOFNB = 12.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are     3537 atom  pairs and      525 atom  exclusions.
+ There are        0 group pairs and       73 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR     4513 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+     3523 ATOM PAIRS WERE FOUND FOR ATOM LIST
+       55 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+
+
+ CONJUG> An energy minimization has been requested.
+
+ NCGCYC =          100   NSTEP  =          100
+ PCUT   =    0.9999000   PRTMIN =            1
+ STEP   =    0.0200000   TOLFUN =    0.0000000
+ TOLGRD =    0.0000000   TOLITR =          100
+ TOLSTP =    0.0000000
+
+MINI MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+MINI INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+MINI CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+MINI EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>        0     66.88010      0.00000      1.85513      0.00000
+MINI INTERN>        9.27879     33.20172      1.87414     38.75542      0.64381
+MINI CROSS>        -6.25049      0.00000      0.00000      0.00000
+MINI EXTERN>        6.75493    -17.37821      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       10     52.06106     14.81904      2.17038      0.08614
+MINI INTERN>        9.64187     31.15550      1.62395     38.98948      0.43115
+MINI CROSS>        -6.65191      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.41854    -22.71044      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       20     45.44254      6.61852      1.72652      0.12188
+MINI INTERN>        8.26192     29.06120      1.70328     38.23360      0.30045
+MINI CROSS>        -6.64343      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.26866    -25.20582      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       30     41.01216      4.43037      1.70332      0.16087
+MINI INTERN>        6.20156     27.22901      1.57181     38.13593      0.39980
+MINI CROSS>        -7.06343      0.00000      0.00000      0.00000
+MINI EXTERN>        0.53389    -25.99640      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       40     38.60597      2.40619      1.12310      0.07068
+MINI INTERN>        5.54292     24.63545      1.53233     39.72169      0.23529
+MINI CROSS>        -7.44707      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.68183    -24.93280      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       50     36.86357      1.74241      1.12642      0.07908
+MINI INTERN>        5.11936     23.99584      1.42983     40.52625      0.38045
+MINI CROSS>        -7.85601      0.00000      0.00000      0.00000
+MINI EXTERN>       -1.20402    -25.52814      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       60     35.34219      1.52138      1.19363      0.11099
+MINI INTERN>        5.04464     22.77904      1.41243     40.76014      0.41451
+MINI CROSS>        -8.01281      0.00000      0.00000      0.00000
+MINI EXTERN>       -1.59928    -25.45647      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       70     33.65028      1.69191      1.27506      0.11372
+MINI INTERN>        4.61686     22.00932      1.48139     40.45844      0.45525
+MINI CROSS>        -8.66522      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.66042    -26.04534      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       80     32.20531      1.44497      0.94119      0.09038
+MINI INTERN>        4.63174     22.13750      1.37304     40.76902      0.41837
+MINI CROSS>       -10.35567      0.00000      0.00000      0.00000
+MINI EXTERN>        0.93025    -27.69894      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       90     31.08218      1.12313      1.09125      0.10860
+MINI INTERN>        4.70269     23.14934      1.42112     40.47028      0.42951
+MINI CROSS>       -10.59731      0.00000      0.00000      0.00000
+MINI EXTERN>       -0.07139    -28.42206      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      100     29.90271      1.17948      0.91101      0.08762
+MINI INTERN>        4.74728     24.97730      1.51557     39.66750      0.62532
+MINI CROSS>       -10.10504      0.00000      0.00000      0.00000
+MINI EXTERN>       -1.27067    -30.25454      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+
+ CONJUG> Minimization exiting with number of steps limit (  100) exceeded.
+
+CONJ MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+CONJ INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+CONJ CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+CONJ EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+CONJ>      100     29.90271      1.17948      0.91101      0.02000
+CONJ INTERN>        4.74728     24.97730      1.51557     39.66750      0.62532
+CONJ CROSS>       -10.10504      0.00000      0.00000      0.00000
+CONJ EXTERN>       -1.27067    -30.25454      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>    coor orie rms
+ CENTER OF ATOMS BEFORE TRANSLATION     9.20796     4.64543    -2.37550
+ CENTER OF REFERENCE COORDINATE SET     9.20796     4.64543    -2.37550
+ NET TRANSLATION OF ROTATED ATOMS      -0.00000    -0.00000     0.00000
+ ROTATION MATRIX
+     1.000000   -0.000605    0.000174
+     0.000605    0.999994    0.003473
+    -0.000176   -0.003473    0.999994
+ AXIS OF ROTATION IS  0.983954 -0.049689 -0.171361  ANGLE IS    0.20
+
+ TOTAL SQUARE DIFF IS     93.8235  DENOMINATOR IS     96.0000
+       THUS RMS DIFF IS    0.988599
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>    IC PRINT
+
+       INTERNAL COORDINATES
+ TITLE>  * ADTPPVG : WH5: WAAAH+ PEPTIDE
+ TITLE>  *  DATE:     5/31/24     14:35:51      CREATED BY USER: jinyan
+ TITLE>  *
+
+     NUMBER OF INTERNAL COORDINATES :        100
+
+        N      I             J             K             L        R(I(J/K)) T(I(JK/KJ)) PHI   T(JKL)   R(KL)
+
+        1     1 CY          1 N           1 CA          1 C          1.3450  120.00  -60.00  114.44   1.5390
+        2     1 CY          1 CA          1 *N          1 HN         1.3450  120.00  180.00  117.00   0.9970
+        3     1 CAY         1 CY          1 N           1 CA         1.4900  116.50  180.00  120.00   1.4592
+        4     1 N           1 CAY         1 *CY         1 OY         1.3450  116.50  180.00  121.00   1.2300
+        5     1 OY          1 CY          1 CAY         1 HY1        1.2300  121.00  180.00  109.50   1.1110
+        6     1 OY          1 CY          1 CAY         1 HY2        1.2300  121.00   60.00  109.50   1.1110
+        7     1 OY          1 CY          1 CAY         1 HY3        1.2300  121.00  -60.00  109.50   1.1110
+        8   -99 ??          1 CA          1 *N          1 HN         0.0000    0.00    0.00  117.00   0.9970
+        9   -99 ??          1 N           1 CA          1 C          0.0000    0.00    0.00  114.44   1.5390
+       10     1 N           1 CA          1 C           2 N          1.4592  114.44  180.00  116.84   1.3558
+       11     2 N           1 CA          1 *C          1 O          1.3558  116.84  180.00  122.52   1.2297
+       12     1 CA          1 C           2 N           2 CA         1.5390  116.84  180.00  126.77   1.4613
+       13     1 N           1 C           1 *CA         1 CB         1.4592  114.44  123.23  111.09   1.5461
+       14     1 N           1 C           1 *CA         1 HA         1.4592  114.44 -120.45  106.39   1.0840
+       15     1 C           1 CA          1 CB          1 HB1        1.5390  111.09  177.25  109.60   1.1109
+       16     1 HB1         1 CA          1 *CB         1 HB2        1.1109  109.60  119.13  111.05   1.1119
+       17     1 HB1         1 CA          1 *CB         1 HB3        1.1109  109.60 -119.58  111.61   1.1114
+       18     1 C           2 CA          2 *N          2 HN         1.3558  126.77  180.00  112.94   0.9966
+       19     1 C           2 N           2 CA          2 C          1.3558  126.77  180.00  105.63   1.5315
+       20     2 N           2 CA          2 C           3 N          1.4613  105.63  180.00  117.06   1.3478
+       21     3 N           2 CA          2 *C          2 O          1.3478  117.06  180.00  120.71   1.2330
+       22     2 CA          2 C           3 N           3 CA         1.5315  117.06  180.00  125.39   1.4484
+       23     2 N           2 C           2 *CA         2 CB         1.4613  105.63  122.33  114.10   1.5619
+       24     2 N           2 C           2 *CA         2 HA         1.4613  105.63 -116.40  106.77   1.0841
+       25     2 N           2 CA          2 CB          2 CG         1.4613  111.11  180.00  112.60   1.5218
+       26     2 CG          2 CA          2 *CB         2 HB1        1.5218  112.60  119.22  109.23   1.1086
+       27     2 CG          2 CA          2 *CB         2 HB2        1.5218  112.60 -121.61  110.64   1.1080
+       28     2 CA          2 CB          2 CG          2 OD1        1.5619  112.60  180.00  117.99   1.2565
+       29     2 OD1         2 CB          2 *CG         2 OD2        1.2565  117.99 -170.23  117.70   1.2541
+       30     2 C           3 CA          3 *N          3 HN         1.3478  125.39  180.00  114.26   0.9995
+       31     2 C           3 N           3 CA          3 C          1.3478  125.39  180.00  106.09   1.5162
+       32     3 N           3 CA          3 C           4 N          1.4484  106.09  180.00  117.69   1.3449
+       33     4 N           3 CA          3 *C          3 O          1.3449  117.69  180.00  120.30   1.2294
+       34     3 CA          3 C           4 N           4 CA         1.5162  117.69  180.00  124.66   1.4525
+       35     3 N           3 C           3 *CA         3 CB         1.4484  106.09  126.46  112.74   1.5693
+       36     3 N           3 C           3 *CA         3 HA         1.4484  106.09 -114.92  106.53   1.0817
+       37     3 N           3 CA          3 CB          3 OG1        1.4484  114.80  180.00  112.16   1.4252
+       38     3 OG1         3 CA          3 *CB         3 HB         1.4252  112.16  116.39  106.11   1.1174
+       39     3 OG1         3 CA          3 *CB         3 CG2        1.4252  112.16 -124.13  115.91   1.5324
+       40     3 CA          3 CB          3 OG1         3 HG1        1.5693  112.16 -179.28  105.45   0.9633
+       41     3 CA          3 CB          3 CG2         3 HG21       1.5693  115.91 -173.65  110.85   1.1104
+       42     3 HG21        3 CB          3 *CG2        3 HG22       1.1104  110.85  119.51  110.41   1.1109
+       43     3 HG21        3 CB          3 *CG2        3 HG23       1.1104  110.85 -120.39  111.11   1.1113
+       44     3 C           4 CA          4 *N          4 CD         1.3449  124.66  178.51  112.75   1.4624
+       45     3 C           4 N           4 CA          4 C          1.3449  124.66  -76.12  110.86   1.5399
+       46     4 N           4 CA          4 C           5 N          1.4525  110.86  180.00  114.75   1.3569
+       47     5 N           4 CA          4 *C          4 O          1.3569  114.75  177.15  120.46   1.2316
+       48     4 CA          4 C           5 N           5 CA         1.5399  114.75  180.00  124.89   1.4517
+       49     4 N           4 C           4 *CA         4 CB         1.4525  110.86  113.74  111.74   1.5399
+       50     4 N           4 C           4 *CA         4 HA         1.4525  110.86 -122.40  109.09   1.0837
+       51     4 N           4 CA          4 CB          4 CG         1.4525  102.57   31.61  104.39   1.5322
+       52     4 CA          4 CB          4 CG          4 CD         1.5399  104.39  -34.54  103.08   1.5270
+       53     4 N           4 CA          4 CB          4 HB1        1.4525  102.57  -84.94  109.02   1.1131
+       54     4 N           4 CA          4 CB          4 HB2        1.4525  102.57  153.93  112.74   1.1088
+       55     4 CA          4 CB          4 CG          4 HG1        1.5399  104.39 -156.72  112.95   1.1077
+       56     4 CA          4 CB          4 CG          4 HG2        1.5399  104.39   81.26  109.22   1.1143
+       57     4 CB          4 CG          4 CD          4 HD1        1.5322  103.08  -93.55  110.03   1.1137
+       58     4 CB          4 CG          4 CD          4 HD2        1.5322  103.08  144.52  110.00   1.1144
+       59     4 C           5 CA          5 *N          5 CD         1.3569  124.89  178.51  112.75   1.4624
+       60     4 C           5 N           5 CA          5 C          1.3569  124.89  -76.12  110.86   1.5399
+       61     5 N           5 CA          5 C           6 N          1.4517  110.86  180.00  114.75   1.3569
+       62     6 N           5 CA          5 *C          5 O          1.3569  114.75  177.15  120.46   1.2316
+       63     5 CA          5 C           6 N           6 CA         1.5399  114.75  180.00  124.89   1.4517
+       64     5 N           5 C           5 *CA         5 CB         1.4517  110.86  113.74  111.74   1.5399
+       65     5 N           5 C           5 *CA         5 HA         1.4517  110.86 -122.40  109.09   1.0837
+       66     5 N           5 CA          5 CB          5 CG         1.4517  102.57   31.61  104.39   1.5322
+       67     5 CA          5 CB          5 CG          5 CD         1.5399  104.39  -34.53  103.06   1.5264
+       68     5 N           5 CA          5 CB          5 HB1        1.4517  102.57  -84.94  109.02   1.1131
+       69     5 N           5 CA          5 CB          5 HB2        1.4517  102.57  153.93  112.74   1.1088
+       70     5 CA          5 CB          5 CG          5 HG1        1.5399  104.39 -156.72  112.95   1.1077
+       71     5 CA          5 CB          5 CG          5 HG2        1.5399  104.39   81.26  109.22   1.1143
+       72     5 CB          5 CG          5 CD          5 HD1        1.5322  103.06  -93.55  110.03   1.1137
+       73     5 CB          5 CG          5 CD          5 HD2        1.5322  103.06  144.52  110.00   1.1144
+       74     5 C           6 CA          6 *N          6 HN         1.3569  124.89  180.00  114.41   0.9966
+       75     5 C           6 N           6 CA          6 C          1.3569  124.89  180.00  105.54   1.5180
+       76     6 N           6 CA          6 C           7 N          1.4517  105.54  180.00  117.83   1.3471
+       77     7 N           6 CA          6 *C          6 O          1.3471  117.83  180.00  120.70   1.2297
+       78     6 CA          6 C           7 N           7 CA         1.5180  117.83  180.00  124.08   1.4471
+       79     6 N           6 C           6 *CA         6 CB         1.4517  105.54  122.95  111.23   1.5660
+       80     6 N           6 C           6 *CA         6 HA         1.4517  105.54 -117.24  107.46   1.0828
+       81     6 N           6 CA          6 CB          6 CG1        1.4517  113.04  180.00  113.97   1.5441
+       82     6 CG1         6 CA          6 *CB         6 CG2        1.5441  113.97  123.99  112.17   1.5414
+       83     6 CG1         6 CA          6 *CB         6 HB         1.5441  113.97 -119.17  107.57   1.1178
+       84     6 CA          6 CB          6 CG1         6 HG11       1.5660  113.97  177.83  110.30   1.1114
+       85     6 HG11        6 CB          6 *CG1        6 HG12       1.1114  110.30  119.25  111.67   1.1097
+       86     6 HG11        6 CB          6 *CG1        6 HG13       1.1114  110.30 -119.49  110.70   1.1110
+       87     6 CA          6 CB          6 CG2         6 HG21       1.5660  112.17 -177.78  110.71   1.1108
+       88     6 HG21        6 CB          6 *CG2        6 HG22       1.1108  110.71  120.08  110.56   1.1115
+       89     6 HG21        6 CB          6 *CG2        6 HG23       1.1108  110.71 -119.55  111.23   1.1098
+       90     6 C           7 CA          7 *N          7 HN         1.3471  124.08  180.00  115.62   0.9992
+       91     6 C           7 N           7 CA          7 C          1.3471  124.08  180.00  108.94   1.4971
+       92     7 N           7 CA          7 C         -99 ??         1.4471  108.94    0.00    0.00   0.0000
+       93   -99 ??          7 CA          7 *C          7 O          0.0000    0.00    0.00  121.00   1.2300
+       94     7 CA          7 C         -99 ??        -99 ??         1.4971    0.00    0.00    0.00   0.0000
+       95     7 N           7 C           7 *CA         7 HA1        1.4471  108.94  117.86  108.03   1.0814
+       96     7 N           7 C           7 *CA         7 HA2        1.4471  108.94 -118.12  107.95   1.0817
+       97     7 N           7 CA          7 C           7 O          1.4471  108.94  180.00  121.00   1.2300
+       98     7 NT          7 CA          7 *C          7 O          1.3600  116.50  180.00  121.00   1.2300
+       99     7 CA          7 C           7 NT          7 HT1        1.4971  116.50 -180.00  120.00   1.0000
+      100     7 HT1         7 C           7 *NT         7 HT2        1.0000  120.00  180.00  120.00   1.0000
+  
+ CHARMM>     
+  
+ CHARMM>    open unit 4 card write name @s_m.pdb
+ Parameter: S -> "ADTPPVG"
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    4 with status "KEEP"
+ VOPEN> Attempting to open::adtppvg_m.pdb::
+ OPNLGU> Unit  4 opened for WRITE access to adtppvg_m.pdb
+  
+ CHARMM>    write COOR pdb unit 4
+ RDTITL> * ADTPPVG : WH5: WAAAH+ PEPTIDE  ENERGY MINIMIZED
+ RDTITL> *
+  Write CHARMM-pdb format
+  
+ CHARMM>    open unit 4 card write name @s_m.crd
+ Parameter: S -> "ADTPPVG"
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    4 with status "KEEP"
+ VOPEN> Attempting to open::adtppvg_m.crd::
+ OPNLGU> Unit  4 opened for WRITE access to adtppvg_m.crd
+  
+ CHARMM>    write COOR card unit 4
+ RDTITL> * ADTPPVG : WH5: WAAAH+ PEPTIDE  ENERGY MINIMIZED
+ RDTITL> *
+ VCLOSE: Closing unit    4 with status "KEEP"
+  
+ CHARMM>    STOP
+ VCLOSE: Closing unit    1 with status "KEEP"
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VCLOSE: Closing unit    3 with status "KEEP"
+$$$$$$  New timer profile $$$$$
+      Nonbond force                   0.03 Other:            0.00
+         Bond energy                     0.00 Other:            0.00
+         Angle energy                    0.00 Other:            0.00
+         Dihedral energy                 0.01 Other:            0.00
+         Restraints energy               0.00 Other:            0.00
+      INTRNL energy                   0.02 Other:            0.00
+   Energy time                     0.05 Other:            0.00
+ Total time                      0.12 Other:            0.07
+
+                    NORMAL TERMINATION BY NORMAL STOP
+                    NO WARNINGS WERE ISSUED
+
+                    $$$$$ JOB ACCOUNTING INFORMATION $$$$$
+                     ELAPSED TIME:     0.12  SECONDS 
+                         CPU TIME:     0.10  SECONDS 
