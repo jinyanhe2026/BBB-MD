@@ -1,0 +1,42 @@
+;
+;	User kuczera
+;	10 Oct 2015
+;	Input file for unrestrained MD : CHARMM36 GMX5 a la CHARMM-GUI
+;
+integrator          =  md
+dt                  =  0.002	; ps !
+nsteps              =  5000	; test: 10ps.
+;nsteps              =  50000000	; traj gen: 50e6 steps= 100ns.
+nstxout             =  1000
+nstvout             =  0
+nstfout             =  0
+nstlog              =  5000
+nstcalcenergy       =  1000
+nstenergy           =  1000
+;  CHARMM 36 nb setup
+cutoff-scheme       = Verlet
+nstlist             =  20      
+rlist               =  1.2
+coulomb_type        =  PME
+rcoulomb            =  1.2
+vdw-type            =  cut-off
+vdw-modifier        =  force-switch
+rvdw                =  1.2
+rvdw-switch         =  1.0
+
+; Constant temperature
+Tcoupl              =  v-rescale
+tc-grps		    =  System
+tau_t               =  0.1 
+ref_t               =  300.
+; Constant pressure is off
+; Generate velocites is off at 300 K.
+gen_vel             =  no
+;constraints etc
+constraints             = h-bonds
+constraint_algorithm    = LINCS
+continuation            = yes
+nstcomm                 = 100
+comm_mode               = linear
+comm_grps               = System
+refcoord_scaling        = com
