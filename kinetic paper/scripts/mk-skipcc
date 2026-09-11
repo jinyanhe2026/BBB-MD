@@ -1,0 +1,16 @@
+#  make input for clusterd - phi psi
+#  extract every 100th data 
+awk -f skip_awk -v n=10 ./data/ssngna/data1/phi1.tms > ./data/ssngna/data1/phi1.tms10
+awk -f skip_awk -v n=10 ./data/ssngna/data1/phi2.tms > ./data/ssngna/data1/phi2.tms10
+awk -f skip_awk -v n=10 ./data/ssngna/data1/phi3.tms > ./data/ssngna/data1/phi3.tms10
+awk -f skip_awk -v n=10 ./data/ssngna/data1/phi4.tms > ./data/ssngna/data1/phi4.tms10
+awk -f skip_awk -v n=10 ./data/ssngna/data1/phi5.tms > ./data/ssngna/data1/phi5.tms10
+awk -f skip_awk -v n=10 ./data/ssngna/data1/phi6.tms > ./data/ssngna/data1/phi6.tms10
+awk -f skip_awk -v n=10 ./data/ssngna/data1/psi1.tms > ./data/ssngna/data1/psi1.tms10
+awk -f skip_awk -v n=10 ./data/ssngna/data1/psi2.tms > ./data/ssngna/data1/psi2.tms10
+awk -f skip_awk -v n=10 ./data/ssngna/data1/psi3.tms > ./data/ssngna/data1/psi3.tms10
+awk -f skip_awk -v n=10 ./data/ssngna/data1/psi4.tms > ./data/ssngna/data1/psi4.tms10
+awk -f skip_awk -v n=10 ./data/ssngna/data1/psi5.tms > ./data/ssngna/data1/psi5.tms10
+awk -f skip_awk -v n=10 ./data/ssngna/data1/psi6.tms > ./data/ssngna/data1/psi6.tms10
+
+echo "...created phi1 phi2 phi3 phi4 phi5 phi6 psi1 psi2 psi3 psi4 psi5 psi6 .tms10"

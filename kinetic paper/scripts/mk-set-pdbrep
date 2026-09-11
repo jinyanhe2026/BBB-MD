@@ -1,0 +1,18 @@
+# mk-set-pdbrep  : write out structure of first cluster in each PCCA set
+# use: csh mk-set-pdbrep 3 pcca3 clist3 ../../../cluster6a/pdb/wh21 wh21
+#  1 = no of sets ; 2 = directory with data ; 3 = file with set definitions
+#  4 = directory and 5 = prefix for cluster center files
+# use pcca?/clist? files to make lists of PDB structures for cat
+#
+set i = 1
+set source = $4
+while ( $i <= $1 )
+# identify first cluster in each set - from pcca?/clist?
+ echo "$i","$i"p > sedscript
+ sed -n -f sedscript $2/$3 > list
+ set  x = `awk '{print $1}' list`
+# copy to pcca dir
+ cat "$source""_""$x.pdb" > $2/$5-setrep-$i.pdb
+ echo "...written set representative PDB to $2/$5-setrep-$i.pdb"
+ @ i +=1
+end

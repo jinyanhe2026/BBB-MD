@@ -1,0 +1,56 @@
+*  generate WH5 
+* 
+bomlev -9
+!prnlev  4
+
+set s ssngna                 ! PSF prefix
+set r ssngna                 ! segid
+set t ssngna      peptide    ! title
+
+set toppar = /home/kuczera/prog/charmm/c40b1/toppar
+open unit 1 card read name  @toppar/top_all22_prot.rtf
+read RTF card unit 1
+open unit 2 card read name  @toppar/par_all22_prot.prm
+read PARA card unit 2 
+open unit 3 card read name ssngna.pdb
+read sequ pdb unit 3
+
+
+
+generate @r  first ACE last CT2 setup
+
+open unit 4 card write name @s.psf
+write PSF card unit 4
+* @s : @t  
+*
+
+
+IC PARA
+ic seed 1 N 1 CA 1 C
+ic build
+ic fill 
+ic print
+coor print
+
+hbuild sele hydrogen end
+coor print
+coor copy comp
+
+
+! short energy minimization
+mini SD   nstep 100 cutnb 14.0 ctonnb 10.0 ctofnb 12.0 inbfrq -1
+coor orie rms
+IC PRINT
+mini CONJ nstep 100 cutnb 14.0 ctonnb 10.0 ctofnb 12.0 inbfrq -1
+coor orie rms
+IC PRINT
+
+open unit 4 card write name @s_m.pdb
+write COOR pdb unit 4
+* @s : @t  energy minimized
+*
+open unit 4 card write name @s_m.crd
+write COOR card unit 4
+* @s : @t  energy minimized 
+*
+STOP

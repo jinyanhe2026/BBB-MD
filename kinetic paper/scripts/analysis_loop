@@ -1,0 +1,68 @@
+
+
+
+### analysis
+set GMXBIN = /home/kuczera/prog/gromacs-5.1.4/bin
+set traj = ssngna/dyn_all.xtc
+
+##### RMSD calculation to starting  protein structure : for CA atoms        [rmsd-loop]
+# 3/3 = CA rmsd
+#
+set plot = rmsd_file/dyn_all_rmsd_em.xvg
+#
+$GMXBIN/gmx rms -s em.tpr -f $traj -o $plot << %END
+3
+3
+%END
+
+
+
+##### RMSF calculation : for CA atoms        [rmsd-loopq]
+# 3/3 = CA rmsf
+#
+set plot = rmsf_file/dyn_all_rmsf.xvg
+#
+$GMXBIN/gmx rmsf -s ../ssngna/tpr_files/dyn"$i".tpr)(em.tpr) -f $traj -o $plot << %END
+3
+%END
+
+##### RGYR calculation : for protein atoms        [rmsd-loopq]
+# selection 1 = protein
+#
+
+set plot = gyrate/dyn_all_gyrate.xvg
+#
+$GMXBIN/gmx gyrate -s ../ssngna/tpr_files/dyn"$i".tpr(em.tpr) -f $traj -o $plot << %END
+1
+%END
+
+###### PP = phi-psi calculations using pp.ndx -> data/ppall  [pp-loopq]
+#
+set plot = phi_psi/dyn_all_ppall.xvg
+
+$GMXBIN/gmx angle -f $traj -n ssngna/index/pp.ndx -all -type dihedral -ov $plot
+#####  EEDIST calculation: need eedist.ndx file
+#
+#
+set plot = eedistan/dyn_all_eedistan.xvg
+$GMXBIN/gmx distance -s ../ssngna/tpr_files/dyn"$i".tpr(em.tpr) -f $traj -oall $plot -n ssngna/index/eedist.ndx -select 'com of group "ACE-CH3" plus com of group "CTE-NH2"'
+#
+#
+
+???????#####     ssngna_full.gro
+### to make pp.ndx file
+# grep " N " ssngna_d20.gro > n-list
+# # grep "CA" ssngna_d20.gro > ca-list
+# # grep " C " ssngna_d20.gro > c-list
+#
+# #creat copies : ct-list and nt-list with the first lines deleted
+# #
+# #extract column 3 using: awk '{ print $3 }' n-list > n-lista
+# #                        awk '{ print $3 }' c-list > c-lista
+# #                        awk '{ print $3 }' ca-list > ca-lista
+# #                        awk '{ print $3 }' nt-list > nt-lista
+# #                        awk '{ print $3 }' ct-list > ct-lista
+# #paste c-lista n-lista ca-lista ct-lista > phi-list
+# #paste n-lista ca-lista ct-lista nt-lista > psi-list
+# ###-------------check phi, psi angles. some lines only has 3 atoms adding the misssing one.
+# #cat phi-list psi-list > pp.ndx ###---make a title for pp.ndx file

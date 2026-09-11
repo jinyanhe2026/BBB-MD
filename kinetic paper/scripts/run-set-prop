@@ -1,0 +1,9 @@
+# Calculate average properties of cluster sets
+# use: csh run-set-prop <nc> <ext>
+#
+echo "...using ../cluster.prop$2 Nc=$1"
+foreach i ( 2 3 4 5 6 7  )
+   cat pcca$i/clist$i cluster.prop$2 > pcca$i/temp
+   awk -f sets-prop-nata_awk -v nc=$1 -v ns=$i pcca$i/temp > pcca$i/sets.prop
+   echo "...generated pcca$i/sets.prop "
+end

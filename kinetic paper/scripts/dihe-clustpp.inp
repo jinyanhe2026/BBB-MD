@@ -1,0 +1,38 @@
+*  ssngna  - dihedral clustering : PP only
+*  input=catted tms for all 6  residues 
+* 
+bomlev -9
+!prnlev  4
+
+set s ssngna                 ! PSF prefix
+set r ssngna                 ! segid
+set t ssngna    peptide      ! title
+
+set toppar = /home/kuczera/prog/charmm/c40b1/toppar
+open unit 1 card read name  @toppar/top_all22_prot.rtf
+read RTF card unit 1
+open unit 2 card read name  @toppar/par_all22_prot.prm
+read PARA card unit 2 
+
+open unit 4 card read name @s.psf
+read PSF card unit 4
+
+open unit 4 card read name @s_m.crd
+read COOR card unit 4
+
+! use correl : define phi,psi - for residue 1
+correl maxa 10 maxs 4 maxt 1800000
+enter s1 dihe 1 CY  1 N  1 CA 1 C
+enter s2 dihe 1 N   1 CA 1 C  2 N
+
+open unit 1 card read name ./data1/phicat.tms
+read s1 unit 1 dumb colu 2
+open unit 2 card read name ./data1/psicat.tms
+read s2 unit 2 dumb colu 2
+
+open unit 21 card write name unimpp.tms_92
+edit s1 veccod 2
+cluster s1 radius 92.0 Angle unimember 21 maxclust 200
+
+end
+STOP

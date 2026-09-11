@@ -1,0 +1,13 @@
+#  make input for clusterd
+if ( -e junk-phi ) rm junk-phi ; touch junk-phi
+if ( -e junk-psi ) rm junk-psi ; touch junk-psi
+foreach i ( 1 2 3 4 5 6  )
+awk -f skip_awk -v n=10 ./data/ssngna/data1/phi$i.tms > phit
+awk -f skip_awk -v n=10 ./data/ssngna/data1/psi$i.tms > psit
+cat phit >> junk-phi
+cat psit >> junk-psi
+end
+mv junk-phi phicat.tms
+mv junk-psi psicat.tms
+echo "...>> to data1/phicat and data1/psicat "
+rm phit psit

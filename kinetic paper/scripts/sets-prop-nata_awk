@@ -1,0 +1,50 @@
+# sets-prop-nata_awk: PCCA set property analysis : NATA version
+# use: awk -f sets-prop-nata_awk -v nc=18 v ns=2 xdatafile > set.prop
+# nc - no of clusters ; ns = no of sets
+#   input: top ns lines = sets (pccan/clistn)
+#          bot nc lines = (i,phi,psi,chi1,chi2,i,pop) - cluster props 
+#   output = for j=1,ns  
+#            list of center diheds of contributing clusters, total_pop,G
+#            G is in kcal/mol
+#
+BEGIN{ i = 0 ; k = 0 ; rtfact = (8.314*300.0*1.000e-3)/4.184 }
+{
+# store cluster numbers in c[i,j]  and clusters in set in nsc[i]
+  if( NR <= ns ) { i++ ; nsc[i]=NF  
+             for(j=1;j<=NF;j++) { c[i,j] = $j }
+#             for(j=1;j<=NF;j++) { printf("%4d",c[i,j]) } 
+#             printf("\n")
+           }
+# store cluster properties in phi,psi,chi1,chi2,pop[k]
+  if ( NR > ns ) { k++ ; phi[k] = $2 ;  
+                         pop[k] = $4 }
+#                  print k,phi[k],psi[k],chi1[k],chi2[k],pop[k]
+}
+END{ 
+#  calculate total pops and G
+      for(i=1;i<=ns;i++) {
+         wt = 0.0 
+         nsci = nsc[i]
+         for(k=1;k<=nsci;k++) {
+             ik = c[i,k]
+             wt += pop[ik]
+                              }
+             wtot[i] = wt
+             g[i] = -rtfact*log(wt)
+ #printf("%4d %10.7f %10.4f\n",i,wtot[i],g[i])
+ #print "...rtfact=",rtfact
+                            }
+# shift G by lowest value
+      gm = g[1] ; im = 1
+      for(i=2;i<=ns;i++) { if ( g[i] <= gm ) { gm = g[i] ; im = i } }
+      for(i=1;i<=ns;i++) { g[i] = g[i] - gm }
+# print output
+      for(i=1;i<=ns;i++) { 
+      printf("Set i= %4d ptot= %10.7f G= %10.4f kcal/mol\n",i,wtot[i],g[i])
+      nsci=nsc[i]
+         for(k=1;k<=nsci;k++) {
+         ik = c[i,k]
+         printf("%4d   %4d  %10.7f\n",ik,phi[ik],pop[ik])
+                              }
+                         }
+}

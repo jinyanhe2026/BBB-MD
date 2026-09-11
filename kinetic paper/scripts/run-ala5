@@ -1,0 +1,30 @@
+#!/bin/sh
+#SBATCH --job-name=ssngna
+#SBATCH --nodes=1 --ntasks-per-node=56 --mem-per-cpu=250M --time=480:00:00
+#SBATCH --partition=bigjay
+#SBATCH --mail-user=j237h128@ku.edu
+#SBATCH --mail-type=END,FAIL
+#SBATCH --output=job.log
+#SBATCH --no-requeue
+
+#   GROMACS MD : ALA5 with CHARMM36m + TIP3P
+GMXBIN=/home/kkuczera/prog/gromacsn/gromacs-5.1/bin
+module load compiler/intel/19 openmpi/4.0
+
+time=100000
+
+# run first step of MD = 100 ns
+i=1
+$GMXBIN/gmx_mpi grompp -f dyn1.mdp -o data/dyn$i.tpr -c ssngna_full -p ssngna.top >& out/grompp$i.log
+mpirun $GMXBIN/mdrun_mpi -s data/dyn$i -o cor/dyn$i -g out/d$i -e data/d$i -cpo data/d$i -c data/ssngna_d$i -ntomp 1 -npme 8 >& out/d$i.job
+
+
+# further stages - 870 ns/day
+let i=i+1
+while (( $i < 101 ))
+do
+let j=i-1
+$GMXBIN/gmx_mpi convert-tpr -s data/dyn$j.tpr -o data/dyn$i.tpr -extend $time
+mpirun $GMXBIN/mdrun_mpi -s data/dyn$i -e data/d$i -o cor/dyn$i -c data/ssngna_d$i -g out/d$i -cpi data/d$j -cpo data/d$i -ntomp 1 -npme 8  >& out/d$i.job
+let i=i+1
+done

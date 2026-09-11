@@ -1,0 +1,7 @@
+# skip_awk : print out every n-th line of file
+# use: awk -f ~/anal/skip_awk -v n=10 file > output
+#
+{
+  i++
+  if ( i == n ) { i = 0 ; print $0 }
+}

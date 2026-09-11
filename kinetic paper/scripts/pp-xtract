@@ -1,0 +1,23 @@
+# pp-xtract : extract the phi,psi time series from GROMACS output - MD
+# use: csh pp-xtract 
+#
+  set input = ../dyn_all__ppall.xvg
+#
+  awk -f ppxtract_awk -v n=3 $input > ./data/ssngna/data1/phi1.tms
+  awk -f ppxtract_awk -v n=4 $input > ./data/ssngna/data1/phi2.tms
+  awk -f ppxtract_awk -v n=5 $input > ./data/ssngna/data1/phi3.tms
+  awk -f ppxtract_awk -v n=6 $input > ./data/ssngna/data1/phi4.tms
+  awk -f ppxtract_awk -v n=7 $input > ./data/ssngna/data1/phi5.tms
+  awk -f ppxtract_awk -v n=8 $input > ./data/ssngna/data1/phi6.tms
+# 
+  awk -f ppxtract_awk -v n=9   $input > ./data/ssngna/data1/psi1.tms
+  awk -f ppxtract_awk -v n=10  $input > ./data/ssngna/data1/psi2.tms
+  awk -f ppxtract_awk -v n=11  $input > ./data/ssngna/data1/psi3.tms
+  awk -f ppxtract_awk -v n=12  $input > ./data/ssngna/data1/psi4.tms
+  awk -f ppxtract_awk -v n=13  $input > ./data/ssngna/data1/psi5.tms
+  awk -f ppxtract_awk -v n=14  $input > ./data/ssngna/data1/psi6.tms
+#
+#
+#
+  echo "...extracted phi/psi tms for md "
+

@@ -1,0 +1,23 @@
+# Calculate a potential of mean force from a probability distribution
+#   + shift by lowest value
+#  usage : "awk -f pmfm_awk data-file > output-file"
+#  input = output file from hist_awk, a histogram of probability vs.  distance
+#  output = potential of mean force in kcal/(mol A), w(x) = -k*T*log(P(x))
+# eps is the smallest number considered > 0
+# kb is the Boltzmann constant in kcal/(mol K)
+# t is the temperature  ( set it to average simulation temp)
+#
+BEGIN{ n = 0 ; kb = 1.987e-3 ; t = 300.0 ; eps = 1.0e-10 }
+      { n++ ;
+       x[n] = $1 ; y[n] = $2
+       g[n] = 999
+       {if( y[n] > eps ) g[n] =  -kb*t*log(y[n])  }
+      }
+END{
+# shift G by lowest value
+       gm = g[1] ; im = 1
+             for(i=2;i<=n;i++) { if ( g[i] <= gm ) { gm = g[i] ; im = i } }
+                   for(i=1;i<=n;i++) { g[i] = g[i] - gm }
+# print out x,g,pop
+      for(i=1;i<=n;i++) printf("%10.4f\t%12.6f\t%12.6f\n", x[i], g[i], y[i])
+   }

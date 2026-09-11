@@ -1,0 +1,71 @@
+* peptide ssngna  - dihedral clustering
+*  all indivdual phi,psi diheds
+* 
+bomlev -9
+!prnlev  4
+
+set s ssngna                 ! PSF prefix
+set r ssngna                 ! segid
+set t ssngna      peptide    ! title
+
+set toppar = /home/kuczera/prog/charmm/c40b1/toppar
+open unit 1 card read name  @toppar/top_all22_prot.rtf
+read RTF card unit 1
+open unit 2 card read name  @toppar/par_all22_prot.prm
+read PARA card unit 2 
+
+open unit 4 card read name @s.psf
+read PSF card unit 4
+
+open unit 4 card read name @s_m.crd
+read COOR card unit 4
+
+! use correl : define phi,psi
+! details are not important here, just dimensions of data
+correl maxa 75 maxs 14 maxt 500000
+enter  s1 dihe 1 CY  1 N  1 CA 1 C
+enter  s2 dihe 1 N   1 CA 1 C  2 N 
+enter  s3 dihe 1 C   2 N  2 CA 2 C
+enter  s4 dihe 2 N   2 CA 2 C  3 N 
+enter  s5 dihe 2 C   3 N  3 CA 3 C
+enter  s6 dihe 3 N   3 CA 3 C  4 N 
+enter  s7 dihe 3 C   4 N  4 CA 4 C
+enter  s8 dihe 4 N   4 CA 4 C  5 N 
+enter  s9 dihe 4 C   5 N  5 CA 5 C
+enter s10 dihe 5 N   5 CA 5 C  6 N
+enter s11 dihe 5 C   6 N  6 CA 6 C
+enter s12 dihe 6 N   6 CA 6 C  7 NT
+
+
+open unit 2 card read name ../data1/phi1.tms10
+read s1 unit 2 dumb colu 2
+open unit 2 card read name ../data1/psi1.tms10
+read s2 unit 2 dumb colu 2
+open unit 2 card read name ../data1/phi2.tms10
+read s3 unit 2 dumb colu 2
+open unit 2 card read name ../data1/psi2.tms10
+read s4 unit 2 dumb colu 2
+open unit 2 card read name ../data1/phi3.tms10
+read s5 unit 2 dumb colu 2
+open unit 2 card read name ../data1/psi3.tms10
+read s6 unit 2 dumb colu 2
+open unit 2 card read name ../data1/phi4.tms10
+read s7 unit 2 dumb colu 2
+open unit 2 card read name ../data1/psi4.tms10
+read s8 unit 2 dumb colu 2
+open unit 2 card read name ../data1/phi5.tms10
+read s9 unit 2 dumb colu 2
+open unit 2 card read name ../data1/psi5.tms10
+read s10 unit 2 dumb colu 2
+open unit 2 card read name ../data1/phi6.tms10
+read s11 unit 2 dumb colu 2
+open unit 2 card read name ../data1/psi6.tms10
+read s12 unit 2 dumb colu 2
+
+
+open unit 21 card write name unimppall.tms10_94
+edit s1 veccod 12
+cluster s1 radius 94.0 Angle unimember 21 maxclust 400 maxiter 1000
+
+end
+STOP

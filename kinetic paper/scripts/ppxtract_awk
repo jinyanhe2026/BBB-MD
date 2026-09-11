@@ -1,0 +1,7 @@
+# ppxtract_awk: extract phi/psi time series from column 'n' of GROAMCS analysis file
+#               (also delete the xmgr header)
+# use: awk -f ppxtract_awk -v n=3 file.xvg > file3.tms
+#
+
+ $1 !~ "#" && $1 !~ "@" { printf("%11.2f %9.2f\n", $1, $n )  }
+

@@ -1,0 +1,13 @@
+# sets2amatrix_awk : convert pcca sets to Szabo A-matrix columns
+# use awk -f sets2amatrix_awk -v n=199 sets.asci > amatrix.txt
+#  n = number of states
+# shift state numbering by +1
+#
+{
+ for(j=1;j<=NF;j++) { b[j] = $j }
+ for(i=1;i<=n;i++) { a[i] = 0
+                     for(j=1;j<=NF;j++) { if ( b[j] == i-1 ) a[i] = 1 }
+                   }
+ for(i=1;i<=n;i++) printf("%2d",a[i])
+ printf("\n")
+}

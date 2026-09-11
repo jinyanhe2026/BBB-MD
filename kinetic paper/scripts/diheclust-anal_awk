@@ -1,0 +1,115 @@
+# diheclust-anal_awkclus-prop_awk: analyze dihedral cluster properties
+# use: awk -f diheclust-anal_awk -v np=4 -v nl=2 -v nd=10 data > out
+# np - no of patterns (single-residue clusters) ; nl - number of lines per
+#           single cluster entry ; nd = no of diheds = 2*nresidues
+#   input = catted CHARMM cluster output for 1 residue + whole peptide
+#   Output:
+#   For each whole-peptide cluster write out pattern of 1-res clusters
+#   and their occurrence counts
+#
+BEGIN{ i = 1 ; k = 0 ; lin = 1 ; nr = nd/2
+       print "...Pattern analysis with np,nl,nd,nr=",np,nl,nd,nr
+     }
+{  
+# Read in single-residue section: assuming 1 line per cluster, np clusters
+  if ( NR <= np ) { phi1[i] = $6 ; psi1[i] = $7 ; i++ }
+# Read in whole-peptide clusters - these are spread over nl lines
+#   first line has 5 spurious entries + up to 9 diheds
+#   following lines have diheds only, 1 to 9
+  if ( NR > np )  {   mod = (lin - 1) % nl
+                      if ( mod == 0 ) {
+                      lin++ ; k++
+                      ifi = 1 ; ila = 9 ; if ( ila > nd ) ila = nd
+                      for(j=ifi;j<=ila;j++) { jj = j + 5
+                                              dihe[k,j] = $(jj)
+                                            }
+#                      print "...branch 1 mod=",mod
+#                      for(j=ifi;j<=ila;j++) { printf("%5d",dihe[k,j]) }
+#                                              printf("\n")
+                                          }
+                   else {
+                           ifi = (lin - 1)*9 + 1 ; ila = lin*9 
+                           if ( ila > nd ) ila = nd
+                           lin++
+                           if( lin > nl ) lin = 1
+                           ii = 1
+                           for(j=ifi;j<=ila;j++) { dihe[k,j] = $(ii) ; ii++ }
+#                      print "...branch 2, mod=",mod
+#                      for(j=ifi;j<=ila;j++) { printf("%5d",dihe[k,j]) }
+#                                              printf("\n")
+                        }
+                   }
+}
+END{ nc = k
+    print " Analyzing nc =",nc," clusters"
+# test 1-residue clusters
+    print "...patterns = 1-residue clusters"
+    for(i=1;i<=np;i++) { printf("%4d %5d %5d\n",i,phi1[i],psi1[i]) }
+# test whole-peptide clusters orig data
+#    print "...whole-peptide clusters; dihe[k,j]"
+#      for(k=1;k<=nc;k++) {   printf("%5d",k)
+#       for(j=1;j<=nd;j++) printf("%5d",dihe[k,j])
+#       printf("\n")
+#                         }
+# reorganize dihedral data to phi/psi
+      for(k=1;k<=nc;k++) {  for(j=1;j<=nr;j++) { ii = 2*(j-1) + 1 ; jj = ii+1
+                                           phi[k,j] = dihe[k,ii]
+                                           psi[k,j] = dihe[k,jj]
+                                               }
+                                
+                         }
+# test whole-peptide clusters
+    print "...whole-peptide clusters phi[k,j],psi[k,j]"
+    for(k=1;k<=nc;k++) { printf("%5d ",k)
+        for(j=1;j<=nr;j++) { printf("%5d %5d",phi[k,j],psi[k,j]) } 
+                         printf("\n")
+                       }
+# loop over clusters - Assign residues to patterns
+      for(k=1;k<=nc;k++) { 
+# loop over resiues - find distances from patterns
+         for(j=1;j<=nr;j++) {
+# loop over patterns
+            for(i=1;i<=np;i++) { dd = 0.0
+                                 dd = phi[k,j] - phi1[i]
+                                 if ( dd >  180.0 ) dd = dd - 360.0
+                                 if ( dd < -180.0 ) dd = dd + 360.0
+                                 dist[i]  = dd^2
+                                 dd = psi[k,j] - psi1[i]
+                                 if ( dd >  180.0 ) dd = dd - 360.0
+                                 if ( dd < -180.0 ) dd = dd + 360.0
+                                 dist[i] = dist[i] + dd^2
+                                 dist[i] = sqrt(dist[i])
+                               }
+# find closest pattern and save in ipatt
+       dmin = dist[1] ; imin = 1
+       for(i=2;i<=np;i++) { if ( dist[i] < dmin ) { dmin = dist[i] ; imin = i } }
+       ipatt[k,j] = imin 
+# test dist and ipatt
+#       printf("%5d %5d",k,j)
+#       for(i=1;i<=np;i++) printf("%8.1f",dist[i])
+#       printf("%5d %5d\n",imin,ipatt[k,j])
+                            
+                          }
+                        }
+# Final pass over clusters - find pattern counts
+      for(k=1;k<=nc;k++) { 
+            for(i=1;i<=np;i++) {  count[k,i] = 0 }
+                         }
+      for(k=1;k<=nc;k++) { 
+         for(j=1;j<=nr;j++) { 
+            for(i=1;i<=np;i++) {  if( ipatt[k,j] == i ) { count[k,i]++ }
+                               }
+                            }
+                          }
+
+# Output patterns and counts
+      print "...Cluster patterns and counts"
+      for(k=1;k<=nc;k++) {  printf("%5d  ",k)
+         for(j=1;j<=nr;j++) {  printf("%1d",ipatt[k,j])
+                            }
+                               printf("   ")
+         for(i=1;i<=np;i++) {  printf("%3d",count[k,i])
+                            }
+                            printf("\n")
+                          }
+}

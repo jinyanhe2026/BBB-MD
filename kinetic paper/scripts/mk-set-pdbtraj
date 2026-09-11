@@ -1,0 +1,29 @@
+# mk-set-pdbtraj  : create PDB file with models selected by pcca sets
+# use: csh mk-set-pdbtraj 3 pcca3 clist3 ../../../cluster6a/pdb/wh21 wh21
+#  1 = no of sets ; 2 = directory with data ; 3 = file with set definitions
+#  4 = directory and 5 = prefix for cluster center files
+# use pcca?/clist? files to make lists of PDB structures for cat
+#
+set i = 1
+set source = $4
+while ( $i <= $1 )
+# create writing script
+ echo "$i","$i"p > sedscript
+ set list = `sed -n -f sedscript $2/$3 `
+ echo "rm -f temp ; touch temp" > $2/mk-settrj-"$i"
+ echo "foreach x (  $list  )"  >> $2/mk-settrj-"$i"
+ echo "cat $source"'_$x.pdb'" >> temp " >> $2/mk-settrj-"$i"
+ echo "end"                    >> $2/mk-settrj-"$i"
+ echo "...written script in $2/mk-settraj-$i"
+# execute it and save traj file
+ csh $2/mk-settrj-"$i"
+ mv temp $2/$5-settrj-"$i".pdb
+ echo "...written set trajectory to $2/$5-settrj-$i.pdb"
+# also make an oriented traj - fit on CA=3, output Protein=1
+ ~/prog/gromacs-5.1.4/bin/gmx trjconv -f $2/$5-settrj-$i.pdb -o $2/$5-settrj-"$i"or.pdb -s inputs/ssngna/dyn1.tpr -fit progressive << %END
+3
+1
+%END
+ echo "...written oriented set trajectory to $2/$5-settrj-$i""or.pdb"
+ @ i +=1
+end

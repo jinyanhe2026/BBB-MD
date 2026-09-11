@@ -1,0 +1,6 @@
+# convert Emma sets to A matrices ; par1 = Nc
+#
+foreach i ( 2 3 4 5 6 7 )
+   awk -f sets2amatrix_awk -v n=$1 pcca$i/sets.ascii > pcca$i/amatrix$i.dat
+   echo "...generated pcca$i/amatrix$i.dat"
+end
