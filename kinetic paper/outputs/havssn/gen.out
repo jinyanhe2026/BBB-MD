@@ -1,0 +1,991 @@
+1
+                 Chemistry at HARvard Macromolecular Mechanics
+           (CHARMM) - Developmental Version 40b1     August 15, 2015            
+       Copyright(c) 1984-2014  President and Fellows of Harvard College
+                              All Rights Reserved
+     Current operating system: Linux-3.10.0-1062.12.1.el7.x86_64(x86_64)@CH     
+                 Created on  6/7/24 at 14:18:44 by user: jinyan      
+
+            Maximum number of ATOMS:    360720, and RESidues:      120240
+ RDTITL> *  GENERATE WH5
+ RDTITL> *
+  
+ CHARMM>    bomlev -9
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>    !prnlev  4
+ CHARMM>     
+  
+ CHARMM>    set s havssn                 ! PSF prefix
+ Parameter: S <- "HAVSSN"
+  
+ CHARMM>    set r havssn                 ! segid
+ Parameter: R <- "HAVSSN"
+  
+ CHARMM>    set t WH5: WAAAH+ peptide    ! title
+ Parameter: T <- "WH5: WAAAH+ PEPTIDE"
+  
+ CHARMM>     
+  
+ CHARMM>    set toppar = /home/kuczera/prog/charmm/c40b1/toppar
+ Parameter: TOPPAR <- "/HOME/KUCZERA/PROG/CHARMM/C40B1/TOPPAR"
+  
+ CHARMM>    open unit 1 card read name  @toppar/top_all22_prot.rtf
+ Parameter: TOPPAR -> "/HOME/KUCZERA/PROG/CHARMM/C40B1/TOPPAR"
+ VOPEN> Attempting to open::/home/kuczera/prog/charmm/c40b1/toppar/top_all22_prot.rtf::
+ OPNLGU> Unit  1 opened for READONLY access to /home/kuczera/prog/charmm/c40b1/toppar/top_all22_prot.rtf
+  
+ CHARMM>    read RTF card unit 1
+ MAINIO> Residue topology file being read from unit   1.
+ TITLE> *>>>>>>>>CHARMM22 ALL-HYDROGEN TOPOLOGY FILE FOR PROTEINS <<<<<<
+ TITLE> *>>>>> INCLUDES PHI, PSI CROSS TERM MAP (CMAP) CORRECTION <<<<<<<
+ TITLE> *>>>>>>>>>>>>>>>>>>>>>> DECEMBER, 2003 <<<<<<<<<<<<<<<<<<<<<<<<<<
+ TITLE> * ALL COMMENTS TO ADM JR. VIA THE CHARMM WEB SITE: WWW.CHARMM.ORG
+ TITLE> *               PARAMETER SET DISCUSSION FORUM
+ TITLE> *
+  
+ CHARMM>    open unit 2 card read name  @toppar/par_all22_prot.prm
+ Parameter: TOPPAR -> "/HOME/KUCZERA/PROG/CHARMM/C40B1/TOPPAR"
+ VOPEN> Attempting to open::/home/kuczera/prog/charmm/c40b1/toppar/par_all22_prot.prm::
+ OPNLGU> Unit  2 opened for READONLY access to /home/kuczera/prog/charmm/c40b1/toppar/par_all22_prot.prm
+  
+ CHARMM>    read PARA card unit 2
+
+          PARAMETER FILE BEING READ FROM UNIT  2
+ TITLE> *>>>>> CHARMM22 ALL-HYDROGEN PARAMETER FILE FOR PROTEINS <<<<<<<<
+ TITLE> *>>>>> INCLUDES PHI, PSI CROSS TERM MAP (CMAP) CORRECTION <<<<<<<
+ TITLE> *>>>>>>>>>>>>>>>>>>>>>> DECEMBER, 2003 <<<<<<<<<<<<<<<<<<<<<<<<<<
+ TITLE> * ALL COMMENTS TO ADM JR. VIA THE CHARMM WEB SITE: WWW.CHARMM.ORG
+ TITLE> *               PARAMETER SET DISCUSSION FORUM
+ TITLE> *
+ PARMIO> NONBOND, HBOND lists and IMAGE atoms cleared.
+  
+ CHARMM>    open unit 3 card read name havssn.pdb
+ VOPEN> Attempting to open::havssn.pdb::
+ OPNLGU> Unit  3 opened for READONLY access to havssn.pdb
+  
+ CHARMM>    read sequ pdb unit 3
+ MAINIO> Sequence information being read from unit   3.
+ TITLE>  *
+
+          RESIDUE SEQUENCE --     6 RESIDUES
+          HSD ALA VAL SER SER ASN 
+ ***** Message from SEQRDR ***** THE SYSTEM CONTAINS  1 TITRATABLE GROUPS
+ THE USER MUST PREDETERMINE THE PROTONATION STATE THROUGH THE SEQUENCE AND RTF
+ HIS -  0  HSD -  1  HSE -  0  HSP -  0  ASP -  0  GLU -  0  LYS -  0  TYR -  0
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>    ! WH5
+ CHARMM>    !read sequ cards
+ CHARMM>    !* WAAAH+
+ CHARMM>    !*
+ CHARMM>    !5
+ CHARMM>    !TRP ALA ALA ALA HSP
+ CHARMM>    generate @r  first ACE last CT2 setup
+ Parameter: R -> "HAVSSN"
+ THE PATCH 'ACE' WILL BE USED FOR THE FIRST RESIDUE
+ THE PATCH 'CT2' WILL BE USED FOR THE LAST  RESIDUE
+ GENPSF> Segment   1 has been generated. Its identifier is HAVSSN.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        6
+         Number of atoms         =       88   Number of groups     =       26
+         Number of bonds         =       88   Number of angles     =      153
+         Number of dihedrals     =      216   Number of impropers  =       26
+         Number of cross-terms   =        5
+         Number of HB acceptors  =       11   Number of HB donors  =       13
+         Number of NB exclusions =        0   Total charge =    0.00000
+ QXFORM> Expanded format used.
+         More than 4 character SEGID used.
+  
+ CHARMM>     
+  
+ CHARMM>    open unit 4 card write name @s.psf
+ Parameter: S -> "HAVSSN"
+ VOPEN> Attempting to open::havssn.psf::
+ OPNLGU> Unit  4 opened for WRITE access to havssn.psf
+  
+ CHARMM>    write PSF card unit 4
+ RDTITL> * HAVSSN : WH5: WAAAH+ PEPTIDE
+ RDTITL> *
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>    IC PARA
+  
+ CHARMM>    ic seed 1 N 1 CA 1 C
+  
+ CHARMM>    ic build
+  
+ CHARMM>    ic fill
+  
+ CHARMM>    ic print
+
+       INTERNAL COORDINATES
+ TITLE>  * HAVSSN : WH5: WAAAH+ PEPTIDE
+ TITLE>  *  DATE:     6/ 7/24     14:18:44      CREATED BY USER: jinyan
+ TITLE>  *
+
+     NUMBER OF INTERNAL COORDINATES :         90
+
+        N      I             J             K             L        R(I(J/K)) T(I(JK/KJ)) PHI   T(JKL)   R(KL)
+
+        1     1 CY          1 N           1 CA          1 C          1.3450  120.00  -60.00  107.70   1.5166
+        2     1 CY          1 CA          1 *N          1 HN         1.3450  120.00  180.00  117.00   0.9970
+        3     1 CAY         1 CY          1 N           1 CA         1.4900  116.50  180.00  120.00   1.4521
+        4     1 N           1 CAY         1 *CY         1 OY         1.3450  116.50  180.00  121.00   1.2300
+        5     1 OY          1 CY          1 CAY         1 HY1        1.2300  121.00  180.00  109.50   1.1110
+        6     1 OY          1 CY          1 CAY         1 HY2        1.2300  121.00   60.00  109.50   1.1110
+        7     1 OY          1 CY          1 CAY         1 HY3        1.2300  121.00  -60.00  109.50   1.1110
+        8   -99 ??          1 CA          1 *N          1 HN         0.0000    0.00    0.00  117.00   0.9970
+        9   -99 ??          1 N           1 CA          1 C          0.0000    0.00    0.00  107.70   1.5166
+       10     1 N           1 CA          1 C           2 N          1.4521  107.70  180.00  117.57   1.3509
+       11     2 N           1 CA          1 *C          1 O          1.3509  117.57  180.00  120.24   1.2273
+       12     1 CA          1 C           2 N           2 CA         1.5166  117.57  180.00  123.72   1.4545
+       13     1 N           1 C           1 *CA         1 CB         1.4521  107.70  122.46  109.99   1.5519
+       14     1 N           1 C           1 *CA         1 HA         1.4521  107.70 -117.49  107.37   1.0830
+       15     1 N           1 CA          1 CB          1 CG         1.4521  112.12  180.00  114.05   1.5041
+       16     1 CG          1 CA          1 *CB         1 HB1        1.5041  114.05  121.17  109.01   1.1118
+       17     1 CG          1 CA          1 *CB         1 HB2        1.5041  114.05 -122.36  109.53   1.1121
+       18     1 CA          1 CB          1 CG          1 ND1        1.5519  114.05   90.00  124.10   1.3783
+       19     1 ND1         1 CB          1 *CG         1 CD2        1.3783  124.10 -171.29  129.60   1.3597
+       20     1 CB          1 CG          1 ND1         1 CE1        1.5041  124.10 -173.21  107.03   1.3549
+       21     1 CB          1 CG          1 CD2         1 NE2        1.5041  129.60  171.99  110.03   1.3817
+       22     1 NE2         1 ND1         1 *CE1        1 HE1        1.3162  111.64 -179.63  123.89   1.0932
+       23     1 CE1         1 CG          1 *ND1        1 HD1        1.3549  107.03 -174.65  126.26   1.0005
+       24     1 NE2         1 CG          1 *CD2        1 HD2        1.3817  110.03 -177.85  129.63   1.0834
+       25     1 C           2 CA          2 *N          2 HN         1.3509  123.72  180.00  115.42   0.9996
+       26     1 C           2 N           2 CA          2 C          1.3509  123.72  180.00  114.44   1.5390
+       27     2 N           2 CA          2 C           3 N          1.4545  114.44  180.00  116.84   1.3558
+       28     3 N           2 CA          2 *C          2 O          1.3558  116.84  180.00  122.52   1.2297
+       29     2 CA          2 C           3 N           3 CA         1.5390  116.84  180.00  126.77   1.4613
+       30     2 N           2 C           2 *CA         2 CB         1.4545  114.44  123.23  111.09   1.5461
+       31     2 N           2 C           2 *CA         2 HA         1.4545  114.44 -120.45  106.39   1.0840
+       32     2 C           2 CA          2 CB          2 HB1        1.5390  111.09  177.25  109.60   1.1109
+       33     2 HB1         2 CA          2 *CB         2 HB2        1.1109  109.60  119.13  111.05   1.1119
+       34     2 HB1         2 CA          2 *CB         2 HB3        1.1109  109.60 -119.58  111.61   1.1114
+       35     2 C           3 CA          3 *N          3 HN         1.3558  126.77  180.00  114.41   0.9966
+       36     2 C           3 N           3 CA          3 C          1.3558  126.77  180.00  105.54   1.5180
+       37     3 N           3 CA          3 C           4 N          1.4613  105.54  180.00  117.83   1.3471
+       38     4 N           3 CA          3 *C          3 O          1.3471  117.83  180.00  120.70   1.2297
+       39     3 CA          3 C           4 N           4 CA         1.5180  117.83  180.00  124.08   1.4471
+       40     3 N           3 C           3 *CA         3 CB         1.4613  105.54  122.95  111.23   1.5660
+       41     3 N           3 C           3 *CA         3 HA         1.4613  105.54 -117.24  107.46   1.0828
+       42     3 N           3 CA          3 CB          3 CG1        1.4613  113.04  180.00  113.97   1.5441
+       43     3 CG1         3 CA          3 *CB         3 CG2        1.5441  113.97  123.99  112.17   1.5414
+       44     3 CG1         3 CA          3 *CB         3 HB         1.5441  113.97 -119.17  107.57   1.1178
+       45     3 CA          3 CB          3 CG1         3 HG11       1.5660  113.97  177.83  110.30   1.1114
+       46     3 HG11        3 CB          3 *CG1        3 HG12       1.1114  110.30  119.25  111.67   1.1097
+       47     3 HG11        3 CB          3 *CG1        3 HG13       1.1114  110.30 -119.49  110.70   1.1110
+       48     3 CA          3 CB          3 CG2         3 HG21       1.5660  112.17 -177.78  110.71   1.1108
+       49     3 HG21        3 CB          3 *CG2        3 HG22       1.1108  110.71  120.08  110.56   1.1115
+       50     3 HG21        3 CB          3 *CG2        3 HG23       1.1108  110.71 -119.55  111.23   1.1098
+       51     3 C           4 CA          4 *N          4 HN         1.3471  124.08  180.00  114.18   0.9999
+       52     3 C           4 N           4 CA          4 C          1.3471  124.08  180.00  105.81   1.5166
+       53     4 N           4 CA          4 C           5 N          1.4471  105.81  180.00  117.72   1.3448
+       54     5 N           4 CA          4 *C          4 O          1.3448  117.72  180.00  120.25   1.2290
+       55     4 CA          4 C           5 N           5 CA         1.5166  117.72  180.00  124.63   1.4529
+       56     4 N           4 C           4 *CA         4 CB         1.4471  105.81  124.75  111.40   1.5585
+       57     4 N           4 C           4 *CA         4 HA         1.4471  105.81 -115.56  107.30   1.0821
+       58     4 N           4 CA          4 CB          4 OG         1.4471  114.28  180.00  112.45   1.4341
+       59     4 OG          4 CA          4 *CB         4 HB1        1.4341  112.45  119.32  108.10   1.1140
+       60     4 OG          4 CA          4 *CB         4 HB2        1.4341  112.45 -123.86  110.38   1.1136
+       61     4 CA          4 CB          4 OG          4 HG1        1.5585  112.45  165.96  107.08   0.9655
+       62     4 C           5 CA          5 *N          5 HN         1.3448  124.63  180.00  114.18   0.9999
+       63     4 C           5 N           5 CA          5 C          1.3448  124.63  180.00  105.81   1.5166
+       64     5 N           5 CA          5 C           6 N          1.4529  105.81  180.00  117.72   1.3448
+       65     6 N           5 CA          5 *C          5 O          1.3448  117.72  180.00  120.25   1.2290
+       66     5 CA          5 C           6 N           6 CA         1.5166  117.72  180.00  124.63   1.4529
+       67     5 N           5 C           5 *CA         5 CB         1.4529  105.81  124.75  111.40   1.5585
+       68     5 N           5 C           5 *CA         5 HA         1.4529  105.81 -115.56  107.30   1.0821
+       69     5 N           5 CA          5 CB          5 OG         1.4529  114.28  180.00  112.45   1.4341
+       70     5 OG          5 CA          5 *CB         5 HB1        1.4341  112.45  119.32  108.10   1.1140
+       71     5 OG          5 CA          5 *CB         5 HB2        1.4341  112.45 -123.86  110.38   1.1136
+       72     5 CA          5 CB          5 OG          5 HG1        1.5585  112.45  165.96  107.08   0.9655
+       73     5 C           6 CA          6 *N          6 HN         1.3448  124.63  180.00  114.49   0.9992
+       74     5 C           6 N           6 CA          6 C          1.3448  124.63  180.00  105.23   1.5245
+       75     6 N           6 CA          6 C         -99 ??         1.4529  105.23    0.00    0.00   0.0000
+       76   -99 ??          6 CA          6 *C          6 O          0.0000    0.00    0.00  121.00   1.2300
+       77     6 CA          6 C         -99 ??        -99 ??         1.5245    0.00    0.00    0.00   0.0000
+       78     6 N           6 C           6 *CA         6 CB         1.4529  105.23  121.18  113.04   1.5627
+       79     6 N           6 C           6 *CA         6 HA         1.4529  105.23 -115.52  107.63   1.0848
+       80     6 N           6 CA          6 CB          6 CG         1.4529  110.91 -180.00  114.30   1.5319
+       81     6 CG          6 CA          6 *CB         6 HB1        1.5319  114.30  119.17  107.82   1.1120
+       82     6 CG          6 CA          6 *CB         6 HB2        1.5319  114.30 -123.74  110.34   1.1091
+       83     6 CA          6 CB          6 CG          6 OD1        1.5627  114.30 -180.00  122.56   1.2323
+       84     6 OD1         6 CB          6 *CG         6 ND2        1.2323  122.56 -179.19  116.15   1.3521
+       85     6 CB          6 CG          6 ND2         6 HD21       1.5319  116.15 -179.26  117.35   0.9963
+       86     6 HD21        6 CG          6 *ND2        6 HD22       0.9963  117.35  178.02  120.05   0.9951
+       87     6 N           6 CA          6 C           6 O          1.4529  105.23  180.00  121.00   1.2300
+       88     6 NT          6 CA          6 *C          6 O          1.3600  116.50  180.00  121.00   1.2300
+       89     6 CA          6 C           6 NT          6 HT1        1.5245  116.50  180.00  120.00   1.0000
+       90     6 HT1         6 C           6 *NT         6 HT2        1.0000  120.00  180.00  120.00   1.0000
+  
+ CHARMM>    coor print
+
+          COORDINATE FILE MODULE
+ TITLE>  * HAVSSN : WH5: WAAAH+ PEPTIDE
+ TITLE>  *  DATE:     6/ 7/24     14:18:44      CREATED BY USER: jinyan
+ TITLE>  *
+        88  EXT
+         1         1  HSD       CAY            -2.1597208496        0.5369209221        0.9299743167  HAVSSN    79              0.0000000000
+         2         1  HSD       HY1            -2.4659539520        0.0029400500        0.0050923160  HAVSSN    79              0.0000000000
+         3         1  HSD       HY2            -2.5618558380        1.5723870611        0.9095212950  HAVSSN    79              0.0000000000
+         4         1  HSD       HY3            -2.5618558380        0.0014750162        1.8164877870  HAVSSN    79              0.0000000000
+         5         1  HSD       CY             -0.6725000000        0.5824020840        1.0087500000  HAVSSN    79              0.0000000000
+         6         1  HSD       OY             -0.1045492057        1.1279137464        1.9536039154  HAVSSN    79              0.0000000000
+         7         1  HSD       N               0.0000000000        0.0000000000        0.0000000000  HAVSSN    79              0.0000000000
+         8         1  HSD       HN             -0.4526285282       -0.4441667523       -0.7693193820  HAVSSN    79              0.0000000000
+         9         1  HSD       CA              1.4521000000        0.0000000000        0.0000000000  HAVSSN    79              0.0000000000
+        10         1  HSD       HA              1.8083231510       -0.4530713669        0.9169080669  HAVSSN    79              0.0000000000
+        11         1  HSD       CB              2.0364883673       -0.7433909394       -1.2305501848  HAVSSN    79              0.0000000000
+        12         1  HSD       HB1             1.6688478868       -1.7926445817       -1.2279984607  HAVSSN    79              0.0000000000
+        13         1  HSD       HB2             1.6567880753       -0.2729117453       -2.1639543985  HAVSSN    79              0.0000000000
+        14         1  HSD       ND1             4.3120267743       -1.7599142342       -0.7059974195  HAVSSN    79              0.0000000000
+        15         1  HSD       HD1             3.9851600833       -2.6398847948       -0.3598612776  HAVSSN    79              0.0000000000
+        16         1  HSD       CG              3.5397359672       -0.7695711295       -1.2738867874  HAVSSN    79              0.0000000000
+        17         1  HSD       CE1             5.6041411999       -1.3671126911       -0.8150903566  HAVSSN    79              0.0000000000
+        18         1  HSD       HE1             6.4533685694       -1.9616578193       -0.4680814151  HAVSSN    79              0.0000000000
+        19         1  HSD       NE2             5.7063840576       -0.1901332316       -1.3952130771  HAVSSN    79              0.0000000000
+        20         1  HSD       CD2             4.4112906844        0.1837266556       -1.6986217611  HAVSSN    79              0.0000000000
+        21         1  HSD       HD2             4.2148881173        1.1359197309       -2.1766488931  HAVSSN    79              0.0000000000
+        22         1  HSD       C               1.9131965402        1.4448064025        0.0000000000  HAVSSN    79              0.0000000000
+        23         1  HSD       O               1.0910178888        2.3560075631       -0.0000000000  HAVSSN    79              0.0000000000
+        24         2  ALA       N               3.2441021570        1.6763685953        0.0000000000  HAVSSN    80              0.0000000000
+        25         2  ALA       HN              3.8963364315        0.9188789180        0.0000000000  HAVSSN    80              0.0000000000
+        26         2  ALA       CA              3.8322199167        3.0066647092        0.0000000000  HAVSSN    80              0.0000000000
+        27         2  ALA       HA              3.5209325070        3.5305193161       -0.8965112935  HAVSSN    80              0.0000000000
+        28         2  ALA       CB              3.2677700025        3.7914059160        1.2066493868  HAVSSN    80              0.0000000000
+        29         2  ALA       HB1             2.1581569806        3.8063888030        1.1553340411  HAVSSN    80              0.0000000000
+        30         2  ALA       HB2             3.5592036520        3.3118745916        2.1665648762  HAVSSN    80              0.0000000000
+        31         2  ALA       HB3             3.6252471443        4.8437207846        1.2139617347  HAVSSN    80              0.0000000000
+        32         2  ALA       C               5.3711383217        3.0225121933        0.0000000000  HAVSSN    80              0.0000000000
+        33         2  ALA       O               6.0428596868        1.9924867092        0.0000000000  HAVSSN    80              0.0000000000
+        34         3  VAL       N               5.9707933279        4.2384922562        0.0000000000  HAVSSN    81              0.0000000000
+        35         3  VAL       HN              5.4001648582        5.0555569474       -0.0000000000  HAVSSN    81              0.0000000000
+        36         3  VAL       CA              7.4075306803        4.5052945618        0.0000000000  HAVSSN    81              0.0000000000
+        37         3  VAL       HA              7.8500718586        4.1402873711        0.9183588058  HAVSSN    81              0.0000000000
+        38         3  VAL       CB              8.1488179193        3.8709275934       -1.2249194989  HAVSSN    81              0.0000000000
+        39         3  VAL       HB              7.7137668491        4.3193386674       -2.1518148085  HAVSSN    81              0.0000000000
+        40         3  VAL       CG1             9.6691639636        4.1398946782       -1.2461190921  HAVSSN    81              0.0000000000
+        41         3  VAL       HG11           10.1385616928        3.6316331517       -2.1159155927  HAVSSN    81              0.0000000000
+        42         3  VAL       HG12            9.8924355040        5.2231464992       -1.3363931282  HAVSSN    81              0.0000000000
+        43         3  VAL       HG13           10.1493307551        3.7530709329       -0.3219285044  HAVSSN    81              0.0000000000
+        44         3  VAL       CG2             7.9158916082        2.3503243629       -1.3220024990  HAVSSN    81              0.0000000000
+        45         3  VAL       HG21            8.4835916373        1.9195715540       -2.1740854378  HAVSSN    81              0.0000000000
+        46         3  VAL       HG22            8.2471520630        1.8443573527       -0.3894274909  HAVSSN    81              0.0000000000
+        47         3  VAL       HG23            6.8427046605        2.1175939820       -1.4825091504  HAVSSN    81              0.0000000000
+        48         3  VAL       C               7.5403609553        6.0174718391       -0.0000000000  HAVSSN    81              0.0000000000
+        49         3  VAL       O               6.5419923860        6.7354010068       -0.0000000000  HAVSSN    81              0.0000000000
+        50         4  SER       N               8.7821116778        6.5397108200        0.0000000000  HAVSSN    82              0.0000000000
+        51         4  SER       HN              9.5966521829        5.9597765343        0.0000000000  HAVSSN    82              0.0000000000
+        52         4  SER       CA              9.0649222928        7.9589065662       -0.0000000000  HAVSSN    82              0.0000000000
+        53         4  SER       HA              8.7088586650        8.3777940393       -0.9320366880  HAVSSN    82              0.0000000000
+        54         4  SER       CB              8.4325774228        8.7383931361        1.1922511911  HAVSSN    82              0.0000000000
+        55         4  SER       HB1             7.3262061656        8.6220400515        1.1339365203  HAVSSN    82              0.0000000000
+        56         4  SER       HB2             8.7575386768        8.2956477534        2.1610038269  HAVSSN    82              0.0000000000
+        57         4  SER       OG              8.7371405002       10.1392518972        1.1537950687  HAVSSN    82              0.0000000000
+        58         4  SER       HG1             8.1414486499       10.5761311106        1.7754686345  HAVSSN    82              0.0000000000
+        59         4  SER       C              10.5767636813        8.0789531243        0.0000000000  HAVSSN    82              0.0000000000
+        60         4  SER       O              11.2779945080        7.0696383431        0.0000000000  HAVSSN    82              0.0000000000
+        61         5  SER       N              11.1061052651        9.3151911790       -0.0000000000  HAVSSN    83              0.0000000000
+        62         5  SER       HN             10.5236148910       10.1279057501       -0.0000000000  HAVSSN    83              0.0000000000
+        63         5  SER       CA             12.5300901038        9.6036102996        0.0000000000  HAVSSN    83              0.0000000000
+        64         5  SER       HA             12.9500941148        9.2488644006        0.9320366880  HAVSSN    83              0.0000000000
+        65         5  SER       CB             13.3115593938        8.9737173754       -1.1922511911  HAVSSN    83              0.0000000000
+        66         5  SER       HB1            13.1986826454        7.8669860445       -1.1339365203  HAVSSN    83              0.0000000000
+        67         5  SER       HB2            12.8677953017        9.2972861024       -2.1610038269  HAVSSN    83              0.0000000000
+        68         5  SER       OG             14.7114544304        9.2826798702       -1.1537950687  HAVSSN    83              0.0000000000
+        69         5  SER       HG1            15.1502029059        8.6883634537       -1.7754686345  HAVSSN    83              0.0000000000
+        70         5  SER       C              12.6453864875       11.1158213642       -0.0000000000  HAVSSN    83              0.0000000000
+        71         5  SER       O              11.6338737090       11.8138778798       -0.0000000000  HAVSSN    83              0.0000000000
+        72         6  ASN       N              13.8799554686       11.6490440858        0.0000000000  HAVSSN    84              0.0000000000
+        73         6  ASN       HN             14.6907782898       11.0651202958        0.0000000000  HAVSSN    84              0.0000000000
+        74         6  ASN       CA             14.1638995931       13.0739279914       -0.0000000000  HAVSSN    84              0.0000000000
+        75         6  ASN       HA             13.8053718059       13.4955840706       -0.9329817879  HAVSSN    84              0.0000000000
+        76         6  ASN       CB             13.5023437625       13.7744307878        1.2303133768  HAVSSN    84              0.0000000000
+        77         6  ASN       HB1            12.4028246656       13.6258882024        1.1559033234  HAVSSN    84              0.0000000000
+        78         6  ASN       HB2            13.8396630253       13.2973173501        2.1730123173  HAVSSN    84              0.0000000000
+        79         6  ASN       CG             13.7533748318       15.2836919651        1.3066790171  HAVSSN    84              0.0000000000
+        80         6  ASN       OD1            13.3027744321       15.9859032582        2.2135537988  HAVSSN    84              0.0000000000
+        81         6  ASN       ND2            14.4903374495       15.8165803173        0.3061339086  HAVSSN    84              0.0000000000
+        82         6  ASN       HD21           14.6740938404       16.7950529897        0.3440615793  HAVSSN    84              0.0000000000
+        83         6  ASN       HD22           14.8507269348       15.2313598913       -0.4134913285  HAVSSN    84              0.0000000000
+        84         6  ASN       C              15.6847598591       13.1792100006        0.0000000000  HAVSSN    84              0.0000000000
+        85         6  ASN       O              16.2439331467       14.2747579157       -0.0000000000  HAVSSN    84              0.0000000000
+        86         6  ASN       NT             16.3741937829       12.0069127410        0.0000000000  HAVSSN    84              0.0000000000
+        87         6  ASN       HT1            17.3741615545       12.0149411693        0.0000000000  HAVSSN    84              0.0000000000
+        88         6  ASN       HT2            15.8811627199       11.1369010337        0.0000000000  HAVSSN    84              0.0000000000
+  
+ CHARMM>     
+  
+ CHARMM>    hbuild sele hydrogen end
+ SELRPN>     42 atoms have been selected out of     88
+ PRNHBD: CUToff Hydrogen Bond  distance =    0.5000   Angle =   90.0000
+         CuT switching ON HB dist. =     3.5000  OFf HB dist. =    4.0000
+         CuT switching ON Hb Angle =    50.0000  OFf Hb Angle =   70.0000
+         ACCEptor antecedents included
+         All hydrogen bonds for each hydrogen will be found
+         Hydrogen bonds between excluded atoms will be kept
+
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  FSHIft   VATOm    VFSWIt  
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 14.000 CTEXNB =999.000 CTONNB = 10.000 CTOFNB = 12.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+ <MAKINB> with mode   5 found    241 exclusions and    211 interactions(1-4)
+ <MAKGRP> found     66 group exclusions.
+
+ CUToff Hydrogen Bond  distance =    0.5000           Angle =   90.0000
+ CuT switching ON HB dist. =     3.5000 OFf HB dist. =    4.0000
+ CuT switching ON Hb Angle =    50.0000 OFf Hb Angle =   70.0000
+ ACCEptor antecedents included
+ dihedral PHI STePs for spin =   10.0000
+ cutoff for water acceptor search CUTWat=    7.5000
+
+ Place: HN      ,        ,        , constructed for donor HAVSSN   79       HSD      N       .
+ Place: HA      ,        ,        , constructed for donor HAVSSN   79       HSD      CA      .
+ Place: HB1     ,HB2     ,        , constructed for donor HAVSSN   79       HSD      CB      .
+ Place: HD1     ,        ,        , constructed for donor HAVSSN   79       HSD      ND1     .
+ Place: HE1     ,        ,        , constructed for donor HAVSSN   79       HSD      CE1     .
+ Place: HD2     ,        ,        , constructed for donor HAVSSN   79       HSD      CD2     .
+ Place: HN      ,        ,        , constructed for donor HAVSSN   80       ALA      N       .
+ Place: HA      ,        ,        , constructed for donor HAVSSN   80       ALA      CA      .
+ Place: HN      ,        ,        , constructed for donor HAVSSN   81       VAL      N       .
+ Place: HA      ,        ,        , constructed for donor HAVSSN   81       VAL      CA      .
+ Place: HB      ,        ,        , constructed for donor HAVSSN   81       VAL      CB      .
+ Place: HN      ,        ,        , constructed for donor HAVSSN   82       SER      N       .
+ Place: HA      ,        ,        , constructed for donor HAVSSN   82       SER      CA      .
+ Place: HB1     ,HB2     ,        , constructed for donor HAVSSN   82       SER      CB      .
+ Place: HN      ,        ,        , constructed for donor HAVSSN   83       SER      N       .
+ Place: HA      ,        ,        , constructed for donor HAVSSN   83       SER      CA      .
+ Place: HB1     ,HB2     ,        , constructed for donor HAVSSN   83       SER      CB      .
+ Place: HN      ,        ,        , constructed for donor HAVSSN   84       ASN      N       .
+ Place: HA      ,        ,        , constructed for donor HAVSSN   84       ASN      CA      .
+ Place: HB1     ,HB2     ,        , constructed for donor HAVSSN   84       ASN      CB      .
+
+ NBONDX:       153 atom and      0 group interactions within 14.00 A.
+ Spin: HY1     ,HY2     ,HY3     , constructed for donor HAVSSN   79       HSD      CAY     .
+
+ NBONDX:       207 atom and      0 group interactions within 14.00 A.
+ Spin: HB1     ,HB2     ,HB3     , constructed for donor HAVSSN   80       ALA      CB      .
+
+ NBONDX:       249 atom and      0 group interactions within 14.00 A.
+ Spin: HG11    ,HG12    ,HG13    , constructed for donor HAVSSN   81       VAL      CG1     .
+
+ NBONDX:       231 atom and      0 group interactions within 14.00 A.
+ Spin: HG21    ,HG22    ,HG23    , constructed for donor HAVSSN   81       VAL      CG2     .
+
+ NBONDX:        79 atom and      0 group interactions within 14.00 A.
+ Spin: HG1     ,        ,        , constructed for donor HAVSSN   82       SER      OG      .
+
+ NBONDX:        66 atom and      0 group interactions within 14.00 A.
+ Spin: HG1     ,        ,        , constructed for donor HAVSSN   83       SER      OG      .
+
+ NBONDX:        90 atom and      0 group interactions within 14.00 A.
+ Spin: HD21    ,HD22    ,        , constructed for donor HAVSSN   84       ASN      ND2     .
+
+ NBONDX:       102 atom and      0 group interactions within 14.00 A.
+ Spin: HT1     ,HT2     ,        , constructed for donor HAVSSN   84       ASN      NT      .
+  
+ CHARMM>    coor print
+
+          COORDINATE FILE MODULE
+ TITLE>  * HAVSSN : WH5: WAAAH+ PEPTIDE
+ TITLE>  *  DATE:     6/ 7/24     14:18:44      CREATED BY USER: jinyan
+ TITLE>  *
+        88  EXT
+         1         1  HSD       CAY            -2.1597208496        0.5369209221        0.9299743167  HAVSSN    79              0.0000000000
+         2         1  HSD       HY1            -2.5938231334        1.0482613682        1.8156419493  HAVSSN    79              0.0000000000
+         3         1  HSD       HY2            -2.5029084061       -0.5196485439        0.9198738742  HAVSSN    79              0.0000000000
+         4         1  HSD       HY3            -2.5029084061        1.0564584153        0.0099080970  HAVSSN    79              0.0000000000
+         5         1  HSD       CY             -0.6725000000        0.5824020840        1.0087500000  HAVSSN    79              0.0000000000
+         6         1  HSD       OY             -0.1045492057        1.1279137464        1.9536039154  HAVSSN    79              0.0000000000
+         7         1  HSD       N               0.0000000000        0.0000000000        0.0000000000  HAVSSN    79              0.0000000000
+         8         1  HSD       HN             -0.4526285282       -0.4441667523       -0.7693193820  HAVSSN    79              0.0000000000
+         9         1  HSD       CA              1.4521000000        0.0000000000        0.0000000000  HAVSSN    79              0.0000000000
+        10         1  HSD       HA              1.7796094896       -0.4798264123        0.9102172960  HAVSSN    79              0.0000000000
+        11         1  HSD       CB              2.0364883673       -0.7433909394       -1.2305501848  HAVSSN    79              0.0000000000
+        12         1  HSD       HB1             1.6726037602       -0.2428579064       -2.1527171980  HAVSSN    79              0.0000000000
+        13         1  HSD       HB2             1.6726037602       -1.7925471530       -1.2165303126  HAVSSN    79              0.0000000000
+        14         1  HSD       ND1             4.3120267743       -1.7599142342       -0.7059974195  HAVSSN    79              0.0000000000
+        15         1  HSD       HD1             3.9689813703       -2.6043239844       -0.2945667424  HAVSSN    79              0.0000000000
+        16         1  HSD       CG              3.5397359672       -0.7695711295       -1.2738867874  HAVSSN    79              0.0000000000
+        17         1  HSD       CE1             5.6041411999       -1.3671126911       -0.8150903566  HAVSSN    79              0.0000000000
+        18         1  HSD       HE1             6.4389206449       -1.9702731704       -0.4581949821  HAVSSN    79              0.0000000000
+        19         1  HSD       NE2             5.7063840576       -0.1901332316       -1.3952130771  HAVSSN    79              0.0000000000
+        20         1  HSD       CD2             4.4112906844        0.1837266556       -1.6986217611  HAVSSN    79              0.0000000000
+        21         1  HSD       HD2             4.2234108456        1.1227260198       -2.2044579793  HAVSSN    79              0.0000000000
+        22         1  HSD       C               1.9131965402        1.4448064025        0.0000000000  HAVSSN    79              0.0000000000
+        23         1  HSD       O               1.0910178888        2.3560075631       -0.0000000000  HAVSSN    79              0.0000000000
+        24         2  ALA       N               3.2441021570        1.6763685953        0.0000000000  HAVSSN    80              0.0000000000
+        25         2  ALA       HN              3.8979796283        0.9244337046        0.0000000000  HAVSSN    80              0.0000000000
+        26         2  ALA       CA              3.8322199167        3.0066647092        0.0000000000  HAVSSN    80              0.0000000000
+        27         2  ALA       HA              3.5787597583        3.4956022829       -0.9289067161  HAVSSN    80              0.0000000000
+        28         2  ALA       CB              3.2677700025        3.7914059160        1.2066493868  HAVSSN    80              0.0000000000
+        29         2  ALA       HB1             3.3622232370        3.1862781034        2.1335905483  HAVSSN    80              0.0000000000
+        30         2  ALA       HB2             2.1933531231        4.0197411303        1.0400795819  HAVSSN    80              0.0000000000
+        31         2  ALA       HB3             3.8347485384        4.7372772078        1.3412485693  HAVSSN    80              0.0000000000
+        32         2  ALA       C               5.3711383217        3.0225121933        0.0000000000  HAVSSN    80              0.0000000000
+        33         2  ALA       O               6.0428596868        1.9924867092        0.0000000000  HAVSSN    80              0.0000000000
+        34         3  VAL       N               5.9707933279        4.2384922562        0.0000000000  HAVSSN    81              0.0000000000
+        35         3  VAL       HN              5.4123081198        5.0622870382       -0.0000000000  HAVSSN    81              0.0000000000
+        36         3  VAL       CA              7.4075306803        4.5052945618        0.0000000000  HAVSSN    81              0.0000000000
+        37         3  VAL       HA              7.8106429450        4.1040021037        0.9177612850  HAVSSN    81              0.0000000000
+        38         3  VAL       CB              8.1488179193        3.8709275934       -1.2249194989  HAVSSN    81              0.0000000000
+        39         3  VAL       HB              7.7057632890        4.2829449388       -2.1560344411  HAVSSN    81              0.0000000000
+        40         3  VAL       CG1             9.6691639636        4.1398946782       -1.2461190921  HAVSSN    81              0.0000000000
+        41         3  VAL       HG11           10.0850162744        4.0621357522       -0.2188209830  HAVSSN    81              0.0000000000
+        42         3  VAL       HG12            9.8668952699        5.1626346561       -1.6323306518  HAVSSN    81              0.0000000000
+        43         3  VAL       HG13           10.1765930173        3.3916099955       -1.8917504805  HAVSSN    81              0.0000000000
+        44         3  VAL       CG2             7.9158916082        2.3503243629       -1.3220024990  HAVSSN    81              0.0000000000
+        45         3  VAL       HG21            6.9265939379        2.1443149962       -1.7837072318  HAVSSN    81              0.0000000000
+        46         3  VAL       HG22            7.9343390708        1.8993705403       -0.3068402254  HAVSSN    81              0.0000000000
+        47         3  VAL       HG23            8.7047634232        1.8863817513       -1.9518378848  HAVSSN    81              0.0000000000
+        48         3  VAL       C               7.5403609553        6.0174718391       -0.0000000000  HAVSSN    81              0.0000000000
+        49         3  VAL       O               6.5419923860        6.7354010068       -0.0000000000  HAVSSN    81              0.0000000000
+        50         4  SER       N               8.7821116778        6.5397108200        0.0000000000  HAVSSN    82              0.0000000000
+        51         4  SER       HN              9.5858329798        5.9508292529        0.0000000000  HAVSSN    82              0.0000000000
+        52         4  SER       CA              9.0649222928        7.9589065662       -0.0000000000  HAVSSN    82              0.0000000000
+        53         4  SER       HA              8.6877638806        8.3573595447       -0.9297851518  HAVSSN    82              0.0000000000
+        54         4  SER       CB              8.4325774228        8.7383931361        1.1922511911  HAVSSN    82              0.0000000000
+        55         4  SER       HB1             8.8212996397        8.3238158135        2.1467239181  HAVSSN    82              0.0000000000
+        56         4  SER       HB2             7.3283687503        8.6213200190        1.1603984435  HAVSSN    82              0.0000000000
+        57         4  SER       OG              8.7371405002       10.1392518972        1.1537950687  HAVSSN    82              0.0000000000
+        58         4  SER       HG1             8.1827305039       10.5490178178        1.8218680036  HAVSSN    82              0.0000000000
+        59         4  SER       C              10.5767636813        8.0789531243        0.0000000000  HAVSSN    82              0.0000000000
+        60         4  SER       O              11.2779945080        7.0696383431        0.0000000000  HAVSSN    82              0.0000000000
+        61         5  SER       N              11.1061052651        9.3151911790       -0.0000000000  HAVSSN    83              0.0000000000
+        62         5  SER       HN             10.5186643431       10.1197409370       -0.0000000000  HAVSSN    83              0.0000000000
+        63         5  SER       CA             12.5300901038        9.6036102996        0.0000000000  HAVSSN    83              0.0000000000
+        64         5  SER       HA             12.9297259921        9.2277055235        0.9297851518  HAVSSN    83              0.0000000000
+        65         5  SER       CB             13.3115593938        8.9737173754       -1.1922511911  HAVSSN    83              0.0000000000
+        66         5  SER       HB1            12.8957629122        9.3611352431       -2.1467239181  HAVSSN    83              0.0000000000
+        67         5  SER       HB2            13.1979558226        7.8691463565       -1.1603984435  HAVSSN    83              0.0000000000
+        68         5  SER       OG             14.7114544304        9.2826798702       -1.1537950687  HAVSSN    83              0.0000000000
+        69         5  SER       HG1            15.1229600564        8.7295599253       -1.8218680036  HAVSSN    83              0.0000000000
+        70         5  SER       C              12.6453864875       11.1158213642       -0.0000000000  HAVSSN    83              0.0000000000
+        71         5  SER       O              11.6338737090       11.8138778798       -0.0000000000  HAVSSN    83              0.0000000000
+        72         6  ASN       N              13.8799554686       11.6490440858        0.0000000000  HAVSSN    84              0.0000000000
+        73         6  ASN       HN             14.6863467535       11.0641336263        0.0000000000  HAVSSN    84              0.0000000000
+        74         6  ASN       CA             14.1638995931       13.0739279914       -0.0000000000  HAVSSN    84              0.0000000000
+        75         6  ASN       HA             13.7789978767       13.4904549214       -0.9189637660  HAVSSN    84              0.0000000000
+        76         6  ASN       CB             13.5023437625       13.7744307878        1.2303133768  HAVSSN    84              0.0000000000
+        77         6  ASN       HB1            13.9016415178       13.3113476954        2.1573317504  HAVSSN    84              0.0000000000
+        78         6  ASN       HB2            12.4051594379       13.6095595653        1.1828607604  HAVSSN    84              0.0000000000
+        79         6  ASN       CG             13.7533748318       15.2836919651        1.3066790171  HAVSSN    84              0.0000000000
+        80         6  ASN       OD1            13.3027744321       15.9859032582        2.2135537988  HAVSSN    84              0.0000000000
+        81         6  ASN       ND2            14.4903374495       15.8165803173        0.3061339086  HAVSSN    84              0.0000000000
+        82         6  ASN       HD21           15.0791306592       15.2289380036       -0.2488427281  HAVSSN    84              0.0000000000
+        83         6  ASN       HD22           14.4465946189       16.7983416698        0.1211171213  HAVSSN    84              0.0000000000
+        84         6  ASN       C              15.6847598591       13.1792100006        0.0000000000  HAVSSN    84              0.0000000000
+        85         6  ASN       O              16.2439331467       14.2747579157       -0.0000000000  HAVSSN    84              0.0000000000
+        86         6  ASN       NT             16.3741937829       12.0069127410        0.0000000000  HAVSSN    84              0.0000000000
+        87         6  ASN       HT1            17.3628205510       12.0082714680        0.1503837332  HAVSSN    84              0.0000000000
+        88         6  ASN       HT2            15.8925037234       11.1435707350       -0.1503837332  HAVSSN    84              0.0000000000
+  
+ CHARMM>    coor copy comp
+ SELECTED COORDINATES COPIED TO THE COMPARISON SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>    ! short energy minimization
+ CHARMM>    mini SD   nstep 100 cutnb 14.0 ctonnb 10.0 ctofnb 12.0 inbfrq -1
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  FSHIft   VATOm    VFSWIt  
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 14.000 CTEXNB =999.000 CTONNB = 10.000 CTOFNB = 12.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+ <MAKINB> with mode   5 found    241 exclusions and    211 interactions(1-4)
+ <MAKGRP> found     66 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR     3785 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+     2829 ATOM PAIRS WERE FOUND FOR ATOM LIST
+       47 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+
+
+ STEEPD> An energy minimization has been requested.
+
+ NSTEP  =          100   NPRINT =           10
+ STEP   =    0.0200000   TOLFUN =    0.0000000
+ TOLGRD =    0.0000000   TOLSTP =    0.0000000
+
+MINI MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+MINI INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+MINI CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+MINI EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>        0    110.09776      0.00000     23.61276      0.02000
+MINI INTERN>        4.08855      9.36780      1.53638     25.91170      0.00490
+MINI CROSS>         0.75381      0.00000      0.00000      0.00000
+MINI EXTERN>      107.14137    -38.70675      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       10     23.51477     86.58299      3.93706      0.00373
+MINI INTERN>        5.35419     14.94876      2.79135     26.75491      1.40206
+MINI CROSS>        -1.54746      0.00000      0.00000      0.00000
+MINI EXTERN>       20.70660    -46.89563      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       20     13.34337     10.17140      5.83658      0.00401
+MINI INTERN>        6.14565     15.54572      2.87473     26.76747      1.76302
+MINI CROSS>        -2.88376      0.00000      0.00000      0.00000
+MINI EXTERN>       12.12180    -48.99125      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       30      7.50147      5.84190      6.49998      0.00431
+MINI INTERN>        6.45816     15.71156      2.90040     26.45370      1.87543
+MINI CROSS>        -4.02270      0.00000      0.00000      0.00000
+MINI EXTERN>        8.07902    -49.95410      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       40      1.11576      6.38571      1.68932      0.00193
+MINI INTERN>        4.69387     14.97527      2.51128     26.13499      1.89873
+MINI CROSS>        -5.05466      0.00000      0.00000      0.00000
+MINI EXTERN>        6.21585    -50.25959      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       50     -2.46041      3.57616      1.99699      0.00208
+MINI INTERN>        4.75737     14.83612      2.49930     25.72937      1.85111
+MINI CROSS>        -5.92573      0.00000      0.00000      0.00000
+MINI EXTERN>        4.35537    -50.56333      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       60     -4.58998      2.12958      3.73019      0.00223
+MINI INTERN>        5.42515     14.32904      2.47668     25.37175      1.76368
+MINI CROSS>        -6.48756      0.00000      0.00000      0.00000
+MINI EXTERN>        3.13326    -50.60199      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       70     -6.32469      1.73470      4.15937      0.00240
+MINI INTERN>        4.69649     15.23958      2.57832     25.10849      1.70670
+MINI CROSS>        -6.90684      0.00000      0.00000      0.00000
+MINI EXTERN>        2.28875    -51.03618      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       80     -8.46359      2.13890      1.04264      0.00107
+MINI INTERN>        4.67835     14.31065      2.63712     24.85051      1.62214
+MINI CROSS>        -7.13624      0.00000      0.00000      0.00000
+MINI EXTERN>        1.57910    -51.00520      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       90     -9.73478      1.27119      1.52565      0.00116
+MINI INTERN>        4.76124     14.05795      2.65582     24.60864      1.54664
+MINI CROSS>        -7.34169      0.00000      0.00000      0.00000
+MINI EXTERN>        1.00919    -51.03257      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      100    -10.76127      1.02649      1.78629      0.00124
+MINI INTERN>        4.60479     14.06794      2.65796     24.41024      1.48642
+MINI CROSS>        -7.48920      0.00000      0.00000      0.00000
+MINI EXTERN>        0.58779    -51.08721      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+
+ STEEPD> Minimization exiting with number of steps limit (       100) exceeded.
+
+STPD MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+STPD INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+STPD CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+STPD EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+STPD>      100    -10.76127      1.02649      1.78629      0.00149
+STPD INTERN>        4.60479     14.06794      2.65796     24.41024      1.48642
+STPD CROSS>        -7.48920      0.00000      0.00000      0.00000
+STPD EXTERN>        0.58779    -51.08721      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>    coor orie rms
+ CENTER OF ATOMS BEFORE TRANSLATION     7.88984     5.88318    -0.08342
+ CENTER OF REFERENCE COORDINATE SET     7.88984     5.88318    -0.08342
+ NET TRANSLATION OF ROTATED ATOMS      -0.00000    -0.00000     0.00000
+ ROTATION MATRIX
+     1.000000   -0.000001   -0.000168
+     0.000001    1.000000    0.000117
+     0.000168   -0.000117    1.000000
+ AXIS OF ROTATION IS  0.569942  0.821659 -0.006591  ANGLE IS    0.01
+
+ TOTAL SQUARE DIFF IS      4.0153  DENOMINATOR IS     88.0000
+       THUS RMS DIFF IS    0.213608
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>    IC PRINT
+
+       INTERNAL COORDINATES
+ TITLE>  * HAVSSN : WH5: WAAAH+ PEPTIDE
+ TITLE>  *  DATE:     6/ 7/24     14:18:44      CREATED BY USER: jinyan
+ TITLE>  *
+
+     NUMBER OF INTERNAL COORDINATES :         90
+
+        N      I             J             K             L        R(I(J/K)) T(I(JK/KJ)) PHI   T(JKL)   R(KL)
+
+        1     1 CY          1 N           1 CA          1 C          1.3450  120.00  -60.00  107.70   1.5166
+        2     1 CY          1 CA          1 *N          1 HN         1.3450  120.00  180.00  117.00   0.9970
+        3     1 CAY         1 CY          1 N           1 CA         1.4900  116.50  180.00  120.00   1.4521
+        4     1 N           1 CAY         1 *CY         1 OY         1.3450  116.50  180.00  121.00   1.2300
+        5     1 OY          1 CY          1 CAY         1 HY1        1.2300  121.00  180.00  109.50   1.1110
+        6     1 OY          1 CY          1 CAY         1 HY2        1.2300  121.00   60.00  109.50   1.1110
+        7     1 OY          1 CY          1 CAY         1 HY3        1.2300  121.00  -60.00  109.50   1.1110
+        8   -99 ??          1 CA          1 *N          1 HN         0.0000    0.00    0.00  117.00   0.9970
+        9   -99 ??          1 N           1 CA          1 C          0.0000    0.00    0.00  107.70   1.5166
+       10     1 N           1 CA          1 C           2 N          1.4521  107.70  180.00  117.57   1.3509
+       11     2 N           1 CA          1 *C          1 O          1.3509  117.57  180.00  120.24   1.2273
+       12     1 CA          1 C           2 N           2 CA         1.5166  117.57  180.00  123.72   1.4545
+       13     1 N           1 C           1 *CA         1 CB         1.4521  107.70  122.46  109.99   1.5519
+       14     1 N           1 C           1 *CA         1 HA         1.4521  107.70 -117.49  107.37   1.0830
+       15     1 N           1 CA          1 CB          1 CG         1.4521  112.12  180.00  114.05   1.5041
+       16     1 CG          1 CA          1 *CB         1 HB1        1.5041  114.05  121.17  109.01   1.1118
+       17     1 CG          1 CA          1 *CB         1 HB2        1.5041  114.05 -122.36  109.53   1.1121
+       18     1 CA          1 CB          1 CG          1 ND1        1.5519  114.05   90.00  124.10   1.3783
+       19     1 ND1         1 CB          1 *CG         1 CD2        1.3783  124.10 -171.29  129.60   1.3597
+       20     1 CB          1 CG          1 ND1         1 CE1        1.5041  124.10 -173.21  107.03   1.3549
+       21     1 CB          1 CG          1 CD2         1 NE2        1.5041  129.60  171.99  110.03   1.3817
+       22     1 NE2         1 ND1         1 *CE1        1 HE1        1.3162  111.64 -179.63  123.89   1.0932
+       23     1 CE1         1 CG          1 *ND1        1 HD1        1.3549  107.03 -174.65  126.26   1.0005
+       24     1 NE2         1 CG          1 *CD2        1 HD2        1.3817  110.03 -177.85  129.63   1.0834
+       25     1 C           2 CA          2 *N          2 HN         1.3509  123.72  180.00  115.42   0.9996
+       26     1 C           2 N           2 CA          2 C          1.3509  123.72  180.00  114.44   1.5390
+       27     2 N           2 CA          2 C           3 N          1.4545  114.44  180.00  116.84   1.3558
+       28     3 N           2 CA          2 *C          2 O          1.3558  116.84  180.00  122.52   1.2297
+       29     2 CA          2 C           3 N           3 CA         1.5390  116.84  180.00  126.77   1.4613
+       30     2 N           2 C           2 *CA         2 CB         1.4545  114.44  123.23  111.09   1.5461
+       31     2 N           2 C           2 *CA         2 HA         1.4545  114.44 -120.45  106.39   1.0840
+       32     2 C           2 CA          2 CB          2 HB1        1.5390  111.09  177.25  109.60   1.1109
+       33     2 HB1         2 CA          2 *CB         2 HB2        1.1109  109.60  119.13  111.05   1.1119
+       34     2 HB1         2 CA          2 *CB         2 HB3        1.1109  109.60 -119.58  111.61   1.1114
+       35     2 C           3 CA          3 *N          3 HN         1.3558  126.77  180.00  114.41   0.9966
+       36     2 C           3 N           3 CA          3 C          1.3558  126.77  180.00  105.54   1.5180
+       37     3 N           3 CA          3 C           4 N          1.4613  105.54  180.00  117.83   1.3471
+       38     4 N           3 CA          3 *C          3 O          1.3471  117.83  180.00  120.70   1.2297
+       39     3 CA          3 C           4 N           4 CA         1.5180  117.83  180.00  124.08   1.4471
+       40     3 N           3 C           3 *CA         3 CB         1.4613  105.54  122.95  111.23   1.5660
+       41     3 N           3 C           3 *CA         3 HA         1.4613  105.54 -117.24  107.46   1.0828
+       42     3 N           3 CA          3 CB          3 CG1        1.4613  113.04  180.00  113.97   1.5441
+       43     3 CG1         3 CA          3 *CB         3 CG2        1.5441  113.97  123.99  112.17   1.5414
+       44     3 CG1         3 CA          3 *CB         3 HB         1.5441  113.97 -119.17  107.57   1.1178
+       45     3 CA          3 CB          3 CG1         3 HG11       1.5660  113.97  177.83  110.30   1.1114
+       46     3 HG11        3 CB          3 *CG1        3 HG12       1.1114  110.30  119.25  111.67   1.1097
+       47     3 HG11        3 CB          3 *CG1        3 HG13       1.1114  110.30 -119.49  110.70   1.1110
+       48     3 CA          3 CB          3 CG2         3 HG21       1.5660  112.17 -177.78  110.71   1.1108
+       49     3 HG21        3 CB          3 *CG2        3 HG22       1.1108  110.71  120.08  110.56   1.1115
+       50     3 HG21        3 CB          3 *CG2        3 HG23       1.1108  110.71 -119.55  111.23   1.1098
+       51     3 C           4 CA          4 *N          4 HN         1.3471  124.08  180.00  114.18   0.9999
+       52     3 C           4 N           4 CA          4 C          1.3471  124.08  180.00  105.81   1.5166
+       53     4 N           4 CA          4 C           5 N          1.4471  105.81  180.00  117.72   1.3448
+       54     5 N           4 CA          4 *C          4 O          1.3448  117.72  180.00  120.25   1.2290
+       55     4 CA          4 C           5 N           5 CA         1.5166  117.72  180.00  124.63   1.4529
+       56     4 N           4 C           4 *CA         4 CB         1.4471  105.81  124.75  111.40   1.5585
+       57     4 N           4 C           4 *CA         4 HA         1.4471  105.81 -115.56  107.30   1.0821
+       58     4 N           4 CA          4 CB          4 OG         1.4471  114.28  180.00  112.45   1.4341
+       59     4 OG          4 CA          4 *CB         4 HB1        1.4341  112.45  119.32  108.10   1.1140
+       60     4 OG          4 CA          4 *CB         4 HB2        1.4341  112.45 -123.86  110.38   1.1136
+       61     4 CA          4 CB          4 OG          4 HG1        1.5585  112.45  165.96  107.08   0.9655
+       62     4 C           5 CA          5 *N          5 HN         1.3448  124.63  180.00  114.18   0.9999
+       63     4 C           5 N           5 CA          5 C          1.3448  124.63  180.00  105.81   1.5166
+       64     5 N           5 CA          5 C           6 N          1.4529  105.81  180.00  117.72   1.3448
+       65     6 N           5 CA          5 *C          5 O          1.3448  117.72  180.00  120.25   1.2290
+       66     5 CA          5 C           6 N           6 CA         1.5166  117.72  180.00  124.63   1.4529
+       67     5 N           5 C           5 *CA         5 CB         1.4529  105.81  124.75  111.40   1.5585
+       68     5 N           5 C           5 *CA         5 HA         1.4529  105.81 -115.56  107.30   1.0821
+       69     5 N           5 CA          5 CB          5 OG         1.4529  114.28  180.00  112.45   1.4341
+       70     5 OG          5 CA          5 *CB         5 HB1        1.4341  112.45  119.32  108.10   1.1140
+       71     5 OG          5 CA          5 *CB         5 HB2        1.4341  112.45 -123.86  110.38   1.1136
+       72     5 CA          5 CB          5 OG          5 HG1        1.5585  112.45  165.96  107.08   0.9655
+       73     5 C           6 CA          6 *N          6 HN         1.3448  124.63  180.00  114.49   0.9992
+       74     5 C           6 N           6 CA          6 C          1.3448  124.63  180.00  105.23   1.5245
+       75     6 N           6 CA          6 C         -99 ??         1.4529  105.23    0.00    0.00   0.0000
+       76   -99 ??          6 CA          6 *C          6 O          0.0000    0.00    0.00  121.00   1.2300
+       77     6 CA          6 C         -99 ??        -99 ??         1.5245    0.00    0.00    0.00   0.0000
+       78     6 N           6 C           6 *CA         6 CB         1.4529  105.23  121.18  113.04   1.5627
+       79     6 N           6 C           6 *CA         6 HA         1.4529  105.23 -115.52  107.63   1.0848
+       80     6 N           6 CA          6 CB          6 CG         1.4529  110.91 -180.00  114.30   1.5319
+       81     6 CG          6 CA          6 *CB         6 HB1        1.5319  114.30  119.17  107.82   1.1120
+       82     6 CG          6 CA          6 *CB         6 HB2        1.5319  114.30 -123.74  110.34   1.1091
+       83     6 CA          6 CB          6 CG          6 OD1        1.5627  114.30 -180.00  122.56   1.2323
+       84     6 OD1         6 CB          6 *CG         6 ND2        1.2323  122.56 -179.19  116.15   1.3521
+       85     6 CB          6 CG          6 ND2         6 HD21       1.5319  116.15 -179.26  117.35   0.9963
+       86     6 HD21        6 CG          6 *ND2        6 HD22       0.9963  117.35  178.02  120.05   0.9951
+       87     6 N           6 CA          6 C           6 O          1.4529  105.23  180.00  121.00   1.2300
+       88     6 NT          6 CA          6 *C          6 O          1.3600  116.50  180.00  121.00   1.2300
+       89     6 CA          6 C           6 NT          6 HT1        1.5245  116.50  180.00  120.00   1.0000
+       90     6 HT1         6 C           6 *NT         6 HT2        1.0000  120.00  180.00  120.00   1.0000
+  
+ CHARMM>    mini CONJ nstep 100 cutnb 14.0 ctonnb 10.0 ctofnb 12.0 inbfrq -1
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  FSHIft   VATOm    VFSWIt  
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 14.000 CTEXNB =999.000 CTONNB = 10.000 CTOFNB = 12.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are     2829 atom  pairs and      452 atom  exclusions.
+ There are        0 group pairs and       66 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR     3785 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+     2827 ATOM PAIRS WERE FOUND FOR ATOM LIST
+       45 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+
+
+ CONJUG> An energy minimization has been requested.
+
+ NCGCYC =          100   NSTEP  =          100
+ PCUT   =    0.9999000   PRTMIN =            1
+ STEP   =    0.0200000   TOLFUN =    0.0000000
+ TOLGRD =    0.0000000   TOLITR =          100
+ TOLSTP =    0.0000000
+
+MINI MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+MINI INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+MINI CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+MINI EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>        0    -10.76127      0.00000      1.78629      0.00000
+MINI INTERN>        4.60479     14.06794      2.65796     24.41024      1.48642
+MINI CROSS>        -7.48920      0.00000      0.00000      0.00000
+MINI EXTERN>        0.58779    -51.08721      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       10    -18.94545      8.18418      0.98149      0.06293
+MINI INTERN>        4.69244     11.56491      2.53708     22.51251      0.86082
+MINI CROSS>        -7.10281      0.00000      0.00000      0.00000
+MINI EXTERN>       -3.04676    -50.96365      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       20    -21.06724      2.12179      0.96402      0.07280
+MINI INTERN>        3.94117      9.94463      2.42819     22.35154      0.51395
+MINI CROSS>        -6.96184      0.00000      0.00000      0.00000
+MINI EXTERN>       -3.11751    -50.16736      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       30    -23.13549      2.06825      1.12874      0.11468
+MINI INTERN>        3.59688      8.73141      2.21110     22.72740      0.45788
+MINI CROSS>        -7.06155      0.00000      0.00000      0.00000
+MINI EXTERN>       -3.61977    -50.17886      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       40    -24.57414      1.43865      0.77999      0.08238
+MINI INTERN>        2.91302      7.71162      2.03076     22.89624      0.40750
+MINI CROSS>        -7.36215      0.00000      0.00000      0.00000
+MINI EXTERN>       -4.07376    -49.09739      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       50    -25.42553      0.85139      0.63776      0.07032
+MINI INTERN>        2.85217      6.93719      1.98084     22.91293      0.41503
+MINI CROSS>        -7.69062      0.00000      0.00000      0.00000
+MINI EXTERN>       -4.08413    -48.74893      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       60    -26.03433      0.60880      0.57139      0.04960
+MINI INTERN>        2.72721      6.92817      2.06710     22.88919      0.43177
+MINI CROSS>        -7.70210      0.00000      0.00000      0.00000
+MINI EXTERN>       -3.98079    -49.39487      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       70    -26.53144      0.49711      0.47456      0.04752
+MINI INTERN>        2.69135      6.73035      1.94991     22.56324      0.44467
+MINI CROSS>        -7.48698      0.00000      0.00000      0.00000
+MINI EXTERN>       -3.20816    -50.21583      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       80    -26.87866      0.34722      0.37983      0.03592
+MINI INTERN>        2.64717      6.90198      2.10442     22.11706      0.43061
+MINI CROSS>        -7.26800      0.00000      0.00000      0.00000
+MINI EXTERN>       -3.13250    -50.67939      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       90    -27.08967      0.21101      0.34360      0.04082
+MINI INTERN>        2.76295      7.31751      2.14599     21.88294      0.39870
+MINI CROSS>        -7.16558      0.00000      0.00000      0.00000
+MINI EXTERN>       -3.50892    -50.92324      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      100    -27.46727      0.37760      0.64711      0.15136
+MINI INTERN>        2.83007      7.89416      2.11066     21.77296      0.36677
+MINI CROSS>        -7.14100      0.00000      0.00000      0.00000
+MINI EXTERN>       -4.18729    -51.11361      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+
+ CONJUG> Minimization exiting with number of steps limit (  100) exceeded.
+
+CONJ MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+CONJ INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+CONJ CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+CONJ EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+CONJ>      100    -27.46727      0.37760      0.64711      0.02000
+CONJ INTERN>        2.83007      7.89416      2.11066     21.77296      0.36677
+CONJ CROSS>        -7.14100      0.00000      0.00000      0.00000
+CONJ EXTERN>       -4.18729    -51.11361      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>    coor orie rms
+ CENTER OF ATOMS BEFORE TRANSLATION     7.88984     5.88318    -0.08342
+ CENTER OF REFERENCE COORDINATE SET     7.88984     5.88318    -0.08342
+ NET TRANSLATION OF ROTATED ATOMS      -0.00000     0.00000     0.00000
+ ROTATION MATRIX
+     0.999999   -0.000089    0.001067
+     0.000091    0.999999   -0.001726
+    -0.001067    0.001726    0.999998
+ AXIS OF ROTATION IS -0.849719 -0.525354 -0.044510  ANGLE IS    0.12
+
+ TOTAL SQUARE DIFF IS     41.8341  DENOMINATOR IS     88.0000
+       THUS RMS DIFF IS    0.689484
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>    IC PRINT
+
+       INTERNAL COORDINATES
+ TITLE>  * HAVSSN : WH5: WAAAH+ PEPTIDE
+ TITLE>  *  DATE:     6/ 7/24     14:18:44      CREATED BY USER: jinyan
+ TITLE>  *
+
+     NUMBER OF INTERNAL COORDINATES :         90
+
+        N      I             J             K             L        R(I(J/K)) T(I(JK/KJ)) PHI   T(JKL)   R(KL)
+
+        1     1 CY          1 N           1 CA          1 C          1.3450  120.00  -60.00  107.70   1.5166
+        2     1 CY          1 CA          1 *N          1 HN         1.3450  120.00  180.00  117.00   0.9970
+        3     1 CAY         1 CY          1 N           1 CA         1.4900  116.50  180.00  120.00   1.4521
+        4     1 N           1 CAY         1 *CY         1 OY         1.3450  116.50  180.00  121.00   1.2300
+        5     1 OY          1 CY          1 CAY         1 HY1        1.2300  121.00  180.00  109.50   1.1110
+        6     1 OY          1 CY          1 CAY         1 HY2        1.2300  121.00   60.00  109.50   1.1110
+        7     1 OY          1 CY          1 CAY         1 HY3        1.2300  121.00  -60.00  109.50   1.1110
+        8   -99 ??          1 CA          1 *N          1 HN         0.0000    0.00    0.00  117.00   0.9970
+        9   -99 ??          1 N           1 CA          1 C          0.0000    0.00    0.00  107.70   1.5166
+       10     1 N           1 CA          1 C           2 N          1.4521  107.70  180.00  117.57   1.3509
+       11     2 N           1 CA          1 *C          1 O          1.3509  117.57  180.00  120.24   1.2273
+       12     1 CA          1 C           2 N           2 CA         1.5166  117.57  180.00  123.72   1.4545
+       13     1 N           1 C           1 *CA         1 CB         1.4521  107.70  122.46  109.99   1.5519
+       14     1 N           1 C           1 *CA         1 HA         1.4521  107.70 -117.49  107.37   1.0830
+       15     1 N           1 CA          1 CB          1 CG         1.4521  112.12  180.00  114.05   1.5041
+       16     1 CG          1 CA          1 *CB         1 HB1        1.5041  114.05  121.17  109.01   1.1118
+       17     1 CG          1 CA          1 *CB         1 HB2        1.5041  114.05 -122.36  109.53   1.1121
+       18     1 CA          1 CB          1 CG          1 ND1        1.5519  114.05   90.00  124.10   1.3783
+       19     1 ND1         1 CB          1 *CG         1 CD2        1.3783  124.10 -171.29  129.60   1.3597
+       20     1 CB          1 CG          1 ND1         1 CE1        1.5041  124.10 -173.21  107.03   1.3549
+       21     1 CB          1 CG          1 CD2         1 NE2        1.5041  129.60  171.99  110.03   1.3817
+       22     1 NE2         1 ND1         1 *CE1        1 HE1        1.3162  111.64 -179.63  123.89   1.0932
+       23     1 CE1         1 CG          1 *ND1        1 HD1        1.3549  107.03 -174.65  126.26   1.0005
+       24     1 NE2         1 CG          1 *CD2        1 HD2        1.3817  110.03 -177.85  129.63   1.0834
+       25     1 C           2 CA          2 *N          2 HN         1.3509  123.72  180.00  115.42   0.9996
+       26     1 C           2 N           2 CA          2 C          1.3509  123.72  180.00  114.44   1.5390
+       27     2 N           2 CA          2 C           3 N          1.4545  114.44  180.00  116.84   1.3558
+       28     3 N           2 CA          2 *C          2 O          1.3558  116.84  180.00  122.52   1.2297
+       29     2 CA          2 C           3 N           3 CA         1.5390  116.84  180.00  126.77   1.4613
+       30     2 N           2 C           2 *CA         2 CB         1.4545  114.44  123.23  111.09   1.5461
+       31     2 N           2 C           2 *CA         2 HA         1.4545  114.44 -120.45  106.39   1.0840
+       32     2 C           2 CA          2 CB          2 HB1        1.5390  111.09  177.25  109.60   1.1109
+       33     2 HB1         2 CA          2 *CB         2 HB2        1.1109  109.60  119.13  111.05   1.1119
+       34     2 HB1         2 CA          2 *CB         2 HB3        1.1109  109.60 -119.58  111.61   1.1114
+       35     2 C           3 CA          3 *N          3 HN         1.3558  126.77  180.00  114.41   0.9966
+       36     2 C           3 N           3 CA          3 C          1.3558  126.77  180.00  105.54   1.5180
+       37     3 N           3 CA          3 C           4 N          1.4613  105.54  180.00  117.83   1.3471
+       38     4 N           3 CA          3 *C          3 O          1.3471  117.83  180.00  120.70   1.2297
+       39     3 CA          3 C           4 N           4 CA         1.5180  117.83  180.00  124.08   1.4471
+       40     3 N           3 C           3 *CA         3 CB         1.4613  105.54  122.95  111.23   1.5660
+       41     3 N           3 C           3 *CA         3 HA         1.4613  105.54 -117.24  107.46   1.0828
+       42     3 N           3 CA          3 CB          3 CG1        1.4613  113.04  180.00  113.97   1.5441
+       43     3 CG1         3 CA          3 *CB         3 CG2        1.5441  113.97  123.99  112.17   1.5414
+       44     3 CG1         3 CA          3 *CB         3 HB         1.5441  113.97 -119.17  107.57   1.1178
+       45     3 CA          3 CB          3 CG1         3 HG11       1.5660  113.97  177.83  110.30   1.1114
+       46     3 HG11        3 CB          3 *CG1        3 HG12       1.1114  110.30  119.25  111.67   1.1097
+       47     3 HG11        3 CB          3 *CG1        3 HG13       1.1114  110.30 -119.49  110.70   1.1110
+       48     3 CA          3 CB          3 CG2         3 HG21       1.5660  112.17 -177.78  110.71   1.1108
+       49     3 HG21        3 CB          3 *CG2        3 HG22       1.1108  110.71  120.08  110.56   1.1115
+       50     3 HG21        3 CB          3 *CG2        3 HG23       1.1108  110.71 -119.55  111.23   1.1098
+       51     3 C           4 CA          4 *N          4 HN         1.3471  124.08  180.00  114.18   0.9999
+       52     3 C           4 N           4 CA          4 C          1.3471  124.08  180.00  105.81   1.5166
+       53     4 N           4 CA          4 C           5 N          1.4471  105.81  180.00  117.72   1.3448
+       54     5 N           4 CA          4 *C          4 O          1.3448  117.72  180.00  120.25   1.2290
+       55     4 CA          4 C           5 N           5 CA         1.5166  117.72  180.00  124.63   1.4529
+       56     4 N           4 C           4 *CA         4 CB         1.4471  105.81  124.75  111.40   1.5585
+       57     4 N           4 C           4 *CA         4 HA         1.4471  105.81 -115.56  107.30   1.0821
+       58     4 N           4 CA          4 CB          4 OG         1.4471  114.28  180.00  112.45   1.4341
+       59     4 OG          4 CA          4 *CB         4 HB1        1.4341  112.45  119.32  108.10   1.1140
+       60     4 OG          4 CA          4 *CB         4 HB2        1.4341  112.45 -123.86  110.38   1.1136
+       61     4 CA          4 CB          4 OG          4 HG1        1.5585  112.45  165.96  107.08   0.9655
+       62     4 C           5 CA          5 *N          5 HN         1.3448  124.63  180.00  114.18   0.9999
+       63     4 C           5 N           5 CA          5 C          1.3448  124.63  180.00  105.81   1.5166
+       64     5 N           5 CA          5 C           6 N          1.4529  105.81  180.00  117.72   1.3448
+       65     6 N           5 CA          5 *C          5 O          1.3448  117.72  180.00  120.25   1.2290
+       66     5 CA          5 C           6 N           6 CA         1.5166  117.72  180.00  124.63   1.4529
+       67     5 N           5 C           5 *CA         5 CB         1.4529  105.81  124.75  111.40   1.5585
+       68     5 N           5 C           5 *CA         5 HA         1.4529  105.81 -115.56  107.30   1.0821
+       69     5 N           5 CA          5 CB          5 OG         1.4529  114.28  180.00  112.45   1.4341
+       70     5 OG          5 CA          5 *CB         5 HB1        1.4341  112.45  119.32  108.10   1.1140
+       71     5 OG          5 CA          5 *CB         5 HB2        1.4341  112.45 -123.86  110.38   1.1136
+       72     5 CA          5 CB          5 OG          5 HG1        1.5585  112.45  165.96  107.08   0.9655
+       73     5 C           6 CA          6 *N          6 HN         1.3448  124.63  180.00  114.49   0.9992
+       74     5 C           6 N           6 CA          6 C          1.3448  124.63  180.00  105.23   1.5245
+       75     6 N           6 CA          6 C         -99 ??         1.4529  105.23    0.00    0.00   0.0000
+       76   -99 ??          6 CA          6 *C          6 O          0.0000    0.00    0.00  121.00   1.2300
+       77     6 CA          6 C         -99 ??        -99 ??         1.5245    0.00    0.00    0.00   0.0000
+       78     6 N           6 C           6 *CA         6 CB         1.4529  105.23  121.18  113.04   1.5627
+       79     6 N           6 C           6 *CA         6 HA         1.4529  105.23 -115.52  107.63   1.0848
+       80     6 N           6 CA          6 CB          6 CG         1.4529  110.91 -180.00  114.30   1.5319
+       81     6 CG          6 CA          6 *CB         6 HB1        1.5319  114.30  119.17  107.82   1.1120
+       82     6 CG          6 CA          6 *CB         6 HB2        1.5319  114.30 -123.74  110.34   1.1091
+       83     6 CA          6 CB          6 CG          6 OD1        1.5627  114.30 -180.00  122.56   1.2323
+       84     6 OD1         6 CB          6 *CG         6 ND2        1.2323  122.56 -179.19  116.15   1.3521
+       85     6 CB          6 CG          6 ND2         6 HD21       1.5319  116.15 -179.26  117.35   0.9963
+       86     6 HD21        6 CG          6 *ND2        6 HD22       0.9963  117.35  178.02  120.05   0.9951
+       87     6 N           6 CA          6 C           6 O          1.4529  105.23  180.00  121.00   1.2300
+       88     6 NT          6 CA          6 *C          6 O          1.3600  116.50  180.00  121.00   1.2300
+       89     6 CA          6 C           6 NT          6 HT1        1.5245  116.50  180.00  120.00   1.0000
+       90     6 HT1         6 C           6 *NT         6 HT2        1.0000  120.00  180.00  120.00   1.0000
+  
+ CHARMM>     
+  
+ CHARMM>    open unit 4 card write name @s_m.pdb
+ Parameter: S -> "HAVSSN"
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    4 with status "KEEP"
+ VOPEN> Attempting to open::havssn_m.pdb::
+ OPNLGU> Unit  4 opened for WRITE access to havssn_m.pdb
+  
+ CHARMM>    write COOR pdb unit 4
+ RDTITL> * HAVSSN : WH5: WAAAH+ PEPTIDE  ENERGY MINIMIZED
+ RDTITL> *
+  Write CHARMM-pdb format
+  
+ CHARMM>    open unit 4 card write name @s_m.crd
+ Parameter: S -> "HAVSSN"
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    4 with status "KEEP"
+ VOPEN> Attempting to open::havssn_m.crd::
+ OPNLGU> Unit  4 opened for WRITE access to havssn_m.crd
+  
+ CHARMM>    write COOR card unit 4
+ RDTITL> * HAVSSN : WH5: WAAAH+ PEPTIDE  ENERGY MINIMIZED
+ RDTITL> *
+ VCLOSE: Closing unit    4 with status "KEEP"
+  
+ CHARMM>    STOP
+ VCLOSE: Closing unit    1 with status "KEEP"
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VCLOSE: Closing unit    3 with status "KEEP"
+$$$$$$  New timer profile $$$$$
+      Nonbond force                   0.02 Other:            0.00
+         Bond energy                     0.00 Other:            0.00
+         Angle energy                    0.00 Other:            0.00
+         Dihedral energy                 0.01 Other:            0.00
+         Restraints energy               0.00 Other:            0.00
+      INTRNL energy                   0.01 Other:            0.00
+   Energy time                     0.03 Other:            0.00
+ Total time                      0.10 Other:            0.07
+
+                    NORMAL TERMINATION BY NORMAL STOP
+                    NO WARNINGS WERE ISSUED
+
+                    $$$$$ JOB ACCOUNTING INFORMATION $$$$$
+                     ELAPSED TIME:     0.10  SECONDS 
+                         CPU TIME:     0.09  SECONDS 

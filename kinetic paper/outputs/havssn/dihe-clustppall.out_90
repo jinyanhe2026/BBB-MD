@@ -1,0 +1,1540 @@
+1
+                 Chemistry at HARvard Macromolecular Mechanics
+           (CHARMM) - Developmental Version 40b1     August 15, 2015            
+       Copyright(c) 1984-2014  President and Fellows of Harvard College
+                              All Rights Reserved
+     Current operating system: Linux-3.10.0-1062.12.1.el7.x86_64(x86_64)@CH     
+                 Created on  6/7/24 at 14:30:49 by user: jinyan      
+
+            Maximum number of ATOMS:    360720, and RESidues:      120240
+ RDTITL> *  WH5  - DIHEDRAL CLUSTERING
+ RDTITL> *  ALL INDIVDUAL PHI,PSI DIHEDS
+ RDTITL> *
+  
+ CHARMM>    bomlev -9
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>    !prnlev  4
+ CHARMM>     
+  
+ CHARMM>    set s havssn                 ! PSF prefix
+ Parameter: S <- "HAVSSN"
+  
+ CHARMM>    set r havssn                 ! segid
+ Parameter: R <- "HAVSSN"
+  
+ CHARMM>    set t WH5: WAAAA+ peptide    ! title
+ Parameter: T <- "WH5: WAAAA+ PEPTIDE"
+  
+ CHARMM>     
+  
+ CHARMM>    set toppar = /home/kuczera/prog/charmm/c40b1/toppar
+ Parameter: TOPPAR <- "/HOME/KUCZERA/PROG/CHARMM/C40B1/TOPPAR"
+  
+ CHARMM>    open unit 1 card read name  @toppar/top_all22_prot.rtf
+ Parameter: TOPPAR -> "/HOME/KUCZERA/PROG/CHARMM/C40B1/TOPPAR"
+ VOPEN> Attempting to open::/home/kuczera/prog/charmm/c40b1/toppar/top_all22_prot.rtf::
+ OPNLGU> Unit  1 opened for READONLY access to /home/kuczera/prog/charmm/c40b1/toppar/top_all22_prot.rtf
+  
+ CHARMM>    read RTF card unit 1
+ MAINIO> Residue topology file being read from unit   1.
+ TITLE> *>>>>>>>>CHARMM22 ALL-HYDROGEN TOPOLOGY FILE FOR PROTEINS <<<<<<
+ TITLE> *>>>>> INCLUDES PHI, PSI CROSS TERM MAP (CMAP) CORRECTION <<<<<<<
+ TITLE> *>>>>>>>>>>>>>>>>>>>>>> DECEMBER, 2003 <<<<<<<<<<<<<<<<<<<<<<<<<<
+ TITLE> * ALL COMMENTS TO ADM JR. VIA THE CHARMM WEB SITE: WWW.CHARMM.ORG
+ TITLE> *               PARAMETER SET DISCUSSION FORUM
+ TITLE> *
+  
+ CHARMM>    open unit 2 card read name  @toppar/par_all22_prot.prm
+ Parameter: TOPPAR -> "/HOME/KUCZERA/PROG/CHARMM/C40B1/TOPPAR"
+ VOPEN> Attempting to open::/home/kuczera/prog/charmm/c40b1/toppar/par_all22_prot.prm::
+ OPNLGU> Unit  2 opened for READONLY access to /home/kuczera/prog/charmm/c40b1/toppar/par_all22_prot.prm
+  
+ CHARMM>    read PARA card unit 2
+
+          PARAMETER FILE BEING READ FROM UNIT  2
+ TITLE> *>>>>> CHARMM22 ALL-HYDROGEN PARAMETER FILE FOR PROTEINS <<<<<<<<
+ TITLE> *>>>>> INCLUDES PHI, PSI CROSS TERM MAP (CMAP) CORRECTION <<<<<<<
+ TITLE> *>>>>>>>>>>>>>>>>>>>>>> DECEMBER, 2003 <<<<<<<<<<<<<<<<<<<<<<<<<<
+ TITLE> * ALL COMMENTS TO ADM JR. VIA THE CHARMM WEB SITE: WWW.CHARMM.ORG
+ TITLE> *               PARAMETER SET DISCUSSION FORUM
+ TITLE> *
+ PARMIO> NONBOND, HBOND lists and IMAGE atoms cleared.
+  
+ CHARMM>     
+  
+ CHARMM>    open unit 4 card read name @s.psf
+ Parameter: S -> "HAVSSN"
+ VOPEN> Attempting to open::havssn.psf::
+ OPNLGU> Unit  4 opened for READONLY access to havssn.psf
+  
+ CHARMM>    read PSF card unit 4
+ MAINIO> Protein structure file being read from unit   4.
+ PSFRD2> Reading PSF in the expanded format.
+ TITLE>  * HAVSSN : WH5: WAAAH+ PEPTIDE
+ TITLE>  *  DATE:     6/ 7/24     14:18:44      CREATED BY USER: jinyan
+ TITLE>  *
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        6
+         Number of atoms         =       88   Number of groups     =       26
+         Number of bonds         =       88   Number of angles     =      153
+         Number of dihedrals     =      216   Number of impropers  =       26
+         Number of cross-terms   =        5
+         Number of HB acceptors  =       11   Number of HB donors  =       13
+         Number of NB exclusions =        0   Total charge =    0.00000
+  
+ CHARMM>     
+  
+ CHARMM>    open unit 4 card read name @s_m.crd
+ Parameter: S -> "HAVSSN"
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    4 with status "KEEP"
+ VOPEN> Attempting to open::havssn_m.crd::
+ OPNLGU> Unit  4 opened for READONLY access to havssn_m.crd
+  
+ CHARMM>    read COOR card unit 4
+          SPATIAL COORDINATES BEING READ FROM UNIT  4
+ TITLE> * HAVSSN : WH5: WAAAH+ PEPTIDE  ENERGY MINIMIZED
+ TITLE> *  DATE:     6/ 7/24     14:18:44      CREATED BY USER: JINYAN
+ TITLE> *
+  
+ CHARMM>     
+  
+ CHARMM>    ! use correl : define phi,psi
+ CHARMM>    ! details are not important here, just dimensions of data
+ CHARMM>    correl maxa 75 maxs 14 maxt 500000
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  FSHIft   VATOm    VFSWIt  
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 14.000 CTEXNB =999.000 CTONNB = 10.000 CTOFNB = 12.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+ <MAKINB> with mode   5 found    241 exclusions and    211 interactions(1-4)
+ <MAKGRP> found     66 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR     3785 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+     2866 ATOM PAIRS WERE FOUND FOR ATOM LIST
+       46 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+  
+ CORREL>    enter  s1 dihe 1 CY  1 N  1 CA 1 C
+  
+ CORREL>    enter  s2 dihe 1 N   1 CA 1 C  2 N
+  
+ CORREL>    enter  s3 dihe 1 C   2 N  2 CA 2 C
+  
+ CORREL>    enter  s4 dihe 2 N   2 CA 2 C  3 N
+  
+ CORREL>    enter  s5 dihe 2 C   3 N  3 CA 3 C
+  
+ CORREL>    enter  s6 dihe 3 N   3 CA 3 C  4 N
+  
+ CORREL>    enter  s7 dihe 3 C   4 N  4 CA 4 C
+  
+ CORREL>    enter  s8 dihe 4 N   4 CA 4 C  5 N
+  
+ CORREL>    enter  s9 dihe 4 C   5 N  5 CA 5 C
+  
+ CORREL>    enter s10 dihe 5 N   5 CA 5 C  6 N
+  
+ CORREL>    enter s11 dihe 5 C   6 N  6 CA 6 C
+  
+ CORREL>    enter s12 dihe 6 N   6 CA 6 C  7 NT
+ *** IN MATOM *** 'NT      ' ATOM TYPE NOT FOUND FOR RESIDUE    7
+ ERROR IN NXTATM: Unrecognizable ATOM "NT      " for residue number: 7       
+  
+ CORREL>     
+  
+ CORREL>     
+  
+ CORREL>    open unit 2 card read name ../data1/phi1.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/phi1.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/phi1.tms10
+  
+ CORREL>    read s1 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S1      
+ TOTALS:       300000
+ AVERAGE:  -77.780392
+ FLUCT:     57.176497
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/psi1.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/psi1.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/psi1.tms10
+  
+ CORREL>    read s2 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S2      
+ TOTALS:       300000
+ AVERAGE:  102.357547
+ FLUCT:     69.604891
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/phi2.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/phi2.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/phi2.tms10
+  
+ CORREL>    read s3 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S3      
+ TOTALS:       300000
+ AVERAGE:  -74.363673
+ FLUCT:     47.511473
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/psi2.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/psi2.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/psi2.tms10
+  
+ CORREL>    read s4 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S4      
+ TOTALS:       300000
+ AVERAGE:  109.187364
+ FLUCT:     73.075853
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/phi3.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/phi3.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/phi3.tms10
+  
+ CORREL>    read s5 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S5      
+ TOTALS:       300000
+ AVERAGE:  -80.150370
+ FLUCT:     31.115939
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/psi3.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/psi3.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/psi3.tms10
+  
+ CORREL>    read s6 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S6      
+ TOTALS:       300000
+ AVERAGE:  111.676239
+ FLUCT:     59.684566
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/phi4.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/phi4.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/phi4.tms10
+  
+ CORREL>    read s7 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S7      
+ TOTALS:       300000
+ AVERAGE:  -74.976040
+ FLUCT:     58.225689
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/psi4.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/psi4.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/psi4.tms10
+  
+ CORREL>    read s8 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S8      
+ TOTALS:       300000
+ AVERAGE:  116.376218
+ FLUCT:     59.937500
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/phi5.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/phi5.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/phi5.tms10
+  
+ CORREL>    read s9 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S9      
+ TOTALS:       300000
+ AVERAGE:  -84.473463
+ FLUCT:     55.372296
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/psi5.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/psi5.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/psi5.tms10
+  
+ CORREL>    read s10 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S10     
+ TOTALS:       300000
+ AVERAGE:   89.723260
+ FLUCT:     75.168402
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/phi6.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/phi6.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/phi6.tms10
+  
+ CORREL>    read s11 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S11     
+ TOTALS:       300000
+ AVERAGE:  -87.134245
+ FLUCT:     18.935784
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/psi6.tms10
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/psi6.tms10::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/psi6.tms10
+  
+ CORREL>    read s12 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S12     
+ TOTALS:       300000
+ AVERAGE:   37.648437
+ FLUCT:     84.742092
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>     
+  
+ CORREL>     
+  
+ CORREL>    open unit 21 card write name ./result_clustppall/unimppall.tms10_90
+ VOPEN> Attempting to open::./result_clustppall/unimppall.tms10_90::
+ OPNLGU> Unit 21 opened for WRITE access to ./result_clustppall/unimppall.tms10_90
+  
+ CORREL>    edit s1 veccod 12
+ NSER:  12
+ NAMES:      S1              S2              S3              S4              S5              S6              S7              S8              S9              S10     
+    S11             S12     
+ TOTALS:       300000      300000      300000      300000      300000      300000      300000      300000      300000      300000
+      300000      300000
+ AVERAGE:  -77.780392  102.357547  -74.363673  109.187364  -80.150370  111.676239  -74.976040  116.376218  -84.473463   89.723260
+  -87.134245   37.648437
+ FLUCT:     57.176497   69.604891   47.511473   73.075853   31.115939   59.684566   58.225689   59.937500   55.372296   75.168402
+   18.935784   84.742092
+ VECCOD:           12           0           0           0           0           0           0           0           0           0
+           0           0
+ CLASS:      DIHE            DIHE            DIHE            DIHE            DIHE            DIHE            DIHE            DIHE            DIHE            DIHE    
+    DIHE            DIHE    
+ VELCOD:            0           0           0           0           0           0           0           0           0           0
+           0           0
+ SKIP:              1           1           1           1           1           1           1           1           1           1
+           1           1
+ DELTA:      0.000000    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000
+    0.000000    0.000000
+ OFFST:      0.000000    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000
+    0.000000    0.000000
+ GECOD:             1           1           1           1           1           1           1           1           1           1
+           1           1
+ VALUE:      1.000000    1.000000    1.000000    1.000000    1.000000    1.000000    1.000000    1.000000    1.000000    1.000000
+    1.000000    1.000000
+  
+ CORREL>    cluster s1 radius 90.0 Angle unimember 21 maxclust 400 maxiter 1000
+ CLUSTER> Iteration =   1 MAXError exceeded for cluster      1  No. of clusters =     13
+ CLUSTER> Iteration =   2 MAXError exceeded for cluster      1  No. of clusters =     16
+ CLUSTER> Iteration =   3 MAXError exceeded for cluster      1  No. of clusters =     18
+ CLUSTER> Iteration =   4 MAXError exceeded for cluster      1  No. of clusters =     18
+ CLUSTER> Iteration =   5 MAXError exceeded for cluster      1  No. of clusters =     20
+ CLUSTER> Iteration =   6 MAXError exceeded for cluster      1  No. of clusters =     20
+ CLUSTER> Iteration =   7 MAXError exceeded for cluster      1  No. of clusters =     20
+ CLUSTER> Iteration =   8 MAXError exceeded for cluster      1  No. of clusters =     20
+ CLUSTER> Iteration =   9 MAXError exceeded for cluster      1  No. of clusters =     20
+ CLUSTER> Iteration =  10 MAXError exceeded for cluster      1  No. of clusters =     20
+ CLUSTER> Iteration =  11 MAXError exceeded for cluster      1  No. of clusters =     20
+ CLUSTER> Iteration =  12 MAXError exceeded for cluster      1  No. of clusters =     20
+ CLUSTER> Iteration =  13 MAXError exceeded for cluster      1  No. of clusters =     20
+ CLUSTER> Iteration =  14 MAXError exceeded for cluster      1  No. of clusters =     20
+ CLUSTER> Iteration =  15 MAXError exceeded for cluster      1  No. of clusters =     21
+ CLUSTER> Iteration =  16 MAXError exceeded for cluster      1  No. of clusters =     22
+ CLUSTER> Iteration =  17 MAXError exceeded for cluster      1  No. of clusters =     23
+ CLUSTER> Iteration =  18 MAXError exceeded for cluster      1  No. of clusters =     23
+ CLUSTER> Iteration =  19 MAXError exceeded for cluster      1  No. of clusters =     23
+ CLUSTER> Iteration =  20 MAXError exceeded for cluster      1  No. of clusters =     23
+ CLUSTER> Iteration =  21 MAXError exceeded for cluster      1  No. of clusters =     23
+ CLUSTER> Iteration =  22 MAXError exceeded for cluster      1  No. of clusters =     23
+ CLUSTER> Iteration =  23 MAXError exceeded for cluster      1  No. of clusters =     23
+ CLUSTER> Iteration =  24 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  25 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  26 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  27 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  28 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  29 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  30 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  31 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  32 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  33 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  34 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  35 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  36 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  37 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  38 MAXError exceeded for cluster      2  No. of clusters =     24
+ CLUSTER> Iteration =  39 MAXError exceeded for cluster      2  No. of clusters =     24
+ CLUSTER> Iteration =  40 MAXError exceeded for cluster      2  No. of clusters =     24
+ CLUSTER> Iteration =  41 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  42 MAXError exceeded for cluster      2  No. of clusters =     24
+ CLUSTER> Iteration =  43 MAXError exceeded for cluster      2  No. of clusters =     24
+ CLUSTER> Iteration =  44 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  45 MAXError exceeded for cluster      2  No. of clusters =     24
+ CLUSTER> Iteration =  46 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  47 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  48 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  49 MAXError exceeded for cluster      1  No. of clusters =     24
+ CLUSTER> Iteration =  50 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  51 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  52 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration =  53 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  54 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  55 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  56 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  57 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  58 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  59 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  60 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  61 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  62 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  63 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  64 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  65 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  66 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  67 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  68 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  69 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  70 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  71 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  72 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  73 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  74 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  75 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  76 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  77 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  78 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  79 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  80 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  81 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  82 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration =  83 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration =  84 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  85 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =  86 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration =  87 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration =  88 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration =  89 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration =  90 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration =  91 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration =  92 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration =  93 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration =  94 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration =  95 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration =  96 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration =  97 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration =  98 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration =  99 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 100 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 101 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 102 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 103 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 104 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 105 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 106 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 107 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 108 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 109 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 110 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 111 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 112 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 113 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 114 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 115 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 116 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 117 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 118 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 119 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 120 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 121 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 122 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 123 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 124 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 125 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 126 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 127 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 128 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 129 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 130 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 131 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 132 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 133 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 134 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 135 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 136 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 137 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 138 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 139 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 140 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 141 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 142 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 143 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 144 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 145 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 146 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 147 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 148 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 149 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 150 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 151 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 152 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 153 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 154 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 155 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 156 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 157 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 158 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 159 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 160 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 161 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 162 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 163 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 164 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 165 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 166 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 167 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 168 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 169 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 170 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 171 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 172 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 173 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 174 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 175 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 176 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 177 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 178 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 179 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 180 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 181 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 182 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 183 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 184 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 185 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 186 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 187 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 188 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 189 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 190 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 191 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 192 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 193 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 194 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 195 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 196 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 197 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 198 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 199 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 200 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 201 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 202 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 203 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 204 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 205 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 206 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 207 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 208 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 209 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 210 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 211 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 212 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 213 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 214 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 215 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 216 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 217 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 218 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 219 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 220 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 221 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 222 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 223 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 224 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 225 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 226 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 227 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 228 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 229 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 230 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 231 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 232 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 233 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 234 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 235 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 236 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 237 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 238 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 239 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 240 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 241 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 242 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 243 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 244 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 245 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 246 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 247 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 248 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 249 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 250 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 251 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 252 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 253 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 254 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 255 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 256 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 257 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 258 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 259 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 260 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 261 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 262 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 263 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 264 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 265 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 266 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 267 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 268 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 269 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 270 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 271 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 272 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 273 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 274 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 275 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 276 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 277 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 278 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 279 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 280 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 281 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 282 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 283 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 284 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 285 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 286 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 287 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 288 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 289 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 290 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 291 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 292 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 293 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 294 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 295 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 296 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 297 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 298 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 299 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 300 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 301 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 302 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 303 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 304 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 305 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 306 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 307 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 308 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 309 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 310 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 311 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 312 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 313 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 314 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 315 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 316 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 317 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 318 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 319 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 320 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 321 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 322 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 323 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 324 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 325 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 326 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 327 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 328 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 329 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 330 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 331 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 332 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 333 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 334 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 335 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 336 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 337 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 338 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 339 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 340 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 341 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 342 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 343 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 344 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 345 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 346 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 347 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 348 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 349 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 350 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 351 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 352 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 353 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 354 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 355 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 356 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 357 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 358 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 359 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 360 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 361 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 362 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 363 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 364 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 365 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 366 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 367 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 368 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 369 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 370 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 371 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 372 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 373 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 374 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 375 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 376 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 377 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 378 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 379 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 380 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 381 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 382 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 383 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 384 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 385 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 386 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 387 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 388 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 389 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 390 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 391 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 392 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 393 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 394 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 395 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 396 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 397 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 398 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 399 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 400 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 401 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 402 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 403 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 404 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 405 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 406 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 407 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 408 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 409 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 410 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 411 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 412 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 413 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 414 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 415 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 416 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 417 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 418 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 419 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 420 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 421 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 422 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 423 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 424 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 425 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 426 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 427 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 428 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 429 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 430 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 431 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 432 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 433 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 434 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 435 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 436 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 437 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 438 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 439 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 440 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 441 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 442 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 443 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 444 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 445 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 446 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 447 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 448 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 449 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 450 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 451 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 452 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 453 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 454 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 455 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 456 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 457 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 458 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 459 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 460 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 461 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 462 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 463 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 464 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 465 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 466 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 467 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 468 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 469 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 470 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 471 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 472 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 473 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 474 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 475 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 476 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 477 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 478 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 479 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 480 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 481 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 482 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 483 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 484 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 485 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 486 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 487 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 488 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 489 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 490 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 491 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 492 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 493 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 494 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 495 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 496 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 497 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 498 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 499 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 500 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 501 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 502 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 503 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 504 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 505 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 506 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 507 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 508 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 509 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 510 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 511 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 512 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 513 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 514 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 515 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 516 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 517 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 518 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 519 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 520 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 521 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 522 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 523 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 524 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 525 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 526 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 527 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 528 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 529 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 530 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 531 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 532 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 533 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 534 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 535 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 536 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 537 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 538 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 539 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 540 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 541 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 542 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 543 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 544 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 545 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 546 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 547 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 548 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 549 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 550 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 551 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 552 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 553 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 554 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 555 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 556 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 557 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 558 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 559 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 560 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 561 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 562 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 563 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 564 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 565 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 566 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 567 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 568 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 569 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 570 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 571 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 572 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 573 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 574 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 575 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 576 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 577 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 578 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 579 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 580 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 581 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 582 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 583 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 584 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 585 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 586 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 587 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 588 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 589 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 590 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 591 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 592 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 593 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 594 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 595 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 596 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 597 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 598 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 599 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 600 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 601 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 602 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 603 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 604 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 605 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 606 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 607 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 608 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 609 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 610 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 611 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 612 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 613 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 614 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 615 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 616 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 617 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 618 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 619 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 620 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 621 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 622 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 623 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 624 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 625 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 626 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 627 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 628 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 629 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 630 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 631 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 632 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 633 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 634 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 635 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 636 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 637 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 638 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 639 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 640 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 641 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 642 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 643 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 644 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 645 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 646 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 647 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 648 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 649 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 650 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 651 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 652 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 653 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 654 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 655 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 656 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 657 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 658 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 659 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 660 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 661 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 662 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 663 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 664 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 665 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 666 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 667 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 668 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 669 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 670 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 671 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 672 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 673 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 674 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 675 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 676 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 677 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 678 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 679 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 680 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 681 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 682 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 683 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 684 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 685 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 686 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 687 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 688 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 689 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 690 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 691 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 692 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 693 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 694 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 695 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 696 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 697 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 698 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 699 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 700 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 701 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 702 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 703 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 704 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 705 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 706 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 707 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 708 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 709 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 710 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 711 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 712 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 713 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 714 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 715 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 716 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 717 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 718 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 719 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 720 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 721 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 722 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 723 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 724 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 725 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 726 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 727 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 728 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 729 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 730 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 731 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 732 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 733 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 734 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 735 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 736 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 737 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 738 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 739 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 740 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 741 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 742 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 743 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 744 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 745 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 746 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 747 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 748 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 749 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 750 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 751 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 752 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 753 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 754 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 755 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 756 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 757 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 758 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 759 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 760 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 761 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 762 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 763 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 764 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 765 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 766 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 767 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 768 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 769 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 770 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 771 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 772 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 773 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 774 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 775 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 776 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 777 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 778 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 779 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 780 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 781 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 782 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 783 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 784 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 785 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 786 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 787 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 788 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 789 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 790 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 791 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 792 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 793 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 794 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 795 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 796 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 797 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 798 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 799 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 800 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 801 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 802 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 803 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 804 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 805 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 806 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 807 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 808 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 809 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 810 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 811 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 812 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 813 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 814 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 815 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 816 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 817 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 818 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 819 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 820 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 821 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 822 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 823 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 824 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 825 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 826 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 827 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 828 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 829 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 830 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 831 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 832 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 833 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 834 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 835 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 836 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 837 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 838 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 839 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 840 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 841 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 842 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 843 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 844 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 845 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 846 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 847 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 848 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 849 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 850 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 851 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 852 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 853 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 854 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 855 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 856 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 857 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 858 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 859 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 860 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 861 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 862 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 863 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 864 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 865 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 866 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 867 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 868 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 869 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 870 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 871 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 872 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 873 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 874 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 875 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 876 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 877 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 878 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 879 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 880 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 881 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 882 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 883 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 884 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 885 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 886 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 887 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 888 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 889 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 890 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 891 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 892 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 893 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 894 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 895 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 896 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 897 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 898 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 899 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 900 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 901 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 902 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 903 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 904 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 905 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 906 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 907 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 908 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 909 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 910 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 911 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 912 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 913 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 914 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 915 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 916 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 917 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 918 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 919 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 920 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 921 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 922 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 923 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 924 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 925 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 926 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 927 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 928 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 929 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 930 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 931 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 932 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 933 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 934 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 935 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 936 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 937 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 938 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 939 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 940 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 941 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 942 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 943 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 944 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 945 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 946 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 947 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 948 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 949 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 950 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 951 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 952 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 953 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 954 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 955 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 956 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 957 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 958 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 959 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 960 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 961 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 962 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 963 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 964 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 965 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 966 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 967 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 968 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 969 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 970 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 971 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 972 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 973 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 974 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 975 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 976 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 977 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 978 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 979 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 980 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 981 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 982 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 983 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 984 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 985 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 986 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 987 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 988 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 989 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 990 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 991 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 992 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 993 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 994 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 995 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 996 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 997 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Iteration = 998 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration = 999 MAXError exceeded for cluster      1  No. of clusters =     25
+ CLUSTER> Iteration =1000 MAXError exceeded for cluster      2  No. of clusters =     25
+ CLUSTER> Greater than1000 iterations, program halted.
+ Cluster File
+
+ Total Iterations = 1001  No. of clusters =     25
+ RMS difference in cluster centers from last iteration =  0.000E+00
+
+ GREATER THAN1000 ITERATIONS, program halted.
+
+ Max. Cluster Radius  = 0.9000E+02
+ Number of Features   =      12
+ Number of Patterns   =  300000
+ Number of Clusters   =      25
+ Number of Series     =      12
+   Series #       1   S1      
+   Series #       2   S2      
+   Series #       3   S3      
+   Series #       4   S4      
+   Series #       5   S5      
+   Series #       6   S6      
+   Series #       7   S7      
+   Series #       8   S8      
+   Series #       9   S9      
+   Series #      10   S10     
+   Series #      11   S11     
+   Series #      12   S12     
+
+           No._of_Members   Member  Maximum
+ Cluster   Final   Cumul     Std    Distance     Cluster Center Pattern
+       1   49444  281343 0.277E+02 0.725E+02    -91.946  142.190  -78.116  145.134  -79.674  136.135  -87.224  140.256  -95.430
+                                                141.171  -88.970  108.192
+       2    9516  259435 0.389E+02 0.809E+02    -91.765  116.169  -79.650  139.313  -75.505  116.958   73.974   54.852  -96.136
+                                                142.083  -89.072  109.093
+       3   20095  284622 0.381E+02 0.870E+02    -98.740  -11.471  -88.785  147.204  -80.271  134.306  -86.890  137.820  -96.647
+                                                127.314  -87.428   47.066
+       4    9109  271200 0.392E+02 0.807E+02     72.755   69.986  -81.291  145.804  -79.181  136.513  -85.011  123.810  -93.983
+                                                 99.011  -89.252  109.404
+       5    6880  125239 0.501E+02 0.854E+02    -68.477  -33.232  -73.826  -23.413  -84.520  -17.881  -72.940   61.663  -70.954
+                                                101.012  -85.147 -156.269
+       6   14096  267483 0.383E+02 0.817E+02    -94.239  124.350  -78.036  140.123  -83.106  -25.083 -105.454  142.542  -98.144
+                                                 85.195  -89.318  108.070
+       7   11023  269525 0.361E+02 0.733E+02    -90.351  138.155  -89.859  -21.561  -89.641  135.910  -85.496  132.338  -97.032
+                                                 99.779  -89.014  108.615
+       8   26119  274182 0.302E+02 0.737E+02    -92.695  128.539  -77.199  145.075  -78.567  135.924  -87.890  140.659  -97.582
+                                                 -5.531  -89.670  107.364
+       9    7291  270820 0.406E+02 0.856E+02     72.261   71.286  -81.376  145.480  -79.177  128.205  -83.289  124.000  -90.990
+                                                 90.369  -84.169  -51.075
+      10   12111  274905 0.411E+02 0.837E+02    -90.536  113.494  -76.402  144.388  -79.600  135.218  -92.976  -19.764  -98.576
+                                                137.365  -86.874   43.760
+      11   11389  270290 0.444E+02 0.842E+02    -86.627  -21.122  -99.823   -1.442  -80.508  122.643  -82.348  128.202  -92.645
+                                                 91.390  -87.644   38.703
+      12   34895  280200 0.273E+02 0.697E+02    -92.153  141.012  -77.997  145.158  -78.781  136.062  -86.441  139.958  -96.719
+                                                140.412  -83.775  -50.138
+      13   10839  264377 0.394E+02 0.793E+02    -90.296  118.250  -80.026  140.366  -82.714  -25.923 -104.102  140.391  -91.165
+                                                 77.042  -83.852  -51.724
+      14    9016  267484 0.372E+02 0.805E+02    -89.651  137.304  -88.952  -22.515  -90.425  135.402  -82.350  129.814  -92.747
+                                                 91.871  -84.317  -51.803
+      15    3500  252709 0.456E+02 0.799E+02     72.065   58.182  -89.258  -17.179  -86.677  130.897  -76.026  118.878  -92.586
+                                                104.035  -87.399   48.586
+      16   23724  271257 0.308E+02 0.828E+02    -93.041  119.005  -78.559  144.507  -78.327  135.171  -86.857  137.875  -92.060
+                                                -10.694  -85.031  -51.668
+      17    2453  227431 0.480E+02 0.823E+02     71.242   59.999  -84.252  130.038  -83.029  -24.878 -119.793  127.624  -74.816
+                                                120.648  -88.140   93.316
+      18    3529  246667 0.461E+02 0.865E+02    -87.740  124.354  -78.262  139.191  -68.606  -32.869  -85.250   -6.024  -65.399
+                                                119.388  -86.369   41.926
+      19    9806  280580 0.449E+02 0.871E+02    -90.316  112.013  -77.556  145.986  -81.883  123.092  -92.570  134.291   74.392
+                                                 74.025  -88.563   43.773
+      20    6169  258087 0.393E+02 0.821E+02    -92.608  116.898  -78.160  140.272  -72.986  114.779   74.485   54.255 -102.556
+                                                137.155  -83.502  -50.918
+      21    5128  260159 0.463E+02 0.834E+02    -91.061  103.650  -81.830  140.834  -74.769  128.584   74.695   69.837  -70.071
+                                                 -9.372  -89.881   58.421
+      22    2715  256787 0.552E+02 0.886E+02    -86.529  109.426  -27.252   -1.665  -78.239  124.093  -81.496   76.282   74.536
+                                                 67.244  -88.044   48.971
+      23    5763  265437 0.393E+02 0.792E+02    -96.381  117.063   68.793   40.571  -82.582  125.211  -85.020  133.381  -94.525
+                                                101.822  -89.204  108.292
+      24    1106  232699 0.467E+02 0.866E+02     73.376   49.103   70.707   50.891  -79.468  138.871  -74.639  109.498  -81.670
+                                                124.858  -88.781   47.600
+      25    4284  264286 0.409E+02 0.774E+02    -95.891  116.468   68.640   41.951  -84.797  110.904  -85.929  135.375  -89.445
+                                                 99.934  -84.451  -50.614
+  
+ CORREL>     
+  
+ CORREL>    end
+  
+ CHARMM>    STOP
+ VCLOSE: Closing unit    1 with status "KEEP"
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VCLOSE: Closing unit    4 with status "KEEP"
+$$$$$$  New timer profile $$$$$
+ Total time                    208.66 Other:            0.00
+
+                    NORMAL TERMINATION BY NORMAL STOP
+                    NO WARNINGS WERE ISSUED
+
+                    $$$$$ JOB ACCOUNTING INFORMATION $$$$$
+                     ELAPSED TIME:     3.48  MINUTES 
+                         CPU TIME:     3.48  MINUTES 
