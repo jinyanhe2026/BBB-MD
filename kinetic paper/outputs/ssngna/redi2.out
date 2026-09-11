@@ -1,0 +1,10 @@
+ ... Aggregate populations PCG
+   1    0.016128
+   2    0.983872
+
+ ... Lifetimes -1/EV(I) [ns], I=1,NS-1
+      4.508050
+
+ ... Eigenvectors of RHSS in rows
+   1  0.991903E+00 -0.126997E+00
+   2  0.126997E+00  0.991903E+00

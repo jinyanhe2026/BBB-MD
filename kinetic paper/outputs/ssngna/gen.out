@@ -1,0 +1,923 @@
+1
+                 Chemistry at HARvard Macromolecular Mechanics
+           (CHARMM) - Developmental Version 40b1     August 15, 2015            
+       Copyright(c) 1984-2014  President and Fellows of Harvard College
+                              All Rights Reserved
+     Current operating system: Linux-3.10.0-1062.12.1.el7.x86_64(x86_64)@CH     
+                 Created on  5/18/24 at 11:55:23 by user: jinyan      
+
+            Maximum number of ATOMS:    360720, and RESidues:      120240
+ RDTITL> *  GENERATE WH5
+ RDTITL> *
+  
+ CHARMM>    bomlev -9
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>    !prnlev  4
+ CHARMM>     
+  
+ CHARMM>    set s ssngna                 ! PSF prefix
+ Parameter: S <- "SSNGNA"
+  
+ CHARMM>    set r ssngna                 ! segid
+ Parameter: R <- "SSNGNA"
+  
+ CHARMM>    set t WH5: WAAAH+ peptide    ! title
+ Parameter: T <- "WH5: WAAAH+ PEPTIDE"
+  
+ CHARMM>     
+  
+ CHARMM>    set toppar = /home/kuczera/prog/charmm/c40b1/toppar
+ Parameter: TOPPAR <- "/HOME/KUCZERA/PROG/CHARMM/C40B1/TOPPAR"
+  
+ CHARMM>    open unit 1 card read name  @toppar/top_all22_prot.rtf
+ Parameter: TOPPAR -> "/HOME/KUCZERA/PROG/CHARMM/C40B1/TOPPAR"
+ VOPEN> Attempting to open::/home/kuczera/prog/charmm/c40b1/toppar/top_all22_prot.rtf::
+ OPNLGU> Unit  1 opened for READONLY access to /home/kuczera/prog/charmm/c40b1/toppar/top_all22_prot.rtf
+  
+ CHARMM>    read RTF card unit 1
+ MAINIO> Residue topology file being read from unit   1.
+ TITLE> *>>>>>>>>CHARMM22 ALL-HYDROGEN TOPOLOGY FILE FOR PROTEINS <<<<<<
+ TITLE> *>>>>> INCLUDES PHI, PSI CROSS TERM MAP (CMAP) CORRECTION <<<<<<<
+ TITLE> *>>>>>>>>>>>>>>>>>>>>>> DECEMBER, 2003 <<<<<<<<<<<<<<<<<<<<<<<<<<
+ TITLE> * ALL COMMENTS TO ADM JR. VIA THE CHARMM WEB SITE: WWW.CHARMM.ORG
+ TITLE> *               PARAMETER SET DISCUSSION FORUM
+ TITLE> *
+  
+ CHARMM>    open unit 2 card read name  @toppar/par_all22_prot.prm
+ Parameter: TOPPAR -> "/HOME/KUCZERA/PROG/CHARMM/C40B1/TOPPAR"
+ VOPEN> Attempting to open::/home/kuczera/prog/charmm/c40b1/toppar/par_all22_prot.prm::
+ OPNLGU> Unit  2 opened for READONLY access to /home/kuczera/prog/charmm/c40b1/toppar/par_all22_prot.prm
+  
+ CHARMM>    read PARA card unit 2
+
+          PARAMETER FILE BEING READ FROM UNIT  2
+ TITLE> *>>>>> CHARMM22 ALL-HYDROGEN PARAMETER FILE FOR PROTEINS <<<<<<<<
+ TITLE> *>>>>> INCLUDES PHI, PSI CROSS TERM MAP (CMAP) CORRECTION <<<<<<<
+ TITLE> *>>>>>>>>>>>>>>>>>>>>>> DECEMBER, 2003 <<<<<<<<<<<<<<<<<<<<<<<<<<
+ TITLE> * ALL COMMENTS TO ADM JR. VIA THE CHARMM WEB SITE: WWW.CHARMM.ORG
+ TITLE> *               PARAMETER SET DISCUSSION FORUM
+ TITLE> *
+ PARMIO> NONBOND, HBOND lists and IMAGE atoms cleared.
+  
+ CHARMM>    open unit 3 card read name ssngna.pdb
+ VOPEN> Attempting to open::ssngna.pdb::
+ OPNLGU> Unit  3 opened for READONLY access to ssngna.pdb
+  
+ CHARMM>    read sequ pdb unit 3
+ MAINIO> Sequence information being read from unit   3.
+ TITLE>  *
+
+          RESIDUE SEQUENCE --     6 RESIDUES
+          SER SER ASN GLY ASN ALA 
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>    ! WH5
+ CHARMM>    !read sequ cards
+ CHARMM>    !* WAAAH+
+ CHARMM>    !*
+ CHARMM>    !5
+ CHARMM>    !TRP ALA ALA ALA HSP
+ CHARMM>    generate @r  first ACE last CT2 setup
+ Parameter: R -> "SSNGNA"
+ THE PATCH 'ACE' WILL BE USED FOR THE FIRST RESIDUE
+ THE PATCH 'CT2' WILL BE USED FOR THE LAST  RESIDUE
+ GENPSF> Segment   1 has been generated. Its identifier is SSNGNA.
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        6
+         Number of atoms         =       76   Number of groups     =       24
+         Number of bonds         =       75   Number of angles     =      128
+         Number of dihedrals     =      177   Number of impropers  =       24
+         Number of cross-terms   =        5
+         Number of HB acceptors  =       11   Number of HB donors  =       14
+         Number of NB exclusions =        0   Total charge =    0.00000
+ QXFORM> Expanded format used.
+         More than 4 character SEGID used.
+  
+ CHARMM>     
+  
+ CHARMM>    open unit 4 card write name @s.psf
+ Parameter: S -> "SSNGNA"
+ VOPEN> Attempting to open::ssngna.psf::
+ OPNLGU> Unit  4 opened for WRITE access to ssngna.psf
+  
+ CHARMM>    write PSF card unit 4
+ RDTITL> * SSNGNA : WH5: WAAAH+ PEPTIDE
+ RDTITL> *
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>    IC PARA
+  
+ CHARMM>    ic seed 1 N 1 CA 1 C
+  
+ CHARMM>    ic build
+  
+ CHARMM>    ic fill
+  
+ CHARMM>    ic print
+
+       INTERNAL COORDINATES
+ TITLE>  * SSNGNA : WH5: WAAAH+ PEPTIDE
+ TITLE>  *  DATE:     5/18/24     11:55:23      CREATED BY USER: jinyan
+ TITLE>  *
+
+     NUMBER OF INTERNAL COORDINATES :         78
+
+        N      I             J             K             L        R(I(J/K)) T(I(JK/KJ)) PHI   T(JKL)   R(KL)
+
+        1     1 CY          1 N           1 CA          1 C          1.3450  120.00  -60.00  105.81   1.5166
+        2     1 CY          1 CA          1 *N          1 HN         1.3450  120.00  180.00  117.00   0.9970
+        3     1 CAY         1 CY          1 N           1 CA         1.4900  116.50  180.00  120.00   1.4579
+        4     1 N           1 CAY         1 *CY         1 OY         1.3450  116.50  180.00  121.00   1.2300
+        5     1 OY          1 CY          1 CAY         1 HY1        1.2300  121.00  180.00  109.50   1.1110
+        6     1 OY          1 CY          1 CAY         1 HY2        1.2300  121.00   60.00  109.50   1.1110
+        7     1 OY          1 CY          1 CAY         1 HY3        1.2300  121.00  -60.00  109.50   1.1110
+        8   -99 ??          1 CA          1 *N          1 HN         0.0000    0.00    0.00  117.00   0.9970
+        9   -99 ??          1 N           1 CA          1 C          0.0000    0.00    0.00  105.81   1.5166
+       10     1 N           1 CA          1 C           2 N          1.4579  105.81  180.00  117.72   1.3448
+       11     2 N           1 CA          1 *C          1 O          1.3448  117.72  180.00  120.25   1.2290
+       12     1 CA          1 C           2 N           2 CA         1.5166  117.72  180.00  124.63   1.4529
+       13     1 N           1 C           1 *CA         1 CB         1.4579  105.81  124.75  111.40   1.5585
+       14     1 N           1 C           1 *CA         1 HA         1.4579  105.81 -115.56  107.30   1.0821
+       15     1 N           1 CA          1 CB          1 OG         1.4579  114.28  180.00  112.45   1.4341
+       16     1 OG          1 CA          1 *CB         1 HB1        1.4341  112.45  119.32  108.10   1.1140
+       17     1 OG          1 CA          1 *CB         1 HB2        1.4341  112.45 -123.86  110.38   1.1136
+       18     1 CA          1 CB          1 OG          1 HG1        1.5585  112.45  165.96  107.08   0.9655
+       19     1 C           2 CA          2 *N          2 HN         1.3448  124.63  180.00  114.18   0.9999
+       20     1 C           2 N           2 CA          2 C          1.3448  124.63  180.00  105.81   1.5166
+       21     2 N           2 CA          2 C           3 N          1.4529  105.81  180.00  117.72   1.3448
+       22     3 N           2 CA          2 *C          2 O          1.3448  117.72  180.00  120.25   1.2290
+       23     2 CA          2 C           3 N           3 CA         1.5166  117.72  180.00  124.63   1.4529
+       24     2 N           2 C           2 *CA         2 CB         1.4529  105.81  124.75  111.40   1.5585
+       25     2 N           2 C           2 *CA         2 HA         1.4529  105.81 -115.56  107.30   1.0821
+       26     2 N           2 CA          2 CB          2 OG         1.4529  114.28 -180.00  112.45   1.4341
+       27     2 OG          2 CA          2 *CB         2 HB1        1.4341  112.45  119.32  108.10   1.1140
+       28     2 OG          2 CA          2 *CB         2 HB2        1.4341  112.45 -123.86  110.38   1.1136
+       29     2 CA          2 CB          2 OG          2 HG1        1.5585  112.45  165.96  107.08   0.9655
+       30     2 C           3 CA          3 *N          3 HN         1.3448  124.63  180.00  114.49   0.9992
+       31     2 C           3 N           3 CA          3 C          1.3448  124.63  180.00  105.23   1.5245
+       32     3 N           3 CA          3 C           4 N          1.4529  105.23  180.00  117.38   1.3467
+       33     4 N           3 CA          3 *C          3 O          1.3467  117.38  180.00  120.32   1.2282
+       34     3 CA          3 C           4 N           4 CA         1.5245  117.38  180.00  124.88   1.4528
+       35     3 N           3 C           3 *CA         3 CB         1.4529  105.23  121.18  113.04   1.5627
+       36     3 N           3 C           3 *CA         3 HA         1.4529  105.23 -115.52  107.63   1.0848
+       37     3 N           3 CA          3 CB          3 CG         1.4529  110.91  180.00  114.30   1.5319
+       38     3 CG          3 CA          3 *CB         3 HB1        1.5319  114.30  119.17  107.82   1.1120
+       39     3 CG          3 CA          3 *CB         3 HB2        1.5319  114.30 -123.74  110.34   1.1091
+       40     3 CA          3 CB          3 CG          3 OD1        1.5627  114.30  180.00  122.56   1.2323
+       41     3 OD1         3 CB          3 *CG         3 ND2        1.2323  122.56 -179.19  116.15   1.3521
+       42     3 CB          3 CG          3 ND2         3 HD21       1.5319  116.15 -179.26  117.35   0.9963
+       43     3 HD21        3 CG          3 *ND2        3 HD22       0.9963  117.35  178.02  120.05   0.9951
+       44     3 C           4 CA          4 *N          4 HN         1.3467  124.88  180.00  115.62   0.9992
+       45     3 C           4 N           4 CA          4 C          1.3467  124.88  180.00  108.94   1.4971
+       46     4 N           4 CA          4 C           5 N          1.4528  108.94  180.00  117.60   1.3479
+       47     5 N           4 CA          4 *C          4 O          1.3479  117.60  180.00  120.85   1.2289
+       48     4 CA          4 C           5 N           5 CA         1.4971  117.60  180.00  124.08   1.4560
+       49     4 N           4 C           4 *CA         4 HA1        1.4528  108.94  117.86  108.03   1.0814
+       50     4 N           4 C           4 *CA         4 HA2        1.4528  108.94 -118.12  107.95   1.0817
+       51     4 C           5 CA          5 *N          5 HN         1.3479  124.08  180.00  114.49   0.9992
+       52     4 C           5 N           5 CA          5 C          1.3479  124.08  180.00  105.23   1.5245
+       53     5 N           5 CA          5 C           6 N          1.4560  105.23  180.00  117.38   1.3467
+       54     6 N           5 CA          5 *C          5 O          1.3467  117.38  180.00  120.32   1.2282
+       55     5 CA          5 C           6 N           6 CA         1.5245  117.38  180.00  124.88   1.4528
+       56     5 N           5 C           5 *CA         5 CB         1.4560  105.23  121.18  113.04   1.5627
+       57     5 N           5 C           5 *CA         5 HA         1.4560  105.23 -115.52  107.63   1.0848
+       58     5 N           5 CA          5 CB          5 CG         1.4560  110.91  180.00  114.30   1.5319
+       59     5 CG          5 CA          5 *CB         5 HB1        1.5319  114.30  119.17  107.82   1.1120
+       60     5 CG          5 CA          5 *CB         5 HB2        1.5319  114.30 -123.74  110.34   1.1091
+       61     5 CA          5 CB          5 CG          5 OD1        1.5627  114.30  180.00  122.56   1.2323
+       62     5 OD1         5 CB          5 *CG         5 ND2        1.2323  122.56 -179.19  116.15   1.3521
+       63     5 CB          5 CG          5 ND2         5 HD21       1.5319  116.15 -179.26  117.35   0.9963
+       64     5 HD21        5 CG          5 *ND2        5 HD22       0.9963  117.35  178.02  120.05   0.9951
+       65     5 C           6 CA          6 *N          6 HN         1.3467  124.88  180.00  115.42   0.9996
+       66     5 C           6 N           6 CA          6 C          1.3467  124.88  180.00  114.44   1.5390
+       67     6 N           6 CA          6 C         -99 ??         1.4528  114.44    0.00    0.00   0.0000
+       68   -99 ??          6 CA          6 *C          6 O          0.0000    0.00    0.00  121.00   1.2300
+       69     6 CA          6 C         -99 ??        -99 ??         1.5390    0.00    0.00    0.00   0.0000
+       70     6 N           6 C           6 *CA         6 CB         1.4528  114.44  123.23  111.09   1.5461
+       71     6 N           6 C           6 *CA         6 HA         1.4528  114.44 -120.45  106.39   1.0840
+       72     6 C           6 CA          6 CB          6 HB1        1.5390  111.09  177.25  109.60   1.1109
+       73     6 HB1         6 CA          6 *CB         6 HB2        1.1109  109.60  119.13  111.05   1.1119
+       74     6 HB1         6 CA          6 *CB         6 HB3        1.1109  109.60 -119.58  111.61   1.1114
+       75     6 N           6 CA          6 C           6 O          1.4528  114.44  180.00  121.00   1.2300
+       76     6 NT          6 CA          6 *C          6 O          1.3600  116.50  180.00  121.00   1.2300
+       77     6 CA          6 C           6 NT          6 HT1        1.5390  116.50  180.00  120.00   1.0000
+       78     6 HT1         6 C           6 *NT         6 HT2        1.0000  120.00  180.00  120.00   1.0000
+  
+ CHARMM>    coor print
+
+          COORDINATE FILE MODULE
+ TITLE>  * SSNGNA : WH5: WAAAH+ PEPTIDE
+ TITLE>  *  DATE:     5/18/24     11:55:23      CREATED BY USER: jinyan
+ TITLE>  *
+        76  EXT
+         1         1  SER       CAY            -2.1597208496        0.5369209221        0.9299743167  SSNGNA    82              0.0000000000
+         2         1  SER       HY1            -2.4659539520        0.0029400500        0.0050923160  SSNGNA    82              0.0000000000
+         3         1  SER       HY2            -2.5618558380        1.5723870611        0.9095212950  SSNGNA    82              0.0000000000
+         4         1  SER       HY3            -2.5618558380        0.0014750162        1.8164877870  SSNGNA    82              0.0000000000
+         5         1  SER       CY             -0.6725000000        0.5824020840        1.0087500000  SSNGNA    82              0.0000000000
+         6         1  SER       OY             -0.1045492057        1.1279137464        1.9536039154  SSNGNA    82              0.0000000000
+         7         1  SER       N               0.0000000000        0.0000000000        0.0000000000  SSNGNA    82              0.0000000000
+         8         1  SER       HN             -0.4526285282       -0.4441667523       -0.7693193820  SSNGNA    82              0.0000000000
+         9         1  SER       CA              1.4579000000        0.0000000000        0.0000000000  SSNGNA    82              0.0000000000
+        10         1  SER       HA              1.7991236517       -0.4310619929        0.9320366880  SSNGNA    82              0.0000000000
+        11         1  SER       CB              2.0987749794       -0.7724885812       -1.1922511911  SSNGNA    82              0.0000000000
+        12         1  SER       HB1             1.7684444297       -1.8347866218       -1.1339365203  SSNGNA    82              0.0000000000
+        13         1  SER       HB2             1.7280750473       -0.3672666039       -2.1610038269  SSNGNA    82              0.0000000000
+        14         1  SER       OG              3.5321427260       -0.7475719230       -1.1537950687  SSNGNA    82              0.0000000000
+        15         1  SER       HG1             3.8441800023       -1.4171575902       -1.7754686345  SSNGNA    82              0.0000000000
+        16         1  SER       C               1.8710949122        1.4592277151        0.0000000000  SSNGNA    82              0.0000000000
+        17         1  SER       O               1.0182860374        2.3441898741       -0.0000000000  SSNGNA    82              0.0000000000
+        18         2  SER       N               3.1869453768        1.7367607671        0.0000000000  SSNGNA    83              0.0000000000
+        19         2  SER       HN              3.8701508231        1.0066715067        0.0000000000  SSNGNA    83              0.0000000000
+        20         2  SER       CA              3.7480961039        3.0769205603        0.0000000000  SSNGNA    83              0.0000000000
+        21         2  SER       HA              3.4822732317        3.5581546227       -0.9320366880  SSNGNA    83              0.0000000000
+        22         2  SER       CB              3.2830739574        3.9664225281        1.1922511911  SSNGNA    83              0.0000000000
+        23         2  SER       HB1             2.1756237884        4.0720138260        1.1339365203  SSNGNA    83              0.0000000000
+        24         2  SER       HB2             3.5136773471        3.4679795853        2.1610038269  SSNGNA    83              0.0000000000
+        25         2  SER       OG              3.8596639889        5.2789421936        1.1537950687  SSNGNA    83              0.0000000000
+        26         2  SER       HG1             3.3625534893        5.8253791788        1.7754686345  SSNGNA    83              0.0000000000
+        27         2  SER       C               5.2536800659        2.8944582538        0.0000000000  SSNGNA    83              0.0000000000
+        28         2  SER       O               5.7405934006        1.7660273058        0.0000000000  SSNGNA    83              0.0000000000
+        29         3  ASN       N               6.0178958292        4.0010120515        0.0000000000  SSNGNA    84              0.0000000000
+        30         3  ASN       HN              5.6036930386        4.9103176592       -0.0000000000  SSNGNA    84              0.0000000000
+        31         3  ASN       CA              7.4707958292        4.0010120515        0.0000000000  SSNGNA    84              0.0000000000
+        32         3  ASN       HA              7.8142531231        3.5669923392        0.9329817879  SSNGNA    84              0.0000000000
+        33         3  ASN       CB              8.0285012937        3.2153117907       -1.2303133768  SSNGNA    84              0.0000000000
+        34         3  ASN       HB1             7.6679410855        2.1660246612       -1.1559033234  SSNGNA    84              0.0000000000
+        35         3  ASN       HB2             7.6265111802        3.6393701195       -2.1730123173  SSNGNA    84              0.0000000000
+        36         3  ASN       CG              9.5577192425        3.1665433186       -1.3066790171  SSNGNA    84              0.0000000000
+        37         3  ASN       OD1            10.1583278418        2.5873967647       -2.2135537988  SSNGNA    84              0.0000000000
+        38         3  ASN       ND2            10.2243585445        3.7851513827       -0.3061339086  SSNGNA    84              0.0000000000
+        39         3  ASN       HD21           11.2198754488        3.7741388957       -0.3440615793  SSNGNA    84              0.0000000000
+        40         3  ASN       HD22            9.7208547318        4.2529627109        0.4134913285  SSNGNA    84              0.0000000000
+        41         3  ASN       C               7.8712734788        5.4719702093        0.0000000000  SSNGNA    84              0.0000000000
+        42         3  ASN       O               7.0111815147        6.3487353166       -0.0000000000  SSNGNA    84              0.0000000000
+        43         4  GLY       N               9.1878073150        5.7554125283        0.0000000000  SSNGNA    85              0.0000000000
+        44         4  GLY       HN              9.8518541888        5.0087918821        0.0000000000  SSNGNA    85              0.0000000000
+        45         4  GLY       CA              9.7491532966        7.0953821283       -0.0000000000  SSNGNA    85              0.0000000000
+        46         4  GLY       HA1             9.4469392001        7.5969918673        0.9091096026  SSNGNA    85              0.0000000000
+        47         4  GLY       HA2             9.4485756855        7.6013680222       -0.9075826491  SSNGNA    85              0.0000000000
+        48         4  GLY       C              11.2429791690        6.9964241923        0.0000000000  SSNGNA    85              0.0000000000
+        49         4  GLY       O              11.8020344252        5.9020511158        0.0000000000  SSNGNA    85              0.0000000000
+        50         5  ASN       N              11.9450472407        8.1470478634        0.0000000000  SSNGNA    86              0.0000000000
+        51         5  ASN       HN             11.4886252363        9.0359120791       -0.0000000000  SSNGNA    86              0.0000000000
+        52         5  ASN       CA             13.3994428472        8.2153810168        0.0000000000  SSNGNA    86              0.0000000000
+        53         5  ASN       HA             13.7628911403        7.7979587347        0.9329817879  SSNGNA    86              0.0000000000
+        54         5  ASN       CB             13.9934083374        7.4567208284       -1.2303133768  SSNGNA    86              0.0000000000
+        55         5  ASN       HB1            13.6824906970        6.3916680763       -1.1559033234  SSNGNA    86              0.0000000000
+        56         5  ASN       HB2            13.5719592318        7.8614456349       -2.1730123173  SSNGNA    86              0.0000000000
+        57         5  ASN       CG             15.5232300198        7.4797755215       -1.3066790171  SSNGNA    86              0.0000000000
+        58         5  ASN       OD1            16.1503573675        6.9294549693       -2.2135537988  SSNGNA    86              0.0000000000
+        59         5  ASN       ND2            16.1601021572        8.1289887194       -0.3061339086  SSNGNA    86              0.0000000000
+        60         5  ASN       HD21           17.1550389223        8.1647100770       -0.3440615793  SSNGNA    86              0.0000000000
+        61         5  ASN       HD22           15.6351977917        8.5726540609        0.4134913285  SSNGNA    86              0.0000000000
+        62         5  ASN       C              13.7304440317        9.7035135599        0.0000000000  SSNGNA    86              0.0000000000
+        63         5  ASN       O              12.8301513818       10.5389466120       -0.0000000000  SSNGNA    86              0.0000000000
+        64         6  ALA       N              15.0322246084       10.0484312604        0.0000000000  SSNGNA    87              0.0000000000
+        65         6  ALA       HN             15.7333510818        9.3359554164        0.0000000000  SSNGNA    87              0.0000000000
+        66         6  ALA       CA             15.5300644307       11.4132694747       -0.0000000000  SSNGNA    87              0.0000000000
+        67         6  ALA       HA             15.1846558853       11.9152818624       -0.8965112935  SSNGNA    87              0.0000000000
+        68         6  ALA       CB             14.9147174932       12.1587697188        1.2066493868  SSNGNA    87              0.0000000000
+        69         6  ALA       HB1            13.8065612589       12.0999878719        1.1553340411  SSNGNA    87              0.0000000000
+        70         6  ALA       HB2            15.2373709620       11.6996634105        2.1665648762  SSNGNA    87              0.0000000000
+        71         6  ALA       HB3            15.2014803003       13.2325125102        1.2139617347  SSNGNA    87              0.0000000000
+        72         6  ALA       C              17.0645286164       11.5313400590        0.0000000000  SSNGNA    87              0.0000000000
+        73         6  ALA       O              17.6152722944       12.6311497703        0.0000000000  SSNGNA    87              0.0000000000
+        74         6  ALA       NT             17.7629447192       10.3643717872        0.0000000000  SSNGNA    87              0.0000000000
+        75         6  ALA       HT1            18.7628213517       10.3800791045        0.0000000000  SSNGNA    87              0.0000000000
+        76         6  ALA       HT2            17.2766093388        9.4905995642        0.0000000000  SSNGNA    87              0.0000000000
+  
+ CHARMM>     
+  
+ CHARMM>    hbuild sele hydrogen end
+ SELRPN>     35 atoms have been selected out of     76
+ PRNHBD: CUToff Hydrogen Bond  distance =    0.5000   Angle =   90.0000
+         CuT switching ON HB dist. =     3.5000  OFf HB dist. =    4.0000
+         CuT switching ON Hb Angle =    50.0000  OFf Hb Angle =   70.0000
+         ACCEptor antecedents included
+         All hydrogen bonds for each hydrogen will be found
+         Hydrogen bonds between excluded atoms will be kept
+
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  FSHIft   VATOm    VFSWIt  
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 14.000 CTEXNB =999.000 CTONNB = 10.000 CTOFNB = 12.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+ <MAKINB> with mode   5 found    203 exclusions and    177 interactions(1-4)
+ <MAKGRP> found     59 group exclusions.
+
+ CUToff Hydrogen Bond  distance =    0.5000           Angle =   90.0000
+ CuT switching ON HB dist. =     3.5000 OFf HB dist. =    4.0000
+ CuT switching ON Hb Angle =    50.0000 OFf Hb Angle =   70.0000
+ ACCEptor antecedents included
+ dihedral PHI STePs for spin =   10.0000
+ cutoff for water acceptor search CUTWat=    7.5000
+
+ Place: HN      ,        ,        , constructed for donor SSNGNA   82       SER      N       .
+ Place: HA      ,        ,        , constructed for donor SSNGNA   82       SER      CA      .
+ Place: HB1     ,HB2     ,        , constructed for donor SSNGNA   82       SER      CB      .
+ Place: HN      ,        ,        , constructed for donor SSNGNA   83       SER      N       .
+ Place: HA      ,        ,        , constructed for donor SSNGNA   83       SER      CA      .
+ Place: HB1     ,HB2     ,        , constructed for donor SSNGNA   83       SER      CB      .
+ Place: HN      ,        ,        , constructed for donor SSNGNA   84       ASN      N       .
+ Place: HA      ,        ,        , constructed for donor SSNGNA   84       ASN      CA      .
+ Place: HB1     ,HB2     ,        , constructed for donor SSNGNA   84       ASN      CB      .
+ Place: HN      ,        ,        , constructed for donor SSNGNA   85       GLY      N       .
+ Place: HA1     ,HA2     ,        , constructed for donor SSNGNA   85       GLY      CA      .
+ Place: HN      ,        ,        , constructed for donor SSNGNA   86       ASN      N       .
+ Place: HA      ,        ,        , constructed for donor SSNGNA   86       ASN      CA      .
+ Place: HB1     ,HB2     ,        , constructed for donor SSNGNA   86       ASN      CB      .
+ Place: HN      ,        ,        , constructed for donor SSNGNA   87       ALA      N       .
+ Place: HA      ,        ,        , constructed for donor SSNGNA   87       ALA      CA      .
+
+ NBONDX:       126 atom and      0 group interactions within 14.00 A.
+ Spin: HY1     ,HY2     ,HY3     , constructed for donor SSNGNA   82       SER      CAY     .
+
+ NBONDX:        53 atom and      0 group interactions within 14.00 A.
+ Spin: HG1     ,        ,        , constructed for donor SSNGNA   82       SER      OG      .
+
+ NBONDX:        68 atom and      0 group interactions within 14.00 A.
+ Spin: HG1     ,        ,        , constructed for donor SSNGNA   83       SER      OG      .
+
+ NBONDX:       144 atom and      0 group interactions within 14.00 A.
+ Spin: HD21    ,HD22    ,        , constructed for donor SSNGNA   84       ASN      ND2     .
+
+ NBONDX:       104 atom and      0 group interactions within 14.00 A.
+ Spin: HD21    ,HD22    ,        , constructed for donor SSNGNA   86       ASN      ND2     .
+
+ NBONDX:       141 atom and      0 group interactions within 14.00 A.
+ Spin: HB1     ,HB2     ,HB3     , constructed for donor SSNGNA   87       ALA      CB      .
+
+ NBONDX:        88 atom and      0 group interactions within 14.00 A.
+ Spin: HT1     ,HT2     ,        , constructed for donor SSNGNA   87       ALA      NT      .
+  
+ CHARMM>    coor print
+
+          COORDINATE FILE MODULE
+ TITLE>  * SSNGNA : WH5: WAAAH+ PEPTIDE
+ TITLE>  *  DATE:     5/18/24     11:55:23      CREATED BY USER: jinyan
+ TITLE>  *
+        76  EXT
+         1         1  SER       CAY            -2.1597208496        0.5369209221        0.9299743167  SSNGNA    82              0.0000000000
+         2         1  SER       HY1            -2.5938231334        1.0482613682        1.8156419493  SSNGNA    82              0.0000000000
+         3         1  SER       HY2            -2.5029084061       -0.5196485439        0.9198738742  SSNGNA    82              0.0000000000
+         4         1  SER       HY3            -2.5029084061        1.0564584153        0.0099080970  SSNGNA    82              0.0000000000
+         5         1  SER       CY             -0.6725000000        0.5824020840        1.0087500000  SSNGNA    82              0.0000000000
+         6         1  SER       OY             -0.1045492057        1.1279137464        1.9536039154  SSNGNA    82              0.0000000000
+         7         1  SER       N               0.0000000000        0.0000000000        0.0000000000  SSNGNA    82              0.0000000000
+         8         1  SER       HN             -0.4526285282       -0.4441667523       -0.7693193820  SSNGNA    82              0.0000000000
+         9         1  SER       CA              1.4579000000        0.0000000000        0.0000000000  SSNGNA    82              0.0000000000
+        10         1  SER       HA              1.7749605830       -0.4477564413        0.9297851518  SSNGNA    82              0.0000000000
+        11         1  SER       CB              2.0987749794       -0.7724885812       -1.1922511911  SSNGNA    82              0.0000000000
+        12         1  SER       HB1             1.7681609213       -0.3102400951       -2.1467239181  SSNGNA    82              0.0000000000
+        13         1  SER       HB2             1.7681609213       -1.8325250201       -1.1603984435  SSNGNA    82              0.0000000000
+        14         1  SER       OG              3.5321427260       -0.7475719230       -1.1537950687  SSNGNA    82              0.0000000000
+        15         1  SER       HG1             3.8261053109       -1.2445090073       -1.9207628209  SSNGNA    82              0.0000000000
+        16         1  SER       C               1.8710949122        1.4592277151        0.0000000000  SSNGNA    82              0.0000000000
+        17         1  SER       O               1.0182860374        2.3441898741       -0.0000000000  SSNGNA    82              0.0000000000
+        18         2  SER       N               3.1869453768        1.7367607671        0.0000000000  SSNGNA    83              0.0000000000
+        19         2  SER       HN              3.8611759523        1.0034120908        0.0000000000  SSNGNA    83              0.0000000000
+        20         2  SER       CA              3.7480961039        3.0769205603        0.0000000000  SSNGNA    83              0.0000000000
+        21         2  SER       HA              3.4575417621        3.5423143919       -0.9297851518  SSNGNA    83              0.0000000000
+        22         2  SER       CB              3.2830739574        3.9664225281        1.1922511911  SSNGNA    83              0.0000000000
+        23         2  SER       HB1             3.5817610773        3.4829296918        2.1467239181  SSNGNA    83              0.0000000000
+        24         2  SER       HB2             2.1776003984        4.0708788228        1.1603984435  SSNGNA    83              0.0000000000
+        25         2  SER       OG              3.8596639889        5.2789421936        1.1537950687  SSNGNA    83              0.0000000000
+        26         2  SER       HG1             3.3976314315        5.7906105134        1.8218680036  SSNGNA    83              0.0000000000
+        27         2  SER       C               5.2536800659        2.8944582538        0.0000000000  SSNGNA    83              0.0000000000
+        28         2  SER       O               5.7405934006        1.7660273058        0.0000000000  SSNGNA    83              0.0000000000
+        29         3  ASN       N               6.0178958292        4.0010120515        0.0000000000  SSNGNA    84              0.0000000000
+        30         3  ASN       HN              5.6018593279        4.9061644031       -0.0000000000  SSNGNA    84              0.0000000000
+        31         3  ASN       CA              7.4707958292        4.0010120515        0.0000000000  SSNGNA    84              0.0000000000
+        32         3  ASN       HA              7.8040685513        3.5421293786        0.9189637660  SSNGNA    84              0.0000000000
+        33         3  ASN       CB              8.0285012937        3.2153117907       -1.2303133768  SSNGNA    84              0.0000000000
+        34         3  ASN       HB1             7.6523836023        3.6974115004       -2.1573317504  SSNGNA    84              0.0000000000
+        35         3  ASN       HB2             7.6523836023        2.1715055614       -1.1828607604  SSNGNA    84              0.0000000000
+        36         3  ASN       CG              9.5577192425        3.1665433186       -1.3066790171  SSNGNA    84              0.0000000000
+        37         3  ASN       OD1            10.1583278418        2.5873967647       -2.2135537988  SSNGNA    84              0.0000000000
+        38         3  ASN       ND2            10.2243585445        3.7851513827       -0.3061339086  SSNGNA    84              0.0000000000
+        39         3  ASN       HD21           11.1791352737        4.0541048837       -0.4328833132  SSNGNA    84              0.0000000000
+        40         3  ASN       HD22            9.7626217545        3.9737143849        0.5606089201  SSNGNA    84              0.0000000000
+        41         3  ASN       C               7.8712734788        5.4719702093        0.0000000000  SSNGNA    84              0.0000000000
+        42         3  ASN       O               7.0111815147        6.3487353166       -0.0000000000  SSNGNA    84              0.0000000000
+        43         4  GLY       N               9.1878073150        5.7554125283        0.0000000000  SSNGNA    85              0.0000000000
+        44         4  GLY       HN              9.8634472540        5.0234848972        0.0000000000  SSNGNA    85              0.0000000000
+        45         4  GLY       CA              9.7491532966        7.0953821283       -0.0000000000  SSNGNA    85              0.0000000000
+        46         4  GLY       HA1             9.4137492225        7.6143820127        0.8855949140  SSNGNA    85              0.0000000000
+        47         4  GLY       HA2             9.4137492225        7.6143820127       -0.8855949140  SSNGNA    85              0.0000000000
+        48         4  GLY       C              11.2429791690        6.9964241923        0.0000000000  SSNGNA    85              0.0000000000
+        49         4  GLY       O              11.8020344252        5.9020511158        0.0000000000  SSNGNA    85              0.0000000000
+        50         5  ASN       N              11.9450472407        8.1470478634        0.0000000000  SSNGNA    86              0.0000000000
+        51         5  ASN       HN             11.4826634671        9.0296296881       -0.0000000000  SSNGNA    86              0.0000000000
+        52         5  ASN       CA             13.3994428472        8.2153810168        0.0000000000  SSNGNA    86              0.0000000000
+        53         5  ASN       HA             13.7538846623        7.7726451876        0.9189637660  SSNGNA    86              0.0000000000
+        54         5  ASN       CB             13.9934083374        7.4567208284       -1.2303133768  SSNGNA    86              0.0000000000
+        55         5  ASN       HB1            13.5950791400        7.9206373063       -2.1573317504  SSNGNA    86              0.0000000000
+        56         5  ASN       HB2            13.6666931266        6.3964127915       -1.1828607604  SSNGNA    86              0.0000000000
+        57         5  ASN       CG             15.5232300198        7.4797755215       -1.3066790171  SSNGNA    86              0.0000000000
+        58         5  ASN       OD1            16.1503573675        6.9294549693       -2.2135537988  SSNGNA    86              0.0000000000
+        59         5  ASN       ND2            16.1601021572        8.1289887194       -0.3061339086  SSNGNA    86              0.0000000000
+        60         5  ASN       HD21           17.1413328145        8.3100431988       -0.3725091505  SSNGNA    86              0.0000000000
+        61         5  ASN       HD22           15.6498959341        8.4280860023        0.5002347573  SSNGNA    86              0.0000000000
+        62         5  ASN       C              13.7304440317        9.7035135599        0.0000000000  SSNGNA    86              0.0000000000
+        63         5  ASN       O              12.8301513818       10.5389466120       -0.0000000000  SSNGNA    86              0.0000000000
+        64         6  ALA       N              15.0322246084       10.0484312604        0.0000000000  SSNGNA    87              0.0000000000
+        65         6  ALA       HN             15.7414709559        9.3490193625        0.0000000000  SSNGNA    87              0.0000000000
+        66         6  ALA       CA             15.5300644307       11.4132694747       -0.0000000000  SSNGNA    87              0.0000000000
+        67         6  ALA       HA             15.2446755005       11.8842845078       -0.9289067161  SSNGNA    87              0.0000000000
+        68         6  ALA       CB             14.9147174932       12.1587697188        1.2066493868  SSNGNA    87              0.0000000000
+        69         6  ALA       HB1            15.0491715377       11.5612555407        2.1335905483  SSNGNA    87              0.0000000000
+        70         6  ALA       HB2            13.8275027681       12.3152073813        1.0400795819  SSNGNA    87              0.0000000000
+        71         6  ALA       HB3            15.4175916405       13.1402251446        1.3412485693  SSNGNA    87              0.0000000000
+        72         6  ALA       C              17.0645286164       11.5313400590        0.0000000000  SSNGNA    87              0.0000000000
+        73         6  ALA       O              17.6152722944       12.6311497703        0.0000000000  SSNGNA    87              0.0000000000
+        74         6  ALA       NT             17.7629447192       10.3643717872        0.0000000000  SSNGNA    87              0.0000000000
+        75         6  ALA       HT1            18.7515319017       10.3733225081       -0.1503837332  SSNGNA    87              0.0000000000
+        76         6  ALA       HT2            17.2878987888        9.4973561606        0.1503837332  SSNGNA    87              0.0000000000
+  
+ CHARMM>    coor copy comp
+ SELECTED COORDINATES COPIED TO THE COMPARISON SET.
+
+  
+ CHARMM>     
+  
+ CHARMM>     
+  
+ CHARMM>    ! short energy minimization
+ CHARMM>    mini SD   nstep 100 cutnb 14.0 ctonnb 10.0 ctofnb 12.0 inbfrq -1
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  FSHIft   VATOm    VFSWIt  
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 14.000 CTEXNB =999.000 CTONNB = 10.000 CTOFNB = 12.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+ <MAKINB> with mode   5 found    203 exclusions and    177 interactions(1-4)
+ <MAKGRP> found     59 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR     2813 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+     2093 ATOM PAIRS WERE FOUND FOR ATOM LIST
+       31 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+
+
+ STEEPD> An energy minimization has been requested.
+
+ NSTEP  =          100   NPRINT =           10
+ STEP   =    0.0200000   TOLFUN =    0.0000000
+ TOLGRD =    0.0000000   TOLSTP =    0.0000000
+
+MINI MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+MINI INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+MINI CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+MINI EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>        0    182.98992      0.00000     67.33867      0.02000
+MINI INTERN>        2.90929      8.52754      2.00982     19.56157      0.00980
+MINI CROSS>         0.07786      0.00000      0.00000      0.00000
+MINI EXTERN>      216.92913    -67.03509      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       10      2.58618    180.40373      3.50082      0.00373
+MINI INTERN>        4.60605     17.41044      3.27401     21.41864      2.31089
+MINI CROSS>        -1.00765      0.00000      0.00000      0.00000
+MINI EXTERN>       23.23931    -68.66550      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       20    -11.54268     14.12886      5.08173      0.00401
+MINI INTERN>        5.17346     17.08012      3.18376     20.89205      1.79990
+MINI CROSS>        -1.63357      0.00000      0.00000      0.00000
+MINI EXTERN>       14.84078    -72.87919      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       30    -18.71755      7.17487      6.37058      0.00431
+MINI INTERN>        5.54127     17.30151      3.20845     20.50702      1.47962
+MINI CROSS>        -2.19566      0.00000      0.00000      0.00000
+MINI EXTERN>       10.61372    -75.17348      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       40    -25.18330      6.46575      1.65838      0.00193
+MINI INTERN>        4.06848     16.56997      3.52125     20.25448      1.30722
+MINI CROSS>        -2.69826      0.00000      0.00000      0.00000
+MINI EXTERN>        7.47803    -75.68448      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       50    -29.23198      4.04868      2.65735      0.00208
+MINI INTERN>        4.12569     16.05246      3.64626     20.00609      1.17367
+MINI CROSS>        -3.24018      0.00000      0.00000      0.00000
+MINI EXTERN>        5.40325    -76.39923      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       60    -32.50590      3.27392      2.12326      0.00223
+MINI INTERN>        3.91881     15.77940      3.60602     19.79822      1.08722
+MINI CROSS>        -3.70297      0.00000      0.00000      0.00000
+MINI EXTERN>        4.05022    -77.04281      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       70    -34.63435      2.12845      3.75990      0.00240
+MINI INTERN>        4.19344     15.60266      3.63026     19.62748      1.02129
+MINI CROSS>        -4.08607      0.00000      0.00000      0.00000
+MINI EXTERN>        2.99333    -77.61673      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       80    -36.87336      2.23901      1.00755      0.00107
+MINI INTERN>        3.71630     15.04522      3.42292     19.49984      0.98461
+MINI CROSS>        -4.36473      0.00000      0.00000      0.00000
+MINI EXTERN>        2.31726    -77.49478      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       90    -38.55346      1.68010      0.97019      0.00116
+MINI INTERN>        3.66238     14.73218      3.40928     19.37522      0.94658
+MINI CROSS>        -4.64005      0.00000      0.00000      0.00000
+MINI EXTERN>        1.58760    -77.62666      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      100    -40.08367      1.53021      1.24177      0.00124
+MINI INTERN>        3.65570     14.45966      3.36574     19.25506      0.90939
+MINI CROSS>        -4.89601      0.00000      0.00000      0.00000
+MINI EXTERN>        0.93758    -77.77080      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+
+ STEEPD> Minimization exiting with number of steps limit (       100) exceeded.
+
+STPD MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+STPD INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+STPD CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+STPD EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+STPD>      100    -40.08367      1.53021      1.24177      0.00149
+STPD INTERN>        3.65570     14.45966      3.36574     19.25506      0.90939
+STPD CROSS>        -4.89601      0.00000      0.00000      0.00000
+STPD EXTERN>        0.93758    -77.77080      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>    coor orie rms
+ CENTER OF ATOMS BEFORE TRANSLATION     8.48159     5.26441    -0.05445
+ CENTER OF REFERENCE COORDINATE SET     8.48159     5.26441    -0.05445
+ NET TRANSLATION OF ROTATED ATOMS      -0.00000     0.00000    -0.00000
+ ROTATION MATRIX
+     1.000000   -0.000047    0.000291
+     0.000047    1.000000   -0.000493
+    -0.000291    0.000493    1.000000
+ AXIS OF ROTATION IS -0.857952 -0.507276 -0.081173  ANGLE IS    0.03
+
+ TOTAL SQUARE DIFF IS      5.0192  DENOMINATOR IS     76.0000
+       THUS RMS DIFF IS    0.256988
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>    IC PRINT
+
+       INTERNAL COORDINATES
+ TITLE>  * SSNGNA : WH5: WAAAH+ PEPTIDE
+ TITLE>  *  DATE:     5/18/24     11:55:23      CREATED BY USER: jinyan
+ TITLE>  *
+
+     NUMBER OF INTERNAL COORDINATES :         78
+
+        N      I             J             K             L        R(I(J/K)) T(I(JK/KJ)) PHI   T(JKL)   R(KL)
+
+        1     1 CY          1 N           1 CA          1 C          1.3450  120.00  -60.00  105.81   1.5166
+        2     1 CY          1 CA          1 *N          1 HN         1.3450  120.00  180.00  117.00   0.9970
+        3     1 CAY         1 CY          1 N           1 CA         1.4900  116.50  180.00  120.00   1.4579
+        4     1 N           1 CAY         1 *CY         1 OY         1.3450  116.50  180.00  121.00   1.2300
+        5     1 OY          1 CY          1 CAY         1 HY1        1.2300  121.00  180.00  109.50   1.1110
+        6     1 OY          1 CY          1 CAY         1 HY2        1.2300  121.00   60.00  109.50   1.1110
+        7     1 OY          1 CY          1 CAY         1 HY3        1.2300  121.00  -60.00  109.50   1.1110
+        8   -99 ??          1 CA          1 *N          1 HN         0.0000    0.00    0.00  117.00   0.9970
+        9   -99 ??          1 N           1 CA          1 C          0.0000    0.00    0.00  105.81   1.5166
+       10     1 N           1 CA          1 C           2 N          1.4579  105.81  180.00  117.72   1.3448
+       11     2 N           1 CA          1 *C          1 O          1.3448  117.72  180.00  120.25   1.2290
+       12     1 CA          1 C           2 N           2 CA         1.5166  117.72  180.00  124.63   1.4529
+       13     1 N           1 C           1 *CA         1 CB         1.4579  105.81  124.75  111.40   1.5585
+       14     1 N           1 C           1 *CA         1 HA         1.4579  105.81 -115.56  107.30   1.0821
+       15     1 N           1 CA          1 CB          1 OG         1.4579  114.28  180.00  112.45   1.4341
+       16     1 OG          1 CA          1 *CB         1 HB1        1.4341  112.45  119.32  108.10   1.1140
+       17     1 OG          1 CA          1 *CB         1 HB2        1.4341  112.45 -123.86  110.38   1.1136
+       18     1 CA          1 CB          1 OG          1 HG1        1.5585  112.45  165.96  107.08   0.9655
+       19     1 C           2 CA          2 *N          2 HN         1.3448  124.63  180.00  114.18   0.9999
+       20     1 C           2 N           2 CA          2 C          1.3448  124.63  180.00  105.81   1.5166
+       21     2 N           2 CA          2 C           3 N          1.4529  105.81  180.00  117.72   1.3448
+       22     3 N           2 CA          2 *C          2 O          1.3448  117.72  180.00  120.25   1.2290
+       23     2 CA          2 C           3 N           3 CA         1.5166  117.72  180.00  124.63   1.4529
+       24     2 N           2 C           2 *CA         2 CB         1.4529  105.81  124.75  111.40   1.5585
+       25     2 N           2 C           2 *CA         2 HA         1.4529  105.81 -115.56  107.30   1.0821
+       26     2 N           2 CA          2 CB          2 OG         1.4529  114.28 -180.00  112.45   1.4341
+       27     2 OG          2 CA          2 *CB         2 HB1        1.4341  112.45  119.32  108.10   1.1140
+       28     2 OG          2 CA          2 *CB         2 HB2        1.4341  112.45 -123.86  110.38   1.1136
+       29     2 CA          2 CB          2 OG          2 HG1        1.5585  112.45  165.96  107.08   0.9655
+       30     2 C           3 CA          3 *N          3 HN         1.3448  124.63  180.00  114.49   0.9992
+       31     2 C           3 N           3 CA          3 C          1.3448  124.63  180.00  105.23   1.5245
+       32     3 N           3 CA          3 C           4 N          1.4529  105.23  180.00  117.38   1.3467
+       33     4 N           3 CA          3 *C          3 O          1.3467  117.38  180.00  120.32   1.2282
+       34     3 CA          3 C           4 N           4 CA         1.5245  117.38  180.00  124.88   1.4528
+       35     3 N           3 C           3 *CA         3 CB         1.4529  105.23  121.18  113.04   1.5627
+       36     3 N           3 C           3 *CA         3 HA         1.4529  105.23 -115.52  107.63   1.0848
+       37     3 N           3 CA          3 CB          3 CG         1.4529  110.91  180.00  114.30   1.5319
+       38     3 CG          3 CA          3 *CB         3 HB1        1.5319  114.30  119.17  107.82   1.1120
+       39     3 CG          3 CA          3 *CB         3 HB2        1.5319  114.30 -123.74  110.34   1.1091
+       40     3 CA          3 CB          3 CG          3 OD1        1.5627  114.30  180.00  122.56   1.2323
+       41     3 OD1         3 CB          3 *CG         3 ND2        1.2323  122.56 -179.19  116.15   1.3521
+       42     3 CB          3 CG          3 ND2         3 HD21       1.5319  116.15 -179.26  117.35   0.9963
+       43     3 HD21        3 CG          3 *ND2        3 HD22       0.9963  117.35  178.02  120.05   0.9951
+       44     3 C           4 CA          4 *N          4 HN         1.3467  124.88  180.00  115.62   0.9992
+       45     3 C           4 N           4 CA          4 C          1.3467  124.88  180.00  108.94   1.4971
+       46     4 N           4 CA          4 C           5 N          1.4528  108.94  180.00  117.60   1.3479
+       47     5 N           4 CA          4 *C          4 O          1.3479  117.60  180.00  120.85   1.2289
+       48     4 CA          4 C           5 N           5 CA         1.4971  117.60  180.00  124.08   1.4560
+       49     4 N           4 C           4 *CA         4 HA1        1.4528  108.94  117.86  108.03   1.0814
+       50     4 N           4 C           4 *CA         4 HA2        1.4528  108.94 -118.12  107.95   1.0817
+       51     4 C           5 CA          5 *N          5 HN         1.3479  124.08  180.00  114.49   0.9992
+       52     4 C           5 N           5 CA          5 C          1.3479  124.08  180.00  105.23   1.5245
+       53     5 N           5 CA          5 C           6 N          1.4560  105.23  180.00  117.38   1.3467
+       54     6 N           5 CA          5 *C          5 O          1.3467  117.38  180.00  120.32   1.2282
+       55     5 CA          5 C           6 N           6 CA         1.5245  117.38  180.00  124.88   1.4528
+       56     5 N           5 C           5 *CA         5 CB         1.4560  105.23  121.18  113.04   1.5627
+       57     5 N           5 C           5 *CA         5 HA         1.4560  105.23 -115.52  107.63   1.0848
+       58     5 N           5 CA          5 CB          5 CG         1.4560  110.91  180.00  114.30   1.5319
+       59     5 CG          5 CA          5 *CB         5 HB1        1.5319  114.30  119.17  107.82   1.1120
+       60     5 CG          5 CA          5 *CB         5 HB2        1.5319  114.30 -123.74  110.34   1.1091
+       61     5 CA          5 CB          5 CG          5 OD1        1.5627  114.30  180.00  122.56   1.2323
+       62     5 OD1         5 CB          5 *CG         5 ND2        1.2323  122.56 -179.19  116.15   1.3521
+       63     5 CB          5 CG          5 ND2         5 HD21       1.5319  116.15 -179.26  117.35   0.9963
+       64     5 HD21        5 CG          5 *ND2        5 HD22       0.9963  117.35  178.02  120.05   0.9951
+       65     5 C           6 CA          6 *N          6 HN         1.3467  124.88  180.00  115.42   0.9996
+       66     5 C           6 N           6 CA          6 C          1.3467  124.88  180.00  114.44   1.5390
+       67     6 N           6 CA          6 C         -99 ??         1.4528  114.44    0.00    0.00   0.0000
+       68   -99 ??          6 CA          6 *C          6 O          0.0000    0.00    0.00  121.00   1.2300
+       69     6 CA          6 C         -99 ??        -99 ??         1.5390    0.00    0.00    0.00   0.0000
+       70     6 N           6 C           6 *CA         6 CB         1.4528  114.44  123.23  111.09   1.5461
+       71     6 N           6 C           6 *CA         6 HA         1.4528  114.44 -120.45  106.39   1.0840
+       72     6 C           6 CA          6 CB          6 HB1        1.5390  111.09  177.25  109.60   1.1109
+       73     6 HB1         6 CA          6 *CB         6 HB2        1.1109  109.60  119.13  111.05   1.1119
+       74     6 HB1         6 CA          6 *CB         6 HB3        1.1109  109.60 -119.58  111.61   1.1114
+       75     6 N           6 CA          6 C           6 O          1.4528  114.44  180.00  121.00   1.2300
+       76     6 NT          6 CA          6 *C          6 O          1.3600  116.50  180.00  121.00   1.2300
+       77     6 CA          6 C           6 NT          6 HT1        1.5390  116.50  180.00  120.00   1.0000
+       78     6 HT1         6 C           6 *NT         6 HT2        1.0000  120.00  180.00  120.00   1.0000
+  
+ CHARMM>    mini CONJ nstep 100 cutnb 14.0 ctonnb 10.0 ctofnb 12.0 inbfrq -1
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  FSHIft   VATOm    VFSWIt  
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 14.000 CTEXNB =999.000 CTONNB = 10.000 CTOFNB = 12.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are     2093 atom  pairs and      380 atom  exclusions.
+ There are        0 group pairs and       59 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR     2813 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+     2092 ATOM PAIRS WERE FOUND FOR ATOM LIST
+       31 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+
+
+ CONJUG> An energy minimization has been requested.
+
+ NCGCYC =          100   NSTEP  =          100
+ PCUT   =    0.9999000   PRTMIN =            1
+ STEP   =    0.0200000   TOLFUN =    0.0000000
+ TOLGRD =    0.0000000   TOLITR =          100
+ TOLSTP =    0.0000000
+
+MINI MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+MINI INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+MINI CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+MINI EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>        0    -40.08367      0.00000      1.24177      0.00000
+MINI INTERN>        3.65570     14.45966      3.36574     19.25506      0.90939
+MINI CROSS>        -4.89601      0.00000      0.00000      0.00000
+MINI EXTERN>        0.93758    -77.77080      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       10    -53.01687     12.93320      2.11692      0.12188
+MINI INTERN>        3.52254     10.52229      3.01034     18.38774      0.47580
+MINI CROSS>        -5.98025      0.00000      0.00000      0.00000
+MINI EXTERN>       -4.59536    -78.35997      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       20    -58.24211      5.22524      1.97371      0.11628
+MINI INTERN>        3.24657      8.05827      2.41253     17.89874      0.32730
+MINI CROSS>        -6.00046      0.00000      0.00000      0.00000
+MINI EXTERN>       -4.45078    -79.73427      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       30    -61.28226      3.04015      2.12257      0.11224
+MINI INTERN>        2.84542      8.17177      2.82547     18.33178      0.76003
+MINI CROSS>        -6.13245      0.00000      0.00000      0.00000
+MINI EXTERN>       -3.29629    -84.78798      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       40    -65.75382      4.47156      1.93272      0.19816
+MINI INTERN>        2.67829      7.25215      2.69144     20.02452      0.95129
+MINI CROSS>        -6.60190      0.00000      0.00000      0.00000
+MINI EXTERN>       -2.37276    -90.37685      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       50    -68.15430      2.40048      1.25375      0.08388
+MINI INTERN>        2.68882      6.86113      2.61554     19.84759      0.43455
+MINI CROSS>        -6.81139      0.00000      0.00000      0.00000
+MINI EXTERN>       -1.88078    -91.90976      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       60    -69.18919      1.03489      0.81847      0.06438
+MINI INTERN>        2.72628      6.06390      2.39080     19.61599      0.37636
+MINI CROSS>        -6.85990      0.00000      0.00000      0.00000
+MINI EXTERN>       -1.99065    -91.51196      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       70    -69.78919      0.60000      0.80145      0.04101
+MINI INTERN>        2.68655      6.38906      2.60964     19.57692      0.34001
+MINI CROSS>        -6.92326      0.00000      0.00000      0.00000
+MINI EXTERN>       -2.08014    -92.38798      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       80    -70.38894      0.59974      0.83275      0.06949
+MINI INTERN>        2.36378      6.58308      2.58480     19.24252      0.30268
+MINI CROSS>        -6.92173      0.00000      0.00000      0.00000
+MINI EXTERN>       -1.60735    -92.93672      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>       90    -70.88445      0.49552      0.65606      0.04339
+MINI INTERN>        2.21316      6.52250      2.48657     19.12595      0.34651
+MINI CROSS>        -7.03306      0.00000      0.00000      0.00000
+MINI EXTERN>       -1.64044    -92.90565      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+MINI>      100    -71.25426      0.36981      0.57118      0.04462
+MINI INTERN>        2.33227      6.72786      2.46528     19.19890      0.40809
+MINI CROSS>        -7.21869      0.00000      0.00000      0.00000
+MINI EXTERN>       -1.82853    -93.33944      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+
+ CONJUG> Minimization exiting with number of steps limit (  100) exceeded.
+
+CONJ MIN: Cycle      ENERgy      Delta-E         GRMS    Step-size
+CONJ INTERN:          BONDs       ANGLes       UREY-b    DIHEdrals    IMPRopers
+CONJ CROSS:           CMAPs        PMF1D        PMF2D        PRIMO
+CONJ EXTERN:        VDWaals         ELEC       HBONds          ASP         USER
+ ----------       ---------    ---------    ---------    ---------    ---------
+CONJ>      100    -71.25426      0.36981      0.57118      0.02000
+CONJ INTERN>        2.33227      6.72786      2.46528     19.19890      0.40809
+CONJ CROSS>        -7.21869      0.00000      0.00000      0.00000
+CONJ EXTERN>       -1.82853    -93.33944      0.00000      0.00000      0.00000
+ ----------       ---------    ---------    ---------    ---------    ---------
+  
+ CHARMM>    coor orie rms
+ CENTER OF ATOMS BEFORE TRANSLATION     8.48159     5.26441    -0.05445
+ CENTER OF REFERENCE COORDINATE SET     8.48159     5.26441    -0.05445
+ NET TRANSLATION OF ROTATED ATOMS       0.00000     0.00000    -0.00000
+ ROTATION MATRIX
+     0.999951   -0.001727   -0.009748
+     0.001900    0.999839    0.017821
+     0.009715   -0.017839    0.999794
+ AXIS OF ROTATION IS  0.874297  0.477178 -0.088919  ANGLE IS    1.17
+
+ CENTER OF ROTATION   8.481593  5.264409 -0.054450  SHIFT IS  0.000000
+
+ TOTAL SQUARE DIFF IS     70.8592  DENOMINATOR IS     76.0000
+       THUS RMS DIFF IS    0.965587
+ ALL COORDINATES ORIENTED IN THE MAIN SET BASED ON SELECTED ATOMS.
+
+  
+ CHARMM>    IC PRINT
+
+       INTERNAL COORDINATES
+ TITLE>  * SSNGNA : WH5: WAAAH+ PEPTIDE
+ TITLE>  *  DATE:     5/18/24     11:55:23      CREATED BY USER: jinyan
+ TITLE>  *
+
+     NUMBER OF INTERNAL COORDINATES :         78
+
+        N      I             J             K             L        R(I(J/K)) T(I(JK/KJ)) PHI   T(JKL)   R(KL)
+
+        1     1 CY          1 N           1 CA          1 C          1.3450  120.00  -60.00  105.81   1.5166
+        2     1 CY          1 CA          1 *N          1 HN         1.3450  120.00  180.00  117.00   0.9970
+        3     1 CAY         1 CY          1 N           1 CA         1.4900  116.50  180.00  120.00   1.4579
+        4     1 N           1 CAY         1 *CY         1 OY         1.3450  116.50  180.00  121.00   1.2300
+        5     1 OY          1 CY          1 CAY         1 HY1        1.2300  121.00  180.00  109.50   1.1110
+        6     1 OY          1 CY          1 CAY         1 HY2        1.2300  121.00   60.00  109.50   1.1110
+        7     1 OY          1 CY          1 CAY         1 HY3        1.2300  121.00  -60.00  109.50   1.1110
+        8   -99 ??          1 CA          1 *N          1 HN         0.0000    0.00    0.00  117.00   0.9970
+        9   -99 ??          1 N           1 CA          1 C          0.0000    0.00    0.00  105.81   1.5166
+       10     1 N           1 CA          1 C           2 N          1.4579  105.81  180.00  117.72   1.3448
+       11     2 N           1 CA          1 *C          1 O          1.3448  117.72  180.00  120.25   1.2290
+       12     1 CA          1 C           2 N           2 CA         1.5166  117.72  180.00  124.63   1.4529
+       13     1 N           1 C           1 *CA         1 CB         1.4579  105.81  124.75  111.40   1.5585
+       14     1 N           1 C           1 *CA         1 HA         1.4579  105.81 -115.56  107.30   1.0821
+       15     1 N           1 CA          1 CB          1 OG         1.4579  114.28  180.00  112.45   1.4341
+       16     1 OG          1 CA          1 *CB         1 HB1        1.4341  112.45  119.32  108.10   1.1140
+       17     1 OG          1 CA          1 *CB         1 HB2        1.4341  112.45 -123.86  110.38   1.1136
+       18     1 CA          1 CB          1 OG          1 HG1        1.5585  112.45  165.96  107.08   0.9655
+       19     1 C           2 CA          2 *N          2 HN         1.3448  124.63  180.00  114.18   0.9999
+       20     1 C           2 N           2 CA          2 C          1.3448  124.63  180.00  105.81   1.5166
+       21     2 N           2 CA          2 C           3 N          1.4529  105.81  180.00  117.72   1.3448
+       22     3 N           2 CA          2 *C          2 O          1.3448  117.72  180.00  120.25   1.2290
+       23     2 CA          2 C           3 N           3 CA         1.5166  117.72  180.00  124.63   1.4529
+       24     2 N           2 C           2 *CA         2 CB         1.4529  105.81  124.75  111.40   1.5585
+       25     2 N           2 C           2 *CA         2 HA         1.4529  105.81 -115.56  107.30   1.0821
+       26     2 N           2 CA          2 CB          2 OG         1.4529  114.28 -180.00  112.45   1.4341
+       27     2 OG          2 CA          2 *CB         2 HB1        1.4341  112.45  119.32  108.10   1.1140
+       28     2 OG          2 CA          2 *CB         2 HB2        1.4341  112.45 -123.86  110.38   1.1136
+       29     2 CA          2 CB          2 OG          2 HG1        1.5585  112.45  165.96  107.08   0.9655
+       30     2 C           3 CA          3 *N          3 HN         1.3448  124.63  180.00  114.49   0.9992
+       31     2 C           3 N           3 CA          3 C          1.3448  124.63  180.00  105.23   1.5245
+       32     3 N           3 CA          3 C           4 N          1.4529  105.23  180.00  117.38   1.3467
+       33     4 N           3 CA          3 *C          3 O          1.3467  117.38  180.00  120.32   1.2282
+       34     3 CA          3 C           4 N           4 CA         1.5245  117.38  180.00  124.88   1.4528
+       35     3 N           3 C           3 *CA         3 CB         1.4529  105.23  121.18  113.04   1.5627
+       36     3 N           3 C           3 *CA         3 HA         1.4529  105.23 -115.52  107.63   1.0848
+       37     3 N           3 CA          3 CB          3 CG         1.4529  110.91  180.00  114.30   1.5319
+       38     3 CG          3 CA          3 *CB         3 HB1        1.5319  114.30  119.17  107.82   1.1120
+       39     3 CG          3 CA          3 *CB         3 HB2        1.5319  114.30 -123.74  110.34   1.1091
+       40     3 CA          3 CB          3 CG          3 OD1        1.5627  114.30  180.00  122.56   1.2323
+       41     3 OD1         3 CB          3 *CG         3 ND2        1.2323  122.56 -179.19  116.15   1.3521
+       42     3 CB          3 CG          3 ND2         3 HD21       1.5319  116.15 -179.26  117.35   0.9963
+       43     3 HD21        3 CG          3 *ND2        3 HD22       0.9963  117.35  178.02  120.05   0.9951
+       44     3 C           4 CA          4 *N          4 HN         1.3467  124.88  180.00  115.62   0.9992
+       45     3 C           4 N           4 CA          4 C          1.3467  124.88  180.00  108.94   1.4971
+       46     4 N           4 CA          4 C           5 N          1.4528  108.94  180.00  117.60   1.3479
+       47     5 N           4 CA          4 *C          4 O          1.3479  117.60  180.00  120.85   1.2289
+       48     4 CA          4 C           5 N           5 CA         1.4971  117.60  180.00  124.08   1.4560
+       49     4 N           4 C           4 *CA         4 HA1        1.4528  108.94  117.86  108.03   1.0814
+       50     4 N           4 C           4 *CA         4 HA2        1.4528  108.94 -118.12  107.95   1.0817
+       51     4 C           5 CA          5 *N          5 HN         1.3479  124.08  180.00  114.49   0.9992
+       52     4 C           5 N           5 CA          5 C          1.3479  124.08  180.00  105.23   1.5245
+       53     5 N           5 CA          5 C           6 N          1.4560  105.23  180.00  117.38   1.3467
+       54     6 N           5 CA          5 *C          5 O          1.3467  117.38  180.00  120.32   1.2282
+       55     5 CA          5 C           6 N           6 CA         1.5245  117.38  180.00  124.88   1.4528
+       56     5 N           5 C           5 *CA         5 CB         1.4560  105.23  121.18  113.04   1.5627
+       57     5 N           5 C           5 *CA         5 HA         1.4560  105.23 -115.52  107.63   1.0848
+       58     5 N           5 CA          5 CB          5 CG         1.4560  110.91  180.00  114.30   1.5319
+       59     5 CG          5 CA          5 *CB         5 HB1        1.5319  114.30  119.17  107.82   1.1120
+       60     5 CG          5 CA          5 *CB         5 HB2        1.5319  114.30 -123.74  110.34   1.1091
+       61     5 CA          5 CB          5 CG          5 OD1        1.5627  114.30  180.00  122.56   1.2323
+       62     5 OD1         5 CB          5 *CG         5 ND2        1.2323  122.56 -179.19  116.15   1.3521
+       63     5 CB          5 CG          5 ND2         5 HD21       1.5319  116.15 -179.26  117.35   0.9963
+       64     5 HD21        5 CG          5 *ND2        5 HD22       0.9963  117.35  178.02  120.05   0.9951
+       65     5 C           6 CA          6 *N          6 HN         1.3467  124.88  180.00  115.42   0.9996
+       66     5 C           6 N           6 CA          6 C          1.3467  124.88  180.00  114.44   1.5390
+       67     6 N           6 CA          6 C         -99 ??         1.4528  114.44    0.00    0.00   0.0000
+       68   -99 ??          6 CA          6 *C          6 O          0.0000    0.00    0.00  121.00   1.2300
+       69     6 CA          6 C         -99 ??        -99 ??         1.5390    0.00    0.00    0.00   0.0000
+       70     6 N           6 C           6 *CA         6 CB         1.4528  114.44  123.23  111.09   1.5461
+       71     6 N           6 C           6 *CA         6 HA         1.4528  114.44 -120.45  106.39   1.0840
+       72     6 C           6 CA          6 CB          6 HB1        1.5390  111.09  177.25  109.60   1.1109
+       73     6 HB1         6 CA          6 *CB         6 HB2        1.1109  109.60  119.13  111.05   1.1119
+       74     6 HB1         6 CA          6 *CB         6 HB3        1.1109  109.60 -119.58  111.61   1.1114
+       75     6 N           6 CA          6 C           6 O          1.4528  114.44  180.00  121.00   1.2300
+       76     6 NT          6 CA          6 *C          6 O          1.3600  116.50  180.00  121.00   1.2300
+       77     6 CA          6 C           6 NT          6 HT1        1.5390  116.50  180.00  120.00   1.0000
+       78     6 HT1         6 C           6 *NT         6 HT2        1.0000  120.00  180.00  120.00   1.0000
+  
+ CHARMM>     
+  
+ CHARMM>    open unit 4 card write name @s_m.pdb
+ Parameter: S -> "SSNGNA"
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    4 with status "KEEP"
+ VOPEN> Attempting to open::ssngna_m.pdb::
+ OPNLGU> Unit  4 opened for WRITE access to ssngna_m.pdb
+  
+ CHARMM>    write COOR pdb unit 4
+ RDTITL> * SSNGNA : WH5: WAAAH+ PEPTIDE  ENERGY MINIMIZED
+ RDTITL> *
+  Write CHARMM-pdb format
+  
+ CHARMM>    open unit 4 card write name @s_m.crd
+ Parameter: S -> "SSNGNA"
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    4 with status "KEEP"
+ VOPEN> Attempting to open::ssngna_m.crd::
+ OPNLGU> Unit  4 opened for WRITE access to ssngna_m.crd
+  
+ CHARMM>    write COOR card unit 4
+ RDTITL> * SSNGNA : WH5: WAAAH+ PEPTIDE  ENERGY MINIMIZED
+ RDTITL> *
+ VCLOSE: Closing unit    4 with status "KEEP"
+  
+ CHARMM>    STOP
+ VCLOSE: Closing unit    1 with status "KEEP"
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VCLOSE: Closing unit    3 with status "KEEP"
+$$$$$$  New timer profile $$$$$
+      Nonbond force                   0.02 Other:            0.00
+         Bond energy                     0.00 Other:            0.00
+         Angle energy                    0.00 Other:            0.00
+         Dihedral energy                 0.01 Other:            0.00
+         Restraints energy               0.00 Other:            0.00
+      INTRNL energy                   0.02 Other:            0.01
+   Energy time                     0.04 Other:            0.00
+ Total time                      0.15 Other:            0.11
+
+                    NORMAL TERMINATION BY NORMAL STOP
+                    NO WARNINGS WERE ISSUED
+
+                    $$$$$ JOB ACCOUNTING INFORMATION $$$$$
+                     ELAPSED TIME:     0.15  SECONDS 
+                         CPU TIME:     0.13  SECONDS 

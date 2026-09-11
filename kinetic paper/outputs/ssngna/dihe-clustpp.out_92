@@ -1,0 +1,257 @@
+1
+                 Chemistry at HARvard Macromolecular Mechanics
+           (CHARMM) - Developmental Version 40b1     August 15, 2015            
+       Copyright(c) 1984-2014  President and Fellows of Harvard College
+                              All Rights Reserved
+     Current operating system: Linux-3.10.0-1062.12.1.el7.x86_64(x86_64)@CH     
+                 Created on  7/18/24 at 18:26:56 by user: jinyan      
+
+            Maximum number of ATOMS:    360720, and RESidues:      120240
+ RDTITL> *  WH5  - DIHEDRAL CLUSTERING : PP ONLY
+ RDTITL> *  INPUT=CATTED TMS FOR ALL 5 RESIDUES
+ RDTITL> *
+  
+ CHARMM>    bomlev -9
+ MISCOM> Setting BOMLev < -2 is NOT a good idea.
+  
+ CHARMM>    !prnlev  4
+ CHARMM>     
+  
+ CHARMM>    set s ssngna                 ! PSF prefix
+ Parameter: S <- "SSNGNA"
+  
+ CHARMM>    set r ssngna                 ! segid
+ Parameter: R <- "SSNGNA"
+  
+ CHARMM>    set t WAAAH+ peptide      ! title
+ Parameter: T <- "WAAAH+ PEPTIDE"
+  
+ CHARMM>     
+  
+ CHARMM>    set toppar = /home/kuczera/prog/charmm/c40b1/toppar
+ Parameter: TOPPAR <- "/HOME/KUCZERA/PROG/CHARMM/C40B1/TOPPAR"
+  
+ CHARMM>    open unit 1 card read name  @toppar/top_all22_prot.rtf
+ Parameter: TOPPAR -> "/HOME/KUCZERA/PROG/CHARMM/C40B1/TOPPAR"
+ VOPEN> Attempting to open::/home/kuczera/prog/charmm/c40b1/toppar/top_all22_prot.rtf::
+ OPNLGU> Unit  1 opened for READONLY access to /home/kuczera/prog/charmm/c40b1/toppar/top_all22_prot.rtf
+  
+ CHARMM>    read RTF card unit 1
+ MAINIO> Residue topology file being read from unit   1.
+ TITLE> *>>>>>>>>CHARMM22 ALL-HYDROGEN TOPOLOGY FILE FOR PROTEINS <<<<<<
+ TITLE> *>>>>> INCLUDES PHI, PSI CROSS TERM MAP (CMAP) CORRECTION <<<<<<<
+ TITLE> *>>>>>>>>>>>>>>>>>>>>>> DECEMBER, 2003 <<<<<<<<<<<<<<<<<<<<<<<<<<
+ TITLE> * ALL COMMENTS TO ADM JR. VIA THE CHARMM WEB SITE: WWW.CHARMM.ORG
+ TITLE> *               PARAMETER SET DISCUSSION FORUM
+ TITLE> *
+  
+ CHARMM>    open unit 2 card read name  @toppar/par_all22_prot.prm
+ Parameter: TOPPAR -> "/HOME/KUCZERA/PROG/CHARMM/C40B1/TOPPAR"
+ VOPEN> Attempting to open::/home/kuczera/prog/charmm/c40b1/toppar/par_all22_prot.prm::
+ OPNLGU> Unit  2 opened for READONLY access to /home/kuczera/prog/charmm/c40b1/toppar/par_all22_prot.prm
+  
+ CHARMM>    read PARA card unit 2
+
+          PARAMETER FILE BEING READ FROM UNIT  2
+ TITLE> *>>>>> CHARMM22 ALL-HYDROGEN PARAMETER FILE FOR PROTEINS <<<<<<<<
+ TITLE> *>>>>> INCLUDES PHI, PSI CROSS TERM MAP (CMAP) CORRECTION <<<<<<<
+ TITLE> *>>>>>>>>>>>>>>>>>>>>>> DECEMBER, 2003 <<<<<<<<<<<<<<<<<<<<<<<<<<
+ TITLE> * ALL COMMENTS TO ADM JR. VIA THE CHARMM WEB SITE: WWW.CHARMM.ORG
+ TITLE> *               PARAMETER SET DISCUSSION FORUM
+ TITLE> *
+ PARMIO> NONBOND, HBOND lists and IMAGE atoms cleared.
+  
+ CHARMM>     
+  
+ CHARMM>    open unit 4 card read name @s.psf
+ Parameter: S -> "SSNGNA"
+ VOPEN> Attempting to open::ssngna.psf::
+ OPNLGU> Unit  4 opened for READONLY access to ssngna.psf
+  
+ CHARMM>    read PSF card unit 4
+ MAINIO> Protein structure file being read from unit   4.
+ PSFRD2> Reading PSF in the expanded format.
+ TITLE>  * SSNGNA : WH5: WAAAH+ PEPTIDE
+ TITLE>  *  DATE:     5/18/24     11:55:23      CREATED BY USER: jinyan
+ TITLE>  *
+ PSFSUM> PSF modified: NONBOND lists and IMAGE atoms cleared.
+ PSFSUM> Summary of the structure file counters :
+         Number of segments      =        1   Number of residues   =        6
+         Number of atoms         =       76   Number of groups     =       24
+         Number of bonds         =       75   Number of angles     =      128
+         Number of dihedrals     =      177   Number of impropers  =       24
+         Number of cross-terms   =        5
+         Number of HB acceptors  =       11   Number of HB donors  =       14
+         Number of NB exclusions =        0   Total charge =    0.00000
+  
+ CHARMM>     
+  
+ CHARMM>    open unit 4 card read name @s_m.crd
+ Parameter: S -> "SSNGNA"
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    4 with status "KEEP"
+ VOPEN> Attempting to open::ssngna_m.crd::
+ OPNLGU> Unit  4 opened for READONLY access to ssngna_m.crd
+  
+ CHARMM>    read COOR card unit 4
+          SPATIAL COORDINATES BEING READ FROM UNIT  4
+ TITLE> * SSNGNA : WH5: WAAAH+ PEPTIDE  ENERGY MINIMIZED
+ TITLE> *  DATE:     5/18/24     11:55:23      CREATED BY USER: JINYAN
+ TITLE> *
+  
+ CHARMM>     
+  
+ CHARMM>    ! use correl : define phi,psi - for residue 1
+ CHARMM>    correl maxa 10 maxs 4 maxt 1800000
+
+ NONBOND OPTION FLAGS: 
+     ELEC     VDW      ATOMs    CDIElec  FSHIft   VATOm    VFSWIt  
+     BYGRoup  NOEXtnd  NOEWald 
+ CUTNB  = 14.000 CTEXNB =999.000 CTONNB = 10.000 CTOFNB = 12.000
+ CGONNB =  0.000 CGOFNB = 10.000
+ WMIN   =  1.500 WRNMXD =  0.500 E14FAC =  1.000 EPS    =  1.000
+ NBXMOD =      5
+ There are        0 atom  pairs and        0 atom  exclusions.
+ There are        0 group pairs and        0 group exclusions.
+ <MAKINB> with mode   5 found    203 exclusions and    177 interactions(1-4)
+ <MAKGRP> found     59 group exclusions.
+ Generating nonbond list with Exclusion mode = 5
+ == PRIMARY == SPACE FOR     2813 ATOM PAIRS AND        0 GROUP PAIRS
+
+ General atom nonbond list generation found:
+     2116 ATOM PAIRS WERE FOUND FOR ATOM LIST
+       36 GROUP PAIRS REQUIRED ATOM SEARCHES
+
+  
+ CORREL>    enter s1 dihe 1 CY  1 N  1 CA 1 C
+  
+ CORREL>    enter s2 dihe 1 N   1 CA 1 C  2 N
+  
+ CORREL>     
+  
+ CORREL>    open unit 1 card read name ../data1/phicat.tms
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    1 with status "KEEP"
+ VOPEN> Attempting to open::../data1/phicat.tms::
+ OPNLGU> Unit  1 opened for READONLY access to ../data1/phicat.tms
+  
+ CORREL>    read s1 unit 1 dumb colu 2
+ NSER:   1
+ NAMES:      S1      
+ TOTALS:      1800000
+ AVERAGE:  -63.787220
+ FLUCT:     65.087313
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>    open unit 2 card read name ../data1/psicat.tms
+ OPNLGU> Unit already open. The old file will be closed first.
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VOPEN> Attempting to open::../data1/psicat.tms::
+ OPNLGU> Unit  2 opened for READONLY access to ../data1/psicat.tms
+  
+ CORREL>    read s2 unit 2 dumb colu 2
+ NSER:   1
+ NAMES:      S2      
+ TOTALS:      1800000
+ AVERAGE:   66.104326
+ FLUCT:    100.706402
+ VECCOD:            1
+ CLASS:      DIHE    
+ VELCOD:            0
+ SKIP:              1
+ DELTA:      0.000000
+ OFFST:      0.000000
+ GECOD:             1
+ VALUE:      1.000000
+  
+ CORREL>     
+  
+ CORREL>    open unit 21 card write name ./result_clustpp/unimpp.tms_92
+ VOPEN> Attempting to open::./result_clustpp/unimpp.tms_92::
+ OPNLGU> Unit 21 opened for WRITE access to ./result_clustpp/unimpp.tms_92
+  
+ CORREL>    edit s1 veccod 2
+ NSER:   2
+ NAMES:      S1              S2      
+ TOTALS:      1800000     1800000
+ AVERAGE:  -63.787220   66.104326
+ FLUCT:     65.087313  100.706402
+ VECCOD:            2           0
+ CLASS:      DIHE            DIHE    
+ VELCOD:            0           0
+ SKIP:              1           1
+ DELTA:      0.000000    0.000000
+ OFFST:      0.000000    0.000000
+ GECOD:             1           1
+ VALUE:      1.000000    1.000000
+  
+ CORREL>    cluster s1 radius 92.0 Angle unimember 21 maxclust 200
+ CLUSTER> Iteration =   1 MAXError exceeded for cluster      1  No. of clusters =      5
+ CLUSTER> Iteration =   2 MAXError exceeded for cluster      1  No. of clusters =      6
+ CLUSTER> Iteration =   3 MAXError exceeded for cluster      1  No. of clusters =      6
+ CLUSTER> Iteration =   4 MAXError exceeded for cluster      1  No. of clusters =      6
+ CLUSTER> Iteration =   5 MAXError exceeded for cluster      1  No. of clusters =      6
+ CLUSTER> Iteration =   6 MAXError exceeded for cluster      1  No. of clusters =      6
+ CLUSTER> Iteration =   7 MAXError exceeded for cluster      1  No. of clusters =      6
+ CLUSTER> Iteration =   8 MAXError exceeded for cluster      1  No. of clusters =      6
+ CLUSTER> Iteration =   9 MAXError exceeded for cluster      1  No. of clusters =      6
+ CLUSTER> Iteration =  10 MAXError exceeded for cluster      1  No. of clusters =      6
+ CLUSTER> Iteration =  11 MAXError exceeded for cluster      1  No. of clusters =      6
+ CLUSTER> Iteration =  12 MAXError exceeded for cluster      1  No. of clusters =      6
+ CLUSTER> Iteration =  13 MAXError exceeded for cluster      1  No. of clusters =      6
+ CLUSTER> Iteration =  14 MAXError exceeded for cluster      1  No. of clusters =      6
+ CLUSTER> Iteration =  15 MAXError exceeded for cluster      1  No. of clusters =      6
+ CLUSTER> Iteration =  16 MAXError exceeded for cluster      1  No. of clusters =      6
+ CLUSTER> Iteration =  17 MAXError exceeded for cluster      3  No. of clusters =      6
+ CLUSTER> Iteration =  18 MAXError exceeded for cluster      2  No. of clusters =      6
+ CLUSTER> Iteration =  19 MAXError exceeded for cluster      3  No. of clusters =      6
+ CLUSTER> Iteration =  20 MAXError exceeded for cluster      3  No. of clusters =      6
+ CLUSTER> Greater than  20 iterations, program halted.
+ Cluster File
+
+ Total Iterations =   21  No. of clusters =      6
+ RMS difference in cluster centers from last iteration =  0.123E-04
+
+ GREATER THAN  20 ITERATIONS, program halted.
+
+ Max. Cluster Radius  = 0.9200E+02
+ Number of Features   =       2
+ Number of Patterns   = 1800000
+ Number of Clusters   =       6
+ Number of Series     =       2
+   Series #       1   S1      
+   Series #       2   S2      
+
+           No._of_Members   Member  Maximum
+ Cluster   Final   Cumul     Std    Distance     Cluster Center Pattern
+       1  742004 1105085 0.200E+02 0.720E+02    -69.877  143.805
+       2  109517  156759 0.201E+02 0.866E+02     74.621   31.942
+       3   59457  357767 0.208E+02 0.683E+02     84.039  147.702
+       4  477558  544412 0.275E+02 0.893E+02    -90.105  -19.294
+       5  100805  307263 0.158E+02 0.891E+02     61.142 -159.957
+       6  310659 1127399 0.218E+02 0.868E+02   -132.453  141.550
+  
+ CORREL>     
+  
+ CORREL>    end
+  
+ CHARMM>    STOP
+ VCLOSE: Closing unit    1 with status "KEEP"
+ VCLOSE: Closing unit    2 with status "KEEP"
+ VCLOSE: Closing unit    4 with status "KEEP"
+$$$$$$  New timer profile $$$$$
+ Total time                     13.60 Other:            0.00
+
+                    NORMAL TERMINATION BY NORMAL STOP
+                    NO WARNINGS WERE ISSUED
+
+                    $$$$$ JOB ACCOUNTING INFORMATION $$$$$
+                     ELAPSED TIME:    13.60  SECONDS 
+                         CPU TIME:    13.60  SECONDS 
